@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Публичная оферта | CREATIFY DIGITAL DESIGN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* =============================================
+       OFFER PAGE - MODERN STYLE
+       ============================================= */
+    
+    :root {
+        --primary-color: #4A6CF7;
+        --secondary-color: #6C63FF;
+        --accent-color: #FF6B8B;
+        --light-bg: #F8F9FA;
+        --light-card: #FFFFFF;
+        --text-dark: #1A1A2E;
+        --text-gray: #6C757D;
+        --text-light: #858B99;
+        --border-color: #E9ECEF;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+        --gradient-accent: linear-gradient(135deg, #FF6B8B 0%, #FFA07A 100%);
+    
+        --footer-bg: #1A1A2E;
+    }
+    
+    body {
+        background-color: var(--light-bg);
+        color: var(--text-dark);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Language Switcher */
+    .lang-switcher {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        display: flex;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        background: transparent;
+        color: var(--text-gray);
+    }
+    
+    .lang-btn.active {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .lang-btn:not(.active):hover {
+        background: rgba(74, 108, 247, 0.1);
+        color: var(--primary-color);
+    }
+    
+    /* Navigation */
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .logo-main {
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .logo-sub {
+        color: var(--primary-color);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .nav-link {
+        color: var(--text-gray) !important;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+    
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .lang-switcher {
+            top: 80px;
+            right: 20px;
+        }
+    }
+    
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Legal Page */
+    .legal-page {
+        padding: 160px 0 80px;
+        background: white;
+    }
+    
+    .legal-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 2rem;
+        position: relative;
+    }
+    
+    .legal-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+    }
+    
+    .legal-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .legal-subtitle {
+        color: var(--text-gray);
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .legal-update {
+        color: var(--text-light);
+        font-size: 0.875rem;
+        background: var(--light-bg);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        display: inline-block;
+        border: 1px solid var(--border-color);
+    }
+    
+    .legal-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .legal-text {
+        line-height: 1.8;
+        color: var(--text-dark);
+    }
+    
+    .legal-text h2 {
+        margin: 3rem 0 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--border-color);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.75rem;
+        color: var(--text-dark);
+    }
+    
+    .legal-text h3 {
+        margin: 2rem 0 1rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: var(--primary-color);
+        padding-left: 1rem;
+        border-left: 3px solid var(--primary-color);
+    }
+    
+    .legal-text p {
+        margin-bottom: 1.5rem;
+        color: var(--text-gray);
+    }
+    
+    .legal-text ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        color: var(--text-gray);
+    }
+    
+    .legal-text li {
+        margin-bottom: 0.75rem;
+        position: relative;
+        padding-left: 1rem;
+    }
+    
+    .legal-text li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    
+    .legal-note {
+        background: linear-gradient(135deg, rgba(74, 108, 247, 0.05), rgba(108, 99, 255, 0.05));
+        border-left: 4px solid var(--primary-color);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 12px 12px 0;
+        color: var(--text-dark);
+    }
+    
+    .legal-note strong {
+        color: var(--primary-color);
+    }
+    
+    /* Legal Tables */
+    .legal-text table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        background: var(--light-bg);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .legal-text th,
+    .legal-text td {
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .legal-text th {
+        background: var(--gradient-primary);
+        font-weight: 600;
+        color: white;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .legal-text tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .legal-text tr:hover td {
+        background: rgba(74, 108, 247, 0.02);
+    }
+    
+    /* Legal Contact */
+    .legal-contact {
+        background: var(--light-bg);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 3rem 0;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .legal-contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+    }
+    
+    .legal-contact h4 {
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        text-align: center;
+    }
+    
+    .legal-contact p {
+        margin-bottom: 0.75rem;
+        color: var(--text-gray);
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .legal-contact strong {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+    
+    /* Legal Actions */
+    .legal-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 4rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--border-color);
+        flex-wrap: wrap;
+    }
+    
+    .btn-secondary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .btn-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    /* Print Button */
+    .print-btn {
+        display: block;
+        margin: 30px auto;
+        padding: 0.75rem 1.5rem;
+        background: var(--light-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-gray);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 0.875rem;
+    }
+    
+    .print-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+    
+    /* Copy Button */
+    .copy-btn {
+        display: block;
+        margin: 1rem auto 0;
+        padding: 0.5rem 1rem;
+        background: var(--light-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        color: var(--text-gray);
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .copy-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+    
+    /* Footer */
+    .footer {
+        background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
+        color: white;
+        padding: 4rem 0 2rem;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .footer-section h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+    
+    .footer-section h4 {
+        color: white;
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+    }
+    
+    .footer-section p {
+        color: #B0B7C3;
+        margin-bottom: 1rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .footer-section p i {
+        color: white;
+        font-size: 1rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+        width: 16px;
+        text-align: center;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        color: white;
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+    }
+    
+    .social-links a:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+    }
+    
+    .social-links a i {
+        color: white !important;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-section a {
+        color: #B0B7C3;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-size: 0.9375rem;
+        transition: all 0.3s ease;
+        padding: 0.25rem 0;
+    }
+    
+    .footer-section a:hover {
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #8A94B0;
+        font-size: 0.875rem;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .legal-title {
+            font-size: 2.5rem;
+        }
+        
+        .legal-subtitle {
+            font-size: 1.125rem;
+        }
+        
+        .legal-text h2 {
+            font-size: 1.5rem;
+        }
+        
+        .legal-text h3 {
+            font-size: 1.125rem;
+        }
+        
+        .legal-text table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .legal-text th,
+        .legal-text td {
+            padding: 0.75rem 1rem;
+        }
+        
+        .legal-contact {
+            padding: 2rem;
+        }
+        
+        .legal-actions {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .legal-actions a {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2.5rem;
+        }
+        
+        .footer-section p {
+            justify-content: center;
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .footer-section a:hover {
+            transform: none;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .legal-title {
+            font-size: 2rem;
+        }
+        
+        .legal-subtitle {
+            font-size: 1rem;
+        }
+        
+        .legal-note {
+            padding: 1rem;
+        }
+        
+        .legal-contact {
+            padding: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .fade-in {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-main">CREATIFY</span>
+                <span class="logo-sub">DIGITAL DESIGN</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Галерея</a>
+                <a href="education.html" class="nav-link">Обучение</a>
+                <a href="partners.html" class="nav-link">Партнеры</a>
+                <a href="cooperation.html" class="nav-link">Сотрудничество</a>
+                <a href="contact.html" class="nav-link">Связаться</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Legal Page -->
+    <section class="legal-page">
+        <div class="container">
+            <div class="legal-header fade-in">
+                <h1 class="legal-title">Публичный договор-оферта</h1>
+                <p class="legal-subtitle">на оказание услуг в области дизайна и маркетинга</p>
+                <p class="legal-update">Дата введения редакции в действие: 08.11.2024 г.</p>
+            </div>
+            
+            <div class="legal-container">
+                <div class="legal-text fade-in">
+                    
+                    <div class="legal-note">
+                        <strong>Внимание:</strong> Настоящий документ является официальной офертой (предложением) Зарожиной Яны Александровны заключить договор на оказание услуг на изложенных ниже условиях.
+                    </div>
+
+                    <h2>ПУБЛИЧНЫЙ ДОГОВОР-ОФЕРТА</h2>
+                    
+                    <p>Самозанятая Зарожина Яна Александровна (далее именуется «Исполнитель») оказывает услуги в соответствии с настоящим Договором (далее — «Договор», «Договор-оферта» или «Оферта»), обратившемуся за оказанием услуг (далее именуется «Заказчик»).</p>
+                    
+                    <p>В соответствии с пунктом 2 статьи 437 Гражданского кодекса Российской Федерации (далее — ГК РФ) данный документ является публичной Офертой, и в случае принятия изложенных ниже условий и оплаты услуг Исполнителя, лицо, осуществившее Акцепт настоящей Оферты, становится Заказчиком (в соответствии с пунктом 3 статьи 438 ГК РФ акцепт Оферты равносилен заключению договора на условиях, изложенных в Оферте).</p>
+                    
+                    <p>Фактом принятия (акцепта) Заказчиком условий настоящего Договора является оплата услуг Исполнителя в порядке и на условиях, определенных настоящим Договором.</p>
+
+                    <h3>ОПРЕДЕЛЕНИЯ, ИСПОЛЬЗУЕМЫЕ В НАСТОЯЩЕМ ДОГОВОРЕ</h3>
+                    
+                    <table>
+                        <tr>
+                            <th>Термин</th>
+                            <th>Определение</th>
+                        </tr>
+                        <tr>
+                            <td>Оферта</td>
+                            <td>Настоящий документ - Публичный договор по оказанию услуг</td>
+                        </tr>
+                        <tr>
+                            <td>Акцепт оферты</td>
+                            <td>Полное и безоговорочное принятие оферты путем осуществления Заказчиком действий по оплате услуг</td>
+                        </tr>
+                        <tr>
+                            <td>Исполнитель</td>
+                            <td>Самозанятая Зарожина Яна Александровна (ИНН 772095405666, адрес: Российская Федерация, г. Москва)</td>
+                        </tr>
+                        <tr>
+                            <td>Заказчик</td>
+                            <td>Заинтересованное лицо, осуществившее акцепт оферты</td>
+                        </tr>
+                        <tr>
+                            <td>Услуги</td>
+                            <td>Профессиональные услуги по дизайну и маркетингу</td>
+                        </tr>
+                        <tr>
+                            <td>Техническое задание</td>
+                            <td>Документ с подробным описанием требований к результату оказания Услуг</td>
+                        </tr>
+                    </table>
+
+                    <h2>1. ПРЕДМЕТ ДОГОВОРА</h2>
+                    <p>1.1. Настоящий Договор определяет порядок предоставления Заказчикам профессиональных услуг по дизайну и маркетингу, а также устанавливает взаимные права и обязанности Сторон.</p>
+                    <p>1.2. Информация о перечне Услуг, сроках и порядке их оказания, а также предварительной стоимости указываются на Сайте Исполнителя.</p>
+                    <p>1.3. Услуги по настоящему Договору оказываются Исполнителем дистанционно через сеть Интернет.</p>
+
+                    <h2>2. СРОКИ ОКАЗАНИЯ УСЛУГ</h2>
+                    <p>2.1. Услуги считаются оказанными Исполнителем в полном объеме с момента направления Заказчику результата работ.</p>
+                    <p>2.2. Сроки оказания каждой конкретной Услуги указываются на Сайте и/или согласовываются Сторонами.</p>
+                    <p>2.3. Услуги считаются оказанными с надлежащим качеством и принятыми Заказчиком, если в течение 3 (трех) календарных дней Заказчик не заявил мотивированного возражения на качество.</p>
+
+                    <h2>3. ПРАВА И ОБЯЗАННОСТИ СТОРОН</h2>
+                    
+                    <h3>3.1. Заказчик обязуется:</h3>
+                    <ul>
+                        <li>Предоставлять Исполнителю всю необходимую информацию для выполнения обязательств</li>
+                        <li>Соблюдать условия настоящего Договора</li>
+                        <li>Осуществлять оплату в размере и в сроки, указанные на Сайте</li>
+                        <li>В течение 48 часов предоставлять материалы и сведения, необходимые для оказания Услуги</li>
+                        <li>Передавать Исполнителю материалы, свободные от прав третьих лиц</li>
+                    </ul>
+
+                    <h3>3.2. Заказчик имеет право:</h3>
+                    <ul>
+                        <li>Требовать надлежащего исполнения Исполнителем своих обязательств</li>
+                        <li>Получать информацию по любым вопросам, касающимся оказания Услуги</li>
+                    </ul>
+
+                    <h3>3.3. Исполнитель обязуется:</h3>
+                    <ul>
+                        <li>После оплаты Услуг предоставить Заказчику проект Технического задания</li>
+                        <li>Сохранять конфиденциальную информацию, полученную от Заказчика</li>
+                        <li>Соблюдать требования законодательства о защите персональных данных</li>
+                    </ul>
+
+                    <h3>3.4. Исполнитель вправе:</h3>
+                    <ul>
+                        <li>Требовать от Заказчика добросовестного исполнения обязательств</li>
+                        <li>В одностороннем порядке изменять условия настоящего Договора</li>
+                        <li>Расторгнуть Договор в случае существенного нарушения Заказчиком условий</li>
+                    </ul>
+
+                    <h2>4. ПОРЯДОК РАСЧЕТОВ</h2>
+                    <p>4.1. Стоимость Услуг по настоящему Договору указывается на Сайте и может быть изменена Исполнителем.</p>
+                    <p>4.2. Оплата Услуги производится Заказчиком в порядке предоплаты в размере 100% от стоимости Услуги.</p>
+                    <p>4.3. Выставленные Исполнителем реквизиты для оплаты подлежат оплате в течение 3 рабочих дней.</p>
+                    <p>4.4. До получения оплаты Исполнитель не начинает оказание Услуги.</p>
+
+                    <h2>5. ОСОБЕННОСТИ ОКАЗАНИЯ УСЛУГ</h2>
+                    <p>5.1. Исполнитель приступает к оказанию Услуг после получения 100% оплаты.</p>
+                    <p>5.2. Заказчик имеет право вносить следующее количество правок без дополнительной оплаты:</p>
+                    
+                    <table>
+                        <tr>
+                            <th>Тип услуги</th>
+                            <th>Бесплатные правки</th>
+                        </tr>
+                        <tr>
+                            <td>Цифровые продукты и web-дизайн</td>
+                            <td>До 2 правок</td>
+                        </tr>
+                        <tr>
+                            <td>Маркетинговые материалы</td>
+                            <td>До 2 правок</td>
+                        </tr>
+                        <tr>
+                            <td>Инфографика (на 1 слайд)</td>
+                            <td>До 2 правок</td>
+                        </tr>
+                        <tr>
+                            <td>Логотип (в каждый вариант)</td>
+                            <td>3 пакета правок без смены концепции</td>
+                        </tr>
+                        <tr>
+                            <td>Сайт</td>
+                            <td>2 круга правок</td>
+                        </tr>
+                    </table>
+
+                    <h2>6. ОТВЕТСТВЕННОСТЬ СТОРОН И ПОРЯДОК ВОЗВРАТА</h2>
+                    <p>6.1. Стороны обязуются применять досудебный порядок урегулирования споров.</p>
+                    <p>6.2. Заказчик вправе отказаться от заказанных Услуг в любое время до момента оказания Услуги.</p>
+                    <p>6.3. В случае отказа Заказчика от Услуг уплаченная сумма подлежит возврату за вычетом понесенных расходов.</p>
+                    <p>6.4. Все претензии по качеству оказываемой Услуги должны направляться на электронную почту creatify_cf@mail.ru.</p>
+                    <p>6.5. Срок рассмотрения претензий Заказчика составляет 10 календарных дней.</p>
+
+                    <h2>7. СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+                    <p>7.1. Заказчик дает согласие на обработку своих персональных данных: имя, фамилия; адрес электронной почты; контактный телефон; аккаунты в программах обмена сообщениями.</p>
+                    <p>7.2. Обработка персональных данных производится в целях исполнения обязательств по настоящему договору.</p>
+                    <p>7.3. Заказчик может в любое время отозвать согласие на обработку персональных данных.</p>
+
+                    <h2>8. АВТОРСКИЕ ПРАВА</h2>
+                    <p>8.1. Исключительные права на Произведения, созданные в ходе оказания Услуг, принадлежат Заказчику с момента полной оплаты услуг.</p>
+                    <p>8.2. Исполнитель сохраняет за собой право использовать Произведение в качестве кейса, рекламы своих услуг.</p>
+
+                    <h2>9. ГАРАНТИИ КАЧЕСТВА</h2>
+                    <p>9.1. Исполнитель обязуется оказать Услуги качественно, однако не несет ответственности за несоответствие Услуги субъективным ожиданиям Заказчика.</p>
+
+                    <h2>10. ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</h2>
+                    <p>10.1. Настоящая Оферта действует с даты ее акцепта Заказчиком и до даты окончания оказания Услуги.</p>
+                    <p>10.2. Заказчик подтверждает, что все условия настоящей Оферты ему ясны, и он принимает их безусловно и в полном объеме.</p>
+                    <p>10.3. В случае, если после оказания Услуг Заказчик предоставляет отзыв, Исполнитель имеет право использовать данный отзыв в коммерческих целях.</p>
+
+                    <div class="legal-contact fade-in">
+                        <h4>Реквизиты Исполнителя:</h4>
+                        <p><strong>ФИО:</strong> Зарожина Яна Александровна</p>
+                        <p><strong>ИНН:</strong> 772095405666</p>
+                        <p><strong>Адрес:</strong> Российская Федерация, г. Москва</p>
+                        <p><strong>E-mail:</strong> creatify_cf@mail.ru</p>
+                        <p><strong>Телефон:</strong> +7 (903) 738-02-76</p>
+                    </div>
+
+                    <div class="legal-note fade-in">
+                        <strong>Важно:</strong> Оплачивая услуги Исполнителя, Заказчик подтверждает, что ознакомлен и согласен со всеми условиями настоящей оферты.
+                    </div>
+
+                    <h3>Прейскурант дополнительных услуг (применяется с 08.11.2024):</h3>
+                    <table>
+                        <tr>
+                            <th>Услуга</th>
+                            <th>Стоимость</th>
+                            <th>Примечание</th>
+                        </tr>
+                        <tr>
+                            <td>Разработка технического задания</td>
+                            <td>1 000 ₽</td>
+                            <td>При заказе отдельно от основной услуги</td>
+                        </tr>
+                        <tr>
+                            <td>Ресайз (смена формата)</td>
+                            <td>450 ₽</td>
+                            <td>За каждый адаптированный макет</td>
+                        </tr>
+                        <tr>
+                            <td>Замена товара/цвета товара</td>
+                            <td>450 ₽</td>
+                            <td>За каждую замену в макете</td>
+                        </tr>
+                        <tr>
+                            <td>Дополнительные правки (после лимита)</td>
+                            <td>Индивидуально</td>
+                            <td>Стоимость согласовывается отдельно</td>
+                        </tr>
+                        <tr>
+                            <td>Срочный заказ (+50% к сроку)</td>
+                            <td>+30% к стоимости</td>
+                            <td>При сокращении сроков более чем на 50%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="legal-actions">
+                <a href="privacy.html" class="btn-secondary">
+                    <i class="fas fa-shield-alt"></i> Политика конфиденциальности
+                </a>
+                <a href="contact.html" class="btn-primary">
+                    Задать вопрос об оферте <i class="fas fa-question-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CREATIFY</h3>
+                    <p>Специализированное партнерство в области цифрового дизайна</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
+                    <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
+                    <div class="social-links">
+                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Документы</h4>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 CREATIFY. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/3d-effects.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/language-switcher.js"></script>
+    <script>
+        // Add print functionality for legal documents
+        document.addEventListener('DOMContentLoaded', function() {
+            const printBtn = document.createElement('button');
+            printBtn.className = 'btn-secondary print-btn';
+            printBtn.innerHTML = '<i class="fas fa-print"></i> Распечатать';
+            printBtn.style.margin = '20px auto';
+            printBtn.style.display = 'block';
+            
+            printBtn.addEventListener('click', function() {
+                window.print();
+            });
+            
+            const legalActions = document.querySelector('.legal-actions');
+            if (legalActions) {
+                legalActions.parentNode.insertBefore(printBtn, legalActions);
+            }
+            
+            // Add copy to clipboard for contact info
+            const contactInfo = document.querySelector('.legal-contact');
+            if (contactInfo) {
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'btn-small glass-card';
+                copyBtn.innerHTML = '<i class="far fa-copy"></i> Копировать реквизиты';
+                copyBtn.style.marginTop = '10px';
+                
+                copyBtn.addEventListener('click', function() {
+                    const text = contactInfo.innerText;
+                    navigator.clipboard.writeText(text).then(() => {
+                        const originalText = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
+                        copyBtn.style.background = 'rgba(56, 178, 172, 0.2)';
+                        copyBtn.style.borderColor = '#38b2ac';
+                        
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalText;
+                            copyBtn.style.background = '';
+                            copyBtn.style.borderColor = '';
+                        }, 2000);
+                    });
+                });
+                
+                contactInfo.appendChild(copyBtn);
+            }
+        });
+    </script>
+</body>
+</html>

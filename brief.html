@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заполнить бриф | CREATIFY DIGITAL DESIGN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* =============================================
+       BRIEF PAGE - MODERN STYLE
+       ============================================= */
+    
+    :root {
+        --primary-color: #4A6CF7;
+        --secondary-color: #6C63FF;
+        --accent-color: #FF6B8B;
+        --light-bg: #F8F9FA;
+        --light-card: #FFFFFF;
+        --text-dark: #1A1A2E;
+        --text-gray: #6C757D;
+        --text-light: #858B99;
+        --border-color: #E9ECEF;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+        
+        --footer-bg: #1A1A2E;
+    }
+    
+    body {
+        background-color: var(--light-bg);
+        color: var(--text-dark);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Language Switcher */
+    .lang-switcher {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        display: flex;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        background: transparent;
+        color: var(--text-gray);
+    }
+    
+    .lang-btn.active {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .lang-btn:not(.active):hover {
+        background: rgba(74, 108, 247, 0.1);
+        color: var(--primary-color);
+    }
+    
+    /* Navigation */
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .logo-main {
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .logo-sub {
+        color: var(--primary-color);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .nav-link {
+        color: var(--text-gray) !important;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link.active {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+    
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .lang-switcher {
+            top: 80px;
+            right: 20px;
+        }
+    }
+    
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Page Hero */
+    .page-hero {
+        padding: 160px 0 80px;
+        background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .page-hero .hero-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .page-hero .shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+    }
+    
+    .page-hero .shape-1 {
+        width: 400px;
+        height: 400px;
+        background: var(--primary-color);
+        top: -200px;
+        right: -200px;
+    }
+    
+    .page-hero .shape-2 {
+        width: 300px;
+        height: 300px;
+        background: var(--accent-color);
+        bottom: -150px;
+        left: -150px;
+    }
+    
+    .page-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 800;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .page-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-gray);
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    @media (max-width: 768px) {
+        .page-hero {
+            padding: 140px 0 60px;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+        }
+    }
+    
+    /* Brief Content Layout */
+    .brief-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 4rem;
+        padding: 4rem 0;
+    }
+    
+    @media (max-width: 992px) {
+        .brief-content {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+    }
+    
+    /* Benefits Sidebar */
+    .benefits-sidebar {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+    
+    .benefits-card {
+        background: var(--light-card);
+        border-radius: 24px;
+        padding: 3rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    .benefits-card h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+        text-align: center;
+    }
+    
+    .benefits-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .benefit-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        background: linear-gradient(135deg, rgba(74, 108, 247, 0.1), rgba(108, 99, 255, 0.1));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        font-size: 1.25rem;
+    }
+    
+    .benefit-content h4 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+    }
+    
+    .benefit-content p {
+        color: var(--text-gray);
+        font-size: 0.9375rem;
+        line-height: 1.5;
+    }
+    
+    /* Progress Steps */
+    .form-progress {
+        background: var(--light-card);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
+    }
+    
+    .progress-steps {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+    
+    .progress-steps::before {
+        content: '';
+        position: absolute;
+        top: 24px;
+        left: 20px;
+        right: 20px;
+        height: 2px;
+        background: var(--border-color);
+        z-index: 1;
+    }
+    
+    .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        width: 25%;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.125rem;
+        background: white;
+        color: var(--text-light);
+        border: 2px solid var(--border-color);
+        margin-bottom: 0.75rem;
+        transition: all 0.3s ease;
+    }
+    
+    .step.active .step-number {
+        background: var(--gradient-primary);
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 8px 20px rgba(74, 108, 247, 0.3);
+    }
+    
+    .step.completed .step-number {
+        background: var(--primary-color);
+        color: white;
+        border-color: transparent;
+    }
+    
+    .step-title {
+        font-size: 0.875rem;
+        color: var(--text-light);
+        text-align: center;
+        font-weight: 500;
+        max-width: 100px;
+        line-height: 1.2;
+    }
+    
+    .step.active .step-title {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+    
+    /* Form Container */
+    .form-container {
+        background: var(--light-card);
+        border-radius: 24px;
+        padding: 3rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    /* Form Styles */
+    .form-step {
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    .form-step.active {
+        display: block;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .form-step h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        color: var(--text-dark);
+        text-align: center;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid var(--border-color);
+    }
+    
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+    }
+    
+    .form-group.required label::after {
+        content: '*';
+        color: #e53e3e;
+        margin-left: 4px;
+    }
+    
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+    }
+    
+    /* Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+        font-family: 'Inter', sans-serif;
+        background: white;
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+    }
+    
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+    }
+    
+    textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+    
+    /* Checkbox Group */
+    .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: white;
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 0;
+    }
+    
+    .checkbox-group label:hover {
+        border-color: var(--primary-color);
+        background: rgba(74, 108, 247, 0.02);
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+        display: none;
+    }
+    
+    .checkbox-group input[type="checkbox"]:checked + label {
+        background: rgba(74, 108, 247, 0.1);
+        border-color: var(--primary-color);
+    }
+    
+    /* Style Grid */
+    .style-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+    
+    .style-option {
+        cursor: pointer;
+    }
+    
+    .style-option input {
+        display: none;
+    }
+    
+    .style-card {
+        padding: 1.5rem 1rem;
+        text-align: center;
+        background: white;
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .style-option input:checked + .style-card {
+        background: rgba(74, 108, 247, 0.1);
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .style-option:hover .style-card {
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+    
+    .style-icon {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Color Picker */
+    .color-picker {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .color-option {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .color-option.selected {
+        border-color: var(--primary-color);
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(74, 108, 247, 0.3);
+    }
+    
+    /* Checkbox Styles */
+    .form-group.checkbox {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .form-group.checkbox input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 0.25rem;
+        accent-color: var(--primary-color);
+    }
+    
+    .form-group.checkbox label {
+        margin-bottom: 0;
+        font-weight: normal;
+    }
+    
+    /* Form Navigation */
+    .form-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 2px solid var(--border-color);
+    }
+    
+    .btn-modern-primary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-modern-primary:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn-modern-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .btn-modern-secondary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .btn-modern-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+    
+    /* Contact Section */
+    .contact-section {
+        padding: 6rem 0;
+        background: white;
+        text-align: center;
+    }
+    
+    .contact-card {
+        background: var(--light-card);
+        border-radius: 24px;
+        padding: 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    .contact-card h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+    
+    .contact-card p {
+        color: var(--text-gray);
+        font-size: 1.125rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    
+    .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--text-dark);
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .contact-method i {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        width: 32px;
+    }
+    
+    .contact-method:hover {
+        color: var(--primary-color);
+    }
+    
+    /* Footer */
+    .footer {
+        background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
+        color: white;
+        padding: 4rem 0 2rem;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .footer-section h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+    
+    .footer-section h4 {
+        color: white;
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+    }
+    
+    .footer-section p {
+        color: #B0B7C3;
+        margin-bottom: 1rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .footer-section p i {
+        color: white;
+        font-size: 1rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+        width: 16px;
+        text-align: center;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        color: white;
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+    }
+    
+    .social-links a:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+    }
+    
+    .social-links a i {
+        color: white !important;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-section a {
+        color: #B0B7C3;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-size: 0.9375rem;
+        transition: all 0.3s ease;
+        padding: 0.25rem 0;
+    }
+    
+    .footer-section a:hover {
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #8A94B0;
+        font-size: 0.875rem;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .brief-content {
+            gap: 3rem;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .brief-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .benefits-sidebar {
+            position: static;
+        }
+        
+        .benefits-card {
+            padding: 2.5rem;
+        }
+        
+        .form-container {
+            padding: 2.5rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .page-hero {
+            padding: 120px 0 40px;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1rem;
+        }
+        
+        .brief-content {
+            padding: 3rem 0;
+        }
+        
+        .benefits-card,
+        .form-container,
+        .contact-card {
+            padding: 2rem;
+        }
+        
+        .progress-steps {
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .step {
+            width: 45%;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-steps::before {
+            display: none;
+        }
+        
+        .checkbox-group {
+            grid-template-columns: 1fr;
+        }
+        
+        .style-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .form-navigation {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .btn-modern-primary,
+        .btn-modern-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .contact-card h2 {
+            font-size: 2rem;
+        }
+        
+        .contact-card p {
+            font-size: 1rem;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2.5rem;
+        }
+        
+        .footer-section p {
+            justify-content: center;
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .lang-switcher {
+            top: 70px;
+            right: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .step {
+            width: 100%;
+        }
+        
+        .style-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .contact-card {
+            padding: 1.5rem;
+        }
+        
+        .contact-card h2 {
+            font-size: 1.75rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-main">CREATIFY</span>
+                <span class="logo-sub">DIGITAL DESIGN</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Галерея</a>
+                <a href="education.html" class="nav-link">Обучение</a>
+                <a href="partners.html" class="nav-link">Партнеры</a>
+                <a href="cooperation.html" class="nav-link">Сотрудничество</a>
+                <a href="contact.html" class="nav-link">Связаться</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <h1 class="page-title" data-lang-ru="Заполнить бриф" data-lang-en="Fill Out Brief">
+                Заполнить бриф
+            </h1>
+            <p class="page-subtitle" data-lang-ru="Расскажите о вашем проекте — мы создадим идеальное решение" data-lang-en="Tell us about your project — we'll create the perfect solution">
+                Расскажите о вашем проекте — мы создадим идеальное решение
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="brief-section">
+        <div class="container">
+            <div class="brief-content">
+                <!-- Benefits Sidebar -->
+                <aside class="benefits-sidebar">
+                    <div class="benefits-card">
+                        <h3 data-lang-ru="Почему это важно?" data-lang-en="Why is it important?">
+                            Почему это важно?
+                        </h3>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <div class="benefit-content">
+                                    <h4 data-lang-ru="Точная оценка" data-lang-en="Accurate Estimate">Точная оценка</h4>
+                                    <p data-lang-ru="Помогает точно оценить сроки и бюджет" data-lang-en="Helps accurately estimate timeline and budget">
+                                        Помогает точно оценить сроки и бюджет
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="benefit-content">
+                                    <h4 data-lang-ru="Быстрый старт" data-lang-en="Quick Start">Быстрый старт</h4>
+                                    <p data-lang-ru="Начинаем работу сразу после согласования" data-lang-en="We start work immediately after approval">
+                                        Начинаем работу сразу после согласования
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div class="benefit-content">
+                                    <h4 data-lang-ru="Идеальный результат" data-lang-en="Perfect Result">Идеальный результат</h4>
+                                    <p data-lang-ru="Помогает точно понять ваши ожидания" data-lang-en="Helps accurately understand your expectations">
+                                        Помогает точно понять ваши ожидания
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Form Area -->
+                <main class="form-area">
+                    <!-- Progress Steps -->
+                    <div class="form-progress">
+                        <div class="progress-steps">
+                            <div class="step active" data-step="1">
+                                <div class="step-number">1</div>
+                                <span class="step-title" data-lang-ru="Основное" data-lang-en="Basic">
+                                    Основное
+                                </span>
+                            </div>
+                            <div class="step" data-step="2">
+                                <div class="step-number">2</div>
+                                <span class="step-title" data-lang-ru="Детали" data-lang-en="Details">
+                                    Детали
+                                </span>
+                            </div>
+                            <div class="step" data-step="3">
+                                <div class="step-number">3</div>
+                                <span class="step-title" data-lang-ru="Визуал" data-lang-en="Visual">
+                                    Визуал
+                                </span>
+                            </div>
+                            <div class="step" data-step="4">
+                                <div class="step-number">4</div>
+                                <span class="step-title" data-lang-ru="Контакты" data-lang-en="Contacts">
+                                    Контакты
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brief Form -->
+                    <form id="briefForm" class="form-container">
+                        <!-- Step 1: Basic Information -->
+                        <div class="form-step active" data-step="1">
+                            <h2 data-lang-ru="Основная информация" data-lang-en="Basic Information">
+                                Основная информация
+                            </h2>
+                            
+                            <div class="form-group required">
+                                <label for="company" data-lang-ru="Название компании/проекта" data-lang-en="Company/Project Name">
+                                    Название компании/проекта
+                                </label>
+                                <input type="text" id="company" name="company" required 
+                                       placeholder="Введите название вашей компании или проекта">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group required">
+                                    <label for="industry" data-lang-ru="Сфера деятельности" data-lang-en="Industry">
+                                        Сфера деятельности
+                                    </label>
+                                    <select id="industry" name="industry" required>
+                                        <option value="" data-lang-ru="Выберите сферу" data-lang-en="Select industry">Выберите сферу</option>
+                                        <option value="tech" data-lang-ru="Технологии" data-lang-en="Technology">Технологии</option>
+                                        <option value="fashion" data-lang-ru="Мода" data-lang-en="Fashion">Мода</option>
+                                        <option value="food" data-lang-ru="Еда и рестораны" data-lang-en="Food & Restaurants">Еда и рестораны</option>
+                                        <option value="education" data-lang-ru="Образование" data-lang-en="Education">Образование</option>
+                                        <option value="health" data-lang-ru="Здоровье" data-lang-en="Health">Здоровье</option>
+                                        <option value="finance" data-lang-ru="Финансы" data-lang-en="Finance">Финансы</option>
+                                        <option value="other" data-lang-ru="Другое" data-lang-en="Other">Другое</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group required">
+                                    <label for="project-type" data-lang-ru="Тип проекта" data-lang-en="Project Type">
+                                        Тип проекта
+                                    </label>
+                                    <select id="project-type" name="project_type" required>
+                                        <option value="" data-lang-ru="Выберите тип" data-lang-en="Select type">Выберите тип</option>
+                                        <option value="logo" data-lang-ru="Логотип" data-lang-en="Logo">Логотип</option>
+                                        <option value="branding" data-lang-ru="Фирменный стиль" data-lang-en="Branding">Фирменный стиль</option>
+                                        <option value="website" data-lang-ru="Сайт" data-lang-en="Website">Сайт</option>
+                                        <option value="landing" data-lang-ru="Лендинг" data-lang-en="Landing Page">Лендинг</option>
+                                        <option value="presentation" data-lang-ru="Презентация" data-lang-en="Presentation">Презентация</option>
+                                        <option value="infographic" data-lang-ru="Инфографика" data-lang-en="Infographic">Инфографика</option>
+                                        <option value="printing" data-lang-ru="Полиграфия" data-lang-en="Printing">Полиграфия</option>
+                                        <option value="multiple" data-lang-ru="Несколько услуг" data-lang-en="Multiple Services">Несколько услуг</option>
+                                        <option value="other" data-lang-ru="Другое" data-lang-en="Other">Другое</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group required">
+                                <label for="description" data-lang-ru="Краткое описание проекта" data-lang-en="Brief Project Description">
+                                    Краткое описание проекта
+                                </label>
+                                <textarea id="description" name="description" required 
+                                          placeholder="Опишите ваш проект в нескольких предложениях..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Project Details -->
+                        <div class="form-step" data-step="2">
+                            <h2 data-lang-ru="Детали проекта" data-lang-en="Project Details">
+                                Детали проекта
+                            </h2>
+                            
+                            <div class="form-group required">
+                                <label for="goals" data-lang-ru="Цели проекта" data-lang-en="Project Goals">
+                                    Цели проекта
+                                </label>
+                                <textarea id="goals" name="goals" required 
+                                          placeholder="Что вы хотите достичь с помощью этого проекта? (привлечь клиентов, повысить узнаваемость, продать продукт и т.д.)"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="target-audience" data-lang-ru="Целевая аудитория" data-lang-en="Target Audience">
+                                    Целевая аудитория
+                                </label>
+                                <textarea id="target-audience" name="target_audience" 
+                                          placeholder="Опишите вашу целевую аудиторию (возраст, пол, интересы, профессия)"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="competitors" data-lang-ru="Конкуренты" data-lang-en="Competitors">
+                                        Конкуренты
+                                    </label>
+                                    <textarea id="competitors" name="competitors" rows="3"
+                                              placeholder="Назовите 2-3 ваших основных конкурента"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="references" data-lang-ru="Примеры/референсы" data-lang-en="Examples/References">
+                                        Примеры/референсы
+                                    </label>
+                                    <textarea id="references" name="references" rows="3"
+                                              placeholder="Приведите примеры дизайна, которые вам нравятся"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-ru="Готовый контент" data-lang-en="Ready Content">
+                                    Готовый контент
+                                </label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="content[]" value="text">
+                                        <span data-lang-ru="Текст готов" data-lang-en="Text is ready">Текст готов</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="content[]" value="photos">
+                                        <span data-lang-ru="Фотографии готовы" data-lang-en="Photos are ready">Фотографии готовы</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="content[]" value="logo">
+                                        <span data-lang-ru="Есть логотип" data-lang-en="Have logo">Есть логотип</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="content[]" value="none">
+                                        <span data-lang-ru="Нужна помощь" data-lang-en="Need help">Нужна помощь</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Visual Preferences -->
+                        <div class="form-step" data-step="3">
+                            <h2 data-lang-ru="Визуальные предпочтения" data-lang-en="Visual Preferences">
+                                Визуальные предпочтения
+                            </h2>
+                            
+                            <div class="form-group">
+                                <label data-lang-ru="Стиль дизайна" data-lang-en="Design Style">
+                                    Стиль дизайна
+                                </label>
+                                <div class="style-grid">
+                                    <label class="style-option">
+                                        <input type="radio" name="style" value="modern">
+                                        <div class="style-card">
+                                            <div class="style-icon">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            <span data-lang-ru="Современный" data-lang-en="Modern">Современный</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="style-option">
+                                        <input type="radio" name="style" value="minimal">
+                                        <div class="style-card">
+                                            <div class="style-icon">
+                                                <i class="fas fa-minus"></i>
+                                            </div>
+                                            <span data-lang-ru="Минимализм" data-lang-en="Minimalism">Минимализм</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="style-option">
+                                        <input type="radio" name="style" value="corporate">
+                                        <div class="style-card">
+                                            <div class="style-icon">
+                                                <i class="fas fa-briefcase"></i>
+                                            </div>
+                                            <span data-lang-ru="Корпоративный" data-lang-en="Corporate">Корпоративный</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="style-option">
+                                        <input type="radio" name="style" value="creative">
+                                        <div class="style-card">
+                                            <div class="style-icon">
+                                                <i class="fas fa-palette"></i>
+                                            </div>
+                                            <span data-lang-ru="Креативный" data-lang-en="Creative">Креативный</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="style-option">
+                                        <input type="radio" name="style" value="playful">
+                                        <div class="style-card">
+                                            <div class="style-icon">
+                                                <i class="fas fa-gamepad"></i>
+                                            </div>
+                                            <span data-lang-ru="Игривый" data-lang-en="Playful">Игривый</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="style-option">
+                                        <input type="radio" name="style" value="luxury">
+                                        <div class="style-card">
+                                            <div class="style-icon">
+                                                <i class="fas fa-gem"></i>
+                                            </div>
+                                            <span data-lang-ru="Люкс" data-lang-en="Luxury">Люкс</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-ru="Цветовая гамма" data-lang-en="Color Palette">
+                                    Цветовая гамма
+                                </label>
+                                <div class="color-picker">
+                                    <div class="color-option" style="background-color: #4A6CF7;" data-color="#4A6CF7"></div>
+                                    <div class="color-option" style="background-color: #6C63FF;" data-color="#6C63FF"></div>
+                                    <div class="color-option" style="background-color: #FF6B8B;" data-color="#FF6B8B"></div>
+                                    <div class="color-option" style="background-color: #38b2ac;" data-color="#38b2ac"></div>
+                                    <div class="color-option" style="background-color: #ed8936;" data-color="#ed8936"></div>
+                                    <div class="color-option" style="background-color: #1A1A2E;" data-color="#1A1A2E"></div>
+                                </div>
+                                <input type="text" class="mt-2" placeholder="Или введите свои цвета (например: #FF5733, #33FF57)" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px;">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="mood" data-lang-ru="Настроение/атмосфера" data-lang-en="Mood/Atmosphere">
+                                    Настроение/атмосфера
+                                </label>
+                                <textarea id="mood" name="mood" 
+                                          placeholder="Какую атмосферу должен передавать дизайн? (профессиональная, дружелюбная, динамичная, спокойная и т.д.)"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Contacts & Budget -->
+                        <div class="form-step" data-step="4">
+                            <h2 data-lang-ru="Контакты и бюджет" data-lang-en="Contacts & Budget">
+                                Контакты и бюджет
+                            </h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group required">
+                                    <label for="contact-name" data-lang-ru="Ваше имя" data-lang-en="Your Name">
+                                        Ваше имя
+                                    </label>
+                                    <input type="text" id="contact-name" name="contact_name" required>
+                                </div>
+                                
+                                <div class="form-group required">
+                                    <label for="contact-email" data-lang-ru="Email" data-lang-en="Email">
+                                        Email
+                                    </label>
+                                    <input type="email" id="contact-email" name="contact_email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-phone" data-lang-ru="Телефон" data-lang-en="Phone">
+                                        Телефон
+                                    </label>
+                                    <input type="tel" id="contact-phone" name="contact_phone">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company-site" data-lang-ru="Сайт компании" data-lang-en="Company Website">
+                                        Сайт компании
+                                    </label>
+                                    <input type="url" id="company-site" name="company_site" placeholder="https://example.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group required">
+                                    <label for="budget" data-lang-ru="Бюджет" data-lang-en="Budget">
+                                        Бюджет
+                                    </label>
+                                    <select id="budget" name="budget" required>
+                                        <option value="" data-lang-ru="Выберите бюджет" data-lang-en="Select budget">Выберите бюджет</option>
+                                        <option value="5-10" data-lang-ru="5 000 - 10 000 ₽" data-lang-en="5,000 - 10,000 ₽">5 000 - 10 000 ₽</option>
+                                        <option value="10-25" data-lang-ru="10 000 - 25 000 ₽" data-lang-en="10,000 - 25,000 ₽">10 000 - 25 000 ₽</option>
+                                        <option value="25-50" data-lang-ru="25 000 - 50 000 ₽" data-lang-en="25,000 - 50,000 ₽">25 000 - 50 000 ₽</option>
+                                        <option value="50-100" data-lang-ru="50 000 - 100 000 ₽" data-lang-en="50,000 - 100,000 ₽">50 000 - 100 000 ₽</option>
+                                        <option value="100+" data-lang-ru="100 000 ₽ и выше" data-lang-en="100,000 ₽ and above">100 000 ₽ и выше</option>
+                                        <option value="discuss" data-lang-ru="Нужна консультация" data-lang-en="Need consultation">Нужна консультация</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="deadline" data-lang-ru="Сроки" data-lang-en="Deadline">
+                                        Сроки
+                                    </label>
+                                    <select id="deadline" name="deadline">
+                                        <option value="" data-lang-ru="Не срочно" data-lang-en="Not urgent">Не срочно</option>
+                                        <option value="1week" data-lang-ru="1 неделя" data-lang-en="1 week">1 неделя</option>
+                                        <option value="2weeks" data-lang-ru="2 недели" data-lang-en="2 weeks">2 недели</option>
+                                        <option value="1month" data-lang-ru="1 месяц" data-lang-en="1 month">1 месяц</option>
+                                        <option value="flexible" data-lang-ru="Гибкие сроки" data-lang-en="Flexible deadlines">Гибкие сроки</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="nda" name="nda">
+                                <label for="nda">
+                                    <span data-lang-ru="Требуется подписание NDA" data-lang-en="NDA signing required">
+                                        Требуется подписание NDA
+                                    </span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="newsletter" name="newsletter" checked>
+                                <label for="newsletter">
+                                    <span data-lang-ru="Подписаться на рассылку" data-lang-en="Subscribe to newsletter">
+                                        Подписаться на рассылку с полезными материалами
+                                    </span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group checkbox required">
+                                <input type="checkbox" id="privacy-agreement" name="privacy_agreement" required>
+                                <label for="privacy-agreement">
+                                    <span data-lang-ru="Согласен с обработкой данных" data-lang-en="Agree to data processing">
+                                        Я соглашаюсь с обработкой персональных данных
+                                    </span>
+                                    <a href="privacy.html" target="_blank">(Политика конфиденциальности)</a>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group checkbox required">
+                                <input type="checkbox" id="offer-agreement" name="offer_agreement" required>
+                                <label for="offer-agreement">
+                                    <span data-lang-ru="Принимаю условия оферты" data-lang-en="Accept offer terms">
+                                        Я принимаю условия публичной оферты
+                                    </span>
+                                    <a href="offer.html" target="_blank">(Оферта)</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn-modern-secondary" id="prevBtn" style="display: none;">
+                                <i class="fas fa-arrow-left"></i>
+                                <span data-lang-ru="Назад" data-lang-en="Back">Назад</span>
+                            </button>
+                            
+                            <button type="button" class="btn-modern-primary" id="nextBtn">
+                                <span data-lang-ru="Далее" data-lang-en="Next">Далее</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            
+                            <button type="submit" class="btn-modern-primary" id="submitBtn" style="display: none;">
+                                <span data-lang-ru="Отправить бриф" data-lang-en="Submit Brief">Отправить бриф</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-card">
+                <h2 data-lang-ru="Остались вопросы?" data-lang-en="Still have questions?">
+                    Остались вопросы?
+                </h2>
+                <p data-lang-ru="Свяжитесь с нами напрямую — мы с радостью ответим на все ваши вопросы" 
+                   data-lang-en="Contact us directly — we'll be happy to answer all your questions">
+                    Свяжитесь с нами напрямую — мы с радостью ответим на все ваши вопросы
+                </p>
+                <div class="contact-methods">
+                    <a href="tel:+79037380276" class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        +7 (903) 738-02-76
+                    </a>
+                    <a href="mailto:creatify_cf@mail.ru" class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        creatify_cf@mail.ru
+                    </a>
+                    <a href="https://t.me/creatify_cf" target="_blank" class="contact-method">
+                        <i class="fab fa-telegram"></i>
+                        @creatify_cf
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CREATIFY</h3>
+                    <p>Специализированное партнерство в области цифрового дизайна</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
+                    <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
+                    <div class="social-links">
+                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Документы</h4>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 CREATIFY. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Language switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const lang = this.dataset.lang;
+                const elements = document.querySelectorAll('[data-lang-ru]');
+                elements.forEach(el => {
+                    if (lang === 'ru') {
+                        el.textContent = el.dataset.langRu;
+                    } else if (lang === 'en') {
+                        el.textContent = el.dataset.langEn;
+                    }
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+            
+            // Close menu when clicking on a link
+            navLinks.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        }
+        
+        // Form handling
+        const form = document.getElementById('briefForm');
+        const steps = document.querySelectorAll('.form-step');
+        const progressSteps = document.querySelectorAll('.step');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        let currentStep = 1;
+        
+        function showStep(step) {
+            steps.forEach(s => s.classList.remove('active'));
+            progressSteps.forEach(s => s.classList.remove('active'));
+            
+            document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
+            document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+            
+            // Mark previous steps as completed
+            for (let i = 1; i < step; i++) {
+                document.querySelector(`.step[data-step="${i}"]`).classList.add('completed');
+            }
+            
+            // Show/hide buttons
+            prevBtn.style.display = step === 1 ? 'none' : 'flex';
+            nextBtn.style.display = step === 4 ? 'none' : 'flex';
+            submitBtn.style.display = step === 4 ? 'flex' : 'none';
+            
+            currentStep = step;
+        }
+        
+        nextBtn.addEventListener('click', function() {
+            if (currentStep < 4) {
+                showStep(currentStep + 1);
+            }
+        });
+        
+        prevBtn.addEventListener('click', function() {
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
+            }
+        });
+        
+        // Color picker
+        const colorOptions = document.querySelectorAll('.color-option');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                colorOptions.forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('colors').value = this.dataset.color;
+            });
+        });
+        
+        // Style selection
+        const styleOptions = document.querySelectorAll('.style-option input[type="radio"]');
+        styleOptions.forEach(option => {
+            option.addEventListener('change', function() {
+                if (this.checked) {
+                    const styleCard = this.parentNode.querySelector('.style-card');
+                    document.querySelectorAll('.style-card').forEach(card => {
+                        card.style.transform = 'translateY(0)';
+                    });
+                    styleCard.style.transform = 'translateY(-3px)';
+                }
+            });
+        });
+        
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const requiredCheckboxes = form.querySelectorAll('.form-group.required input[type="checkbox"]');
+            let isValid = true;
+            
+            requiredCheckboxes.forEach(checkbox => {
+                if (!checkbox.checked) {
+                    isValid = false;
+                    checkbox.parentElement.style.color = '#e53e3e';
+                } else {
+                    checkbox.parentElement.style.color = '';
+                }
+            });
+            
+            if (isValid) {
+                // Show success message
+                alert('Бриф успешно отправлен! Мы свяжемся с вами в ближайшее время.');
+                form.reset();
+                showStep(1);
+                progressSteps.forEach(s => s.classList.remove('completed'));
+            } else {
+                alert('Пожалуйста, заполните все обязательные поля.');
+            }
+        });
+    });
+    </script>
+</body>
+</html>

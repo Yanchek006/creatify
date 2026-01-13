@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги | CREATIFY DIGITAL DESIGN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* =============================================
+       SERVICES PAGE - MODERN STYLE
+       ============================================= */
+    
+    :root {
+        --primary-color: #4A6CF7;
+        --secondary-color: #6C63FF;
+        --accent-color: #FF6B8B;
+        --light-bg: #F8F9FA;
+        --light-card: #FFFFFF;
+        --text-dark: #1A1A2E;
+        --text-gray: #6C757D;
+        --text-light: #858B99;
+        --border-color: #E9ECEF;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+        --gradient-accent: linear-gradient(135deg, #FF6B8B 0%, #FFA07A 100%);
+        --footer-bg: #1A1A2E;
+    }
+    
+    body {
+        background-color: var(--light-bg);
+        color: var(--text-dark);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Language Switcher */
+    .lang-switcher {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        display: flex;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        background: transparent;
+        color: var(--text-gray);
+    }
+    
+    .lang-btn.active {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .lang-btn:not(.active):hover {
+        background: rgba(74, 108, 247, 0.1);
+        color: var(--primary-color);
+    }
+    
+    /* Navigation */
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .logo-main {
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .logo-sub {
+        color: var(--primary-color);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .nav-link {
+        color: var(--text-gray) !important;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link.active {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+    
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .lang-switcher {
+            top: 80px;
+            right: 20px;
+        }
+    }
+    
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Page Hero */
+    .page-hero {
+        padding: 160px 0 80px;
+        background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .page-hero .hero-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .page-hero .shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+    }
+    
+    .page-hero .shape-1 {
+        width: 400px;
+        height: 400px;
+        background: var(--primary-color);
+        top: -200px;
+        right: -200px;
+    }
+    
+    .page-hero .shape-2 {
+        width: 300px;
+        height: 300px;
+        background: var(--accent-color);
+        bottom: -150px;
+        left: -150px;
+    }
+    
+    .page-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 800;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .page-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-gray);
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    @media (max-width: 768px) {
+        .page-hero {
+            padding: 140px 0 60px;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+        }
+    }
+    
+    /* Services Navigation */
+    .services-nav {
+        position: sticky;
+        top: 80px;
+        z-index: 999;
+        padding: 1.5rem 0;
+        margin-bottom: 3rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .services-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .service-tab {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.5rem;
+        background: var(--light-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        color: var(--text-gray);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .service-tab:hover {
+        background: rgba(74, 108, 247, 0.05);
+        color: var(--primary-color);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-color);
+    }
+    
+    .service-tab.active {
+        background: var(--gradient-primary);
+        border-color: transparent;
+        color: white;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .service-tab i {
+        font-size: 1.125rem;
+    }
+    
+    @media (max-width: 768px) {
+        .services-nav {
+            top: 70px;
+        }
+        
+        .services-tabs {
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+        }
+        
+        .service-tab {
+            white-space: nowrap;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .service-tab span {
+            display: none;
+        }
+        
+        .service-tab {
+            padding: 0.75rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+        }
+    }
+    
+    /* Services Content */
+    .services-content {
+        padding: 0 0 6rem;
+    }
+    
+    .service-category {
+        display: none;
+        animation: fadeInUp 0.5s ease-out;
+    }
+    
+    .service-category.active {
+        display: block;
+    }
+    
+    .category-title {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 1.5rem;
+        position: relative;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: var(--text-dark);
+    }
+    
+    .category-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+    }
+    
+    /* Pricing Tables */
+    .pricing-tables {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin: 4rem 0;
+    }
+    
+    .pricing-table {
+        background: var(--light-card);
+        border-radius: 20px;
+        padding: 2.5rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .pricing-table:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
+    }
+    
+    .table-header {
+        text-align: center;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .table-header h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .price-range {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .price-range .price {
+        font-size: 2rem;
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .price-note {
+        font-size: 0.875rem;
+        color: var(--text-gray);
+        margin-top: 0.5rem;
+    }
+    
+    /* Packages */
+    .package {
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        background: var(--light-bg);
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+    
+    .package:hover {
+        background: white;
+        border-color: var(--primary-color);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .package.premium {
+        background: linear-gradient(135deg, rgba(74, 108, 247, 0.05), rgba(108, 99, 255, 0.05));
+        border: 1px solid rgba(74, 108, 247, 0.2);
+    }
+    
+    .package.premium:hover {
+        background: linear-gradient(135deg, rgba(74, 108, 247, 0.08), rgba(108, 99, 255, 0.08));
+    }
+    
+    .package h4 {
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+    
+    .package p {
+        color: var(--text-gray);
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .package-features {
+        margin: 1.5rem 0;
+    }
+    
+    .package-features span {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        color: var(--text-dark);
+        font-size: 0.875rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .package-features span:last-child {
+        border-bottom: none;
+    }
+    
+    .package-features span::before {
+        content: '✓';
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    
+    .package-price {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .package-price .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .btn-small {
+        padding: 0.75rem 1.5rem;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .btn-small:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    /* Additional Services */
+    .additional-services {
+        display: grid;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .service-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem;
+        background: var(--light-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+    
+    .service-item:hover {
+        background: white;
+        border-color: var(--primary-color);
+        transform: translateX(5px);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .service-item h4 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+    
+    .service-item p {
+        font-size: 0.8125rem;
+        color: var(--text-gray);
+        margin-bottom: 0;
+    }
+    
+    .service-price {
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 1.125rem;
+    }
+    
+    /* Delivery Timeline */
+    .delivery-timeline {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .delivery-timeline h4 {
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    
+    .delivery-note {
+        color: var(--text-gray);
+        font-style: italic;
+        margin-top: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Work Process */
+    .work-process {
+        padding: 6rem 0;
+        background: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .work-process .container {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 4rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: var(--text-dark);
+    }
+    
+    .process-timeline {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 3rem auto;
+    }
+    
+    .process-step {
+        text-align: center;
+        padding: 2.5rem 2rem;
+        background: var(--light-bg);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+    }
+    
+    .process-step:hover {
+        transform: translateY(-10px);
+        background: white;
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        margin: 0 auto 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .process-step h3 {
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+    
+    .process-step p {
+        color: var(--text-gray);
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+    
+    /* CTA Section */
+    .cta-section-modern {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, var(--cta-bg) 0%, #3A3A7E 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta-content-modern {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 4rem;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: var(--shadow-lg);
+        position: relative;
+    }
+    
+    .cta-content-modern h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-dark);
+    }
+    
+    .cta-content-modern p {
+        font-size: 1.125rem;
+        color: var(--text-gray);
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-buttons-modern {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .btn-modern-primary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-modern-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn-modern-secondary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .btn-modern-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    .footer {
+        background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
+        color: white;
+        padding: 4rem 0 2rem;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .footer-section h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+    
+    .footer-section h4 {
+        color: white;
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+    }
+    
+    .footer-section p {
+        color: #B0B7C3;
+        margin-bottom: 1rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .footer-section p i {
+        color: white;
+        font-size: 1rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+        width: 16px;
+        text-align: center;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        color: white;
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+    }
+    
+    .social-links a:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+    }
+    
+    .social-links a i {
+        color: white !important;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-section a {
+        color: #B0B7C3;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-size: 0.9375rem;
+        transition: all 0.3s ease;
+        padding: 0.25rem 0;
+    }
+    
+    .footer-section a:hover {
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #8A94B0;
+        font-size: 0.875rem;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .pricing-tables {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .process-timeline {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .pricing-tables {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .process-timeline {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .pricing-table {
+            padding: 2rem;
+        }
+        
+        .category-title,
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .cta-content-modern {
+            padding: 3rem 2rem;
+        }
+        
+        .cta-content-modern h2 {
+            font-size: 2rem;
+        }
+        
+        .cta-content-modern p {
+            font-size: 1rem;
+        }
+        
+        .cta-buttons-modern {
+            flex-direction: column;
+        }
+        
+        .btn-modern-primary,
+        .btn-modern-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2.5rem;
+        }
+        
+        .footer-section p {
+            justify-content: center;
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .footer-section a:hover {
+            transform: none;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .package {
+            padding: 1.25rem;
+        }
+        
+        .package-price {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .btn-small {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .fade-in {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-main">CREATIFY</span>
+                <span class="logo-sub">DIGITAL DESIGN</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link active">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Галерея</a>
+                <a href="education.html" class="nav-link">Обучение</a>
+                <a href="partners.html" class="nav-link">Партнеры</a>
+                <a href="cooperation.html" class="nav-link">Сотрудничество</a>
+                <a href="contact.html" class="nav-link">Связаться</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <h1 class="page-title" data-lang-ru="Наши услуги" data-lang-en="Our Services">
+                Наши услуги
+            </h1>
+            <p class="page-subtitle" data-lang-ru="От концепции до реализации" data-lang-en="From concept to implementation">
+                От концепции до реализации
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Navigation -->
+    <div class="services-nav">
+        <div class="container">
+            <div class="services-tabs">
+                <a href="#graphic" class="service-tab active" data-category="graphic">
+                    <i class="fas fa-paint-brush"></i>
+                    <span data-lang-ru="Графический дизайн" data-lang-en="Graphic Design">Графический дизайн</span>
+                </a>
+                <a href="#tilda" class="service-tab" data-category="tilda">
+                    <i class="fab fa-tumblr"></i>
+                    <span data-lang-ru="Сайты на Tilda" data-lang-en="Tilda Websites">Сайты на Tilda</span>
+                </a>
+                <a href="#web" class="service-tab" data-category="web">
+                    <i class="fas fa-laptop-code"></i>
+                    <span data-lang-ru="Web-дизайн" data-lang-en="Web Design">Web-дизайн</span>
+                </a>
+                <a href="#development" class="service-tab" data-category="development">
+                    <i class="fas fa-code"></i>
+                    <span data-lang-ru="Разработка" data-lang-en="Development">Разработка</span>
+                </a>
+                <a href="#marketing" class="service-tab" data-category="marketing">
+                    <i class="fas fa-bullhorn"></i>
+                    <span data-lang-ru="Маркетинг" data-lang-en="Marketing">Маркетинг</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Content -->
+    <section class="services-content">
+        <div class="container">
+            <!-- Graphic Design -->
+            <div id="graphic" class="service-category active">
+                <h2 class="category-title" data-lang-ru="Графический дизайн / Полиграфия" 
+                    data-lang-en="Graphic Design / Printing" style="color: white;">
+                    Графический дизайн / Полиграфия
+                </h2>
+                
+                <div class="pricing-tables">
+                    <!-- Фирменные визитки -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Фирменные визитки</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">3 500₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-price">
+                                    <span class="price">3 500₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                            <div class="package premium">
+                                <h4>Премиум вариант</h4>
+                                <p>3 концепта</p>
+                                <div class="package-price">
+                                    <span class="price">7 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Листовки/Флаеры -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Листовки/Флаеры</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">4 500₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-price">
+                                    <span class="price">4 500₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                            <div class="package premium">
+                                <h4>Премиум вариант</h4>
+                                <p>3 концепта</p>
+                                <div class="package-price">
+                                    <span class="price">9 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Постеры/Баннеры/Буклеты -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Постеры/Баннеры</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">6 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-price">
+                                    <span class="price">6 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                            <div class="package premium">
+                                <h4>Премиум вариант</h4>
+                                <p>3 концепта</p>
+                                <div class="package-price">
+                                    <span class="price">9 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Афиши/этикетки -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Афиши/этикетки</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">5 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>Дизайн с 0</p>
+                                <div class="package-price">
+                                    <span class="price">5 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                            <div class="package premium">
+                                <h4>Премиум вариант</h4>
+                                <p>3 концепта</p>
+                                <div class="package-price">
+                                    <span class="price">10 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Сертификаты/Грамоты -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Сертификаты</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">3 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-price">
+                                    <span class="price">3 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                            <div class="package premium">
+                                <h4>Премиум вариант</h4>
+                                <p>3 концепта</p>
+                                <div class="package-price">
+                                    <span class="price">5 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="delivery-timeline" >
+                    <h4 style="color: white;">Сроки разработки обсуждаем индивидуально</h4>
+                    <p class="delivery-note">В зависимости от сложности проекта и объема работы</p>
+                </div>
+            </div>
+
+            <!-- Сайты на Tilda -->
+            <div id="tilda" class="service-category">
+                <h2 class="category-title" data-lang-ru="Сайты на Tilda" 
+                    data-lang-en="Tilda Websites" style="color: white;">
+                    Сайты на Tilda
+                </h2>
+                
+                <div class="pricing-tables">
+                    <!-- Лендинг на Tilda -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Лендинг на Tilda</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">25 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>Сайт-визитка</p>
+                                <div class="package-features">
+                                    <span>До 10 блоков на Tilda</span>
+                                    <span>Адаптивный дизайн</span>
+                                    <span>Базовая SEO-оптимизация</span>
+                                    <span>Форма обратной связи</span>
+                                    <span>Интеграция с соцсетями</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">25 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Корпоративные сайты на Tilda -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Корпоративные сайты</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">45 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-features">
+                                    <span>До 15 страниц</span>
+                                    <span>Многоуровневое меню</span>
+                                    <span>Галерея и портфолио</span>
+                                    <span>Блог на Tilda</span>
+                                    <span>Админ-панель</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">45 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Интернет-магазины на Tilda -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Интернет-магазины</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">45 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-features">
+                                    <span>Каталог товаров</span>
+                                    <span>Корзина и оформление</span>
+                                    <span>Оплата онлайн</span>
+                                    <span>Интеграция с CRM</span>
+                                    <span>Мобильная версия</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">45 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Сайт для мероприятий на Tilda -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Сайт для мероприятий</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">35 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-features">
+                                    <span>Программа мероприятия</span>
+                                    <span>Регистрация участников</span>
+                                    <span>Онлайн-оплата билетов</span>
+                                    <span>Карта и расписание</span>
+                                    <span>Интерактивные элементы</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">35 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="delivery-timeline">
+                    <h4 style="color: white;">Сроки разработки обсуждаем индивидуально</h4>
+                    <p class="delivery-note">В зависимости от сложности проекта и функциональности</p>
+                </div>
+            </div>
+
+            <!-- Web Design -->
+            <div id="web" class="service-category">
+                <h2 class="category-title" data-lang-ru="Web-дизайн / Разработка" 
+                    data-lang-en="Web Design / Development" style="color: white;">
+                    Web-дизайн / Разработка
+                </h2>
+                
+                <div class="pricing-tables">
+                    <!-- Лендинги -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Лендинги</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">35 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-features">
+                                    <span>Уникальный дизайн</span>
+                                    <span>Адаптивная верстка</span>
+                                    <span>Оптимизация скорости</span>
+                                    <span>Формы захвата лидов</span>
+                                    <span>SEO-базовая настройка</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">35 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Корпоративные сайты -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Корпоративные сайты</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">55 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-features">
+                                    <span>До 10 страниц</span>
+                                    <span>Система управления</span>
+                                    <span>Мультиязычность</span>
+                                    <span>Интеграция с CRM</span>
+                                    <span>Техническая поддержка</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">55 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Интернет-магазины -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Интернет-магазины</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">55 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-features">
+                                    <span>Каталог с фильтрами</span>
+                                    <span>Корзина и оформление</span>
+                                    <span>Личный кабинет</span>
+                                    <span>Платежные системы</span>
+                                    <span>Админ-панель</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">55 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Мобильные приложения -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Мобильные приложения</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">45 000₽</span>
+                            </div>
+                            <p class="price-note">Стоимость рассчитывается индивидуально</p>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>Дизайн с 0</p>
+                                <div class="package-features">
+                                    <span>UI/UX дизайн</span>
+                                    <span>Прототипирование</span>
+                                    <span>Адаптация под iOS/Android</span>
+                                    <span>Тестирование</span>
+                                    <span>Поддержка после запуска</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">45 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="delivery-timeline">
+                    <h4 style="color: white;">Сроки разработки обсуждаем индивидуально</h4>
+                    <p class="delivery-note">В зависимости от сложности проекта и функциональных требований</p>
+                </div>
+            </div>
+
+            <!-- Разработка -->
+            <div id="development" class="service-category">
+                <h2 class="category-title" data-lang-ru="Разработка ПО" 
+                    data-lang-en="Software Development" style="color: white;">
+                    Разработка ПО
+                </h2>
+                
+                <div class="pricing-tables">
+                    <!-- Frontend разработка -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Frontend разработка</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">50 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>Верстка сайтов</p>
+                                <div class="package-features">
+                                    <span>HTML5/CSS3/JavaScript</span>
+                                    <span>React/Vue.js/Angular</span>
+                                    <span>Адаптивная верстка</span>
+                                    <span>Кроссбраузерность</span>
+                                    <span>Оптимизация производительности</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">50 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend разработка -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Backend разработка</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">60 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>Серверная часть</p>
+                                <div class="package-features">
+                                    <span>Node.js/Python/PHP</span>
+                                    <span>Разработка API</span>
+                                    <span>Базы данных (MySQL, MongoDB)</span>
+                                    <span>Авторизация и безопасность</span>
+                                    <span>Интеграция сторонних сервисов</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">60 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full-stack разработка -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Full-stack разработка</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">80 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package premium">
+                                <h4>Комплексное решение</h4>
+                                <p>Полный цикл разработки</p>
+                                <div class="package-features">
+                                    <span>Frontend + Backend</span>
+                                    <span>Разработка с нуля</span>
+                                    <span>Архитектура проекта</span>
+                                    <span>Тестирование и деплой</span>
+                                    <span>Техническая документация</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">80 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="delivery-timeline">
+                    <h4 style="color: white;">Сроки разработки обсуждаем индивидуально</h4>
+                    <p class="delivery-note">В зависимости от объема работы и сложности проекта</p>
+                </div>
+            </div>
+
+            <!-- Инфографика -->
+
+            <!-- Маркетинговые материалы -->
+            <div id="marketing" class="service-category">
+                <h2 class="category-title" data-lang-ru="Инфографика и презентации" 
+                    data-lang-en="Infographics & Presentations" style="color: white;">
+                    Инфографика и презентации
+                </h2>
+                <div class="pricing-tables">
+                    <!-- Презентации -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Презентации</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">6 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Базовый вариант</h4>
+                                <p>1 концепт</p>
+                                <div class="package-features">
+                                    <span>До 10 слайдов</span>
+                                    <span>Дизайн обложки</span>
+                                    <span>2 бесплатные правки</span>
+                                    <span>Формат PDF/PPTX</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">6 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                            <div class="package premium">
+                                <h4>Премиум вариант</h4>
+                                <p>3 концепта</p>
+                                <div class="package-features">
+                                    <span>До 20 слайдов</span>
+                                    <span>Анимация слайдов</span>
+                                    <span>Интерактивные элементы</span>
+                                    <span>4 бесплатные правки</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">15 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Инфографика -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>Инфографика</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">1 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="additional-services">
+                                <div class="service-item">
+                                    <div>
+                                        <h4>Главная обложка</h4>
+                                        <p>Дизайн с 0</p>
+                                    </div>
+                                    <span class="service-price">1 000₽</span>
+                                </div>
+                                <div class="service-item">
+                                    <div>
+                                        <h4>Последующие слайды</h4>
+                                        <p>Каждый дополнительный слайд</p>
+                                    </div>
+                                    <span class="service-price">800₽</span>
+                                </div>
+                                <div class="service-item">
+                                    <div>
+                                        <h4>Техническое задание</h4>
+                                        <p>Разработка технического задания</p>
+                                    </div>
+                                    <span class="service-price">1000₽</span>
+                                </div>
+                                <div class="service-item">
+                                    <div>
+                                        <h4>Ресайз карточки</h4>
+                                        <p>Смена формата</p>
+                                    </div>
+                                    <span class="service-price">600₽</span>
+                                </div>
+                                <div class="service-item">
+                                    <div>
+                                        <h4>Rich-контент</h4>
+                                        <p>для маркетплейсов</p>
+                                    </div>
+                                    <span class="service-price">1800₽</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <!-- AI проекты -->
+                    <div class="pricing-table fade-in">
+                        <div class="table-header">
+                            <h3>AI проекты</h3>
+                            <div class="price-range">
+                                <span class="from">от</span>
+                                <span class="price">5 000₽</span>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="package">
+                                <h4>Концепция и реализация</h4>
+                                <p>AI-ассистенты, чат-боты, автоматизация</p>
+                                <div class="package-features">
+                                    <span>Разработка AI-решений</span>
+                                    <span>Интеграция AI в проекты</span>
+                                    <span>Обучение моделей</span>
+                                    <span>Автоматизация процессов</span>
+                                    <span>Написание промптов для AI</span>
+                                    <span>Генерация AI фото/видео</span>
+                                </div>
+                                <div class="package-price">
+                                    <span class="price">5 000₽</span>
+                                    <a href="brief.html" class="btn-small">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="delivery-timeline">
+                    <h4 style="color: white;">Сроки выполнения обсуждаем индивидуально</h4>
+                    <p class="delivery-note">Зависит от объема и сложности задачи</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Process -->
+    <section class="work-process">
+        <div class="container">
+            <h2 class="section-title" data-lang-ru="Этапы работы" data-lang-en="Work Process">Этапы работы</h2>
+            <div class="process-timeline">
+                <div class="process-step fade-in">
+                    <div class="step-number">01</div>
+                    <h3>Знакомство</h3>
+                    <p>Обсуждение того, что хотите заказать</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">02</div>
+                    <h3>Брифинг</h3>
+                    <p>Заполнение подробной анкеты</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">03</div>
+                    <h3>Предоплата</h3>
+                    <p>Внесение аванса 50%<br>от суммы</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">04</div>
+                    <h3>Разработка</h3>
+                    <p>Анализ, генерация идей, отрисовка</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">05</div>
+                    <h3>Доработка</h3>
+                    <p>Внесение корректировок</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">06</div>
+                    <h3>Утверждение</h3>
+                    <p>Согласование готового дизайна</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">07</div>
+                    <h3>Оплата</h3>
+                    <p>Внесение второй части оплаты</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">08</div>
+                    <h3>Передача</h3>
+                    <p>Предоставление файлов<br>и исходников</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section-modern">
+        <div class="container">
+            <div class="cta-content-modern">
+                <h2 data-lang-ru="Готовы начать проект?" data-lang-en="Ready to start a project?">
+                    Готовы начать проект?
+                </h2>
+                <p data-lang-ru="Давайте создадим что-то уникальное вместе. Заполните бриф или свяжитесь с нами для консультации." 
+                   data-lang-en="Let's create something unique together. Fill out a brief or contact us for a consultation.">
+                    Давайте создадим что-то уникальное вместе. Заполните бриф или свяжитесь с нами для консультации.
+                </p>
+                <div class="cta-buttons-modern">
+                    <a href="brief.html" class="btn-modern-primary">
+                        <i class="fas fa-file-alt"></i>
+                        Заполнить бриф
+                    </a>
+                    <a href="contact.html" class="btn-modern-secondary">
+                        <i class="fas fa-comments"></i>
+                        Обсудить проект
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CREATIFY</h3>
+                    <p>Специализированное партнерство в области цифрового дизайна</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
+                    <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
+                    <div class="social-links">
+                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Документы</h4>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 CREATIFY. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Language switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const lang = this.dataset.lang;
+                const elements = document.querySelectorAll('[data-lang-ru]');
+                elements.forEach(el => {
+                    if (lang === 'ru') {
+                        el.textContent = el.dataset.langRu;
+                    } else if (lang === 'en') {
+                        el.textContent = el.dataset.langEn;
+                    }
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+            
+            // Close menu when clicking on a link
+            navLinks.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        }
+        
+        // Services tabs functionality
+        const serviceTabs = document.querySelectorAll('.service-tab');
+        const serviceCategories = document.querySelectorAll('.service-category');
+        
+        // Check URL hash on page load
+        if (window.location.hash) {
+            const hash = window.location.hash.substring(1);
+            const targetCategory = document.getElementById(hash);
+            if (targetCategory) {
+                // Remove active class from all tabs and categories
+                serviceTabs.forEach(t => t.classList.remove('active'));
+                serviceCategories.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to target tab and category
+                document.querySelector(`.service-tab[href="#${hash}"]`).classList.add('active');
+                targetCategory.classList.add('active');
+                
+                // Scroll to the category
+                setTimeout(() => {
+                    targetCategory.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+        
+        serviceTabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                serviceTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                
+                // Hide all categories
+                serviceCategories.forEach(category => {
+                    category.classList.remove('active');
+                });
+                
+                // Show target category
+                const targetCategory = document.querySelector(targetId);
+                if (targetCategory) {
+                    targetCategory.classList.add('active');
+                }
+                
+                // Update URL hash without scrolling
+                history.pushState(null, null, targetId);
+                
+                // Scroll to the category
+                if (targetCategory) {
+                    setTimeout(() => {
+                        targetCategory.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+        });
+        
+        // Add scroll animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || !href.startsWith('#')) return;
+                
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

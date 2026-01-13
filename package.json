@@ -1,0 +1,22 @@
+{
+  "name": "zarozhina-digital-design",
+  "version": "1.0.0",
+  "description": "Creative digital design studio website",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=index.html",
+    "build": "echo 'Build complete'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "design",
+    "portfolio",
+    "creative",
+    "digital"
+  ],
+  "author": "Yana Zarozhina",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

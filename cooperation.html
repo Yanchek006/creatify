@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сотрудничество | CREATIFY DIGITAL DESIGN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* =============================================
+       COOPERATION PAGE - MODERN STYLE
+       ============================================= */
+    
+    :root {
+        --primary-color: #4A6CF7;
+        --secondary-color: #6C63FF;
+        --accent-color: #FF6B8B;
+        --light-bg: #F8F9FA;
+        --light-card: #FFFFFF;
+        --text-dark: #1A1A2E;
+        --text-gray: #6C757D;
+        --text-light: #858B99;
+        --border-color: #E9ECEF;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+      
+        --footer-bg: #1A1A2E;
+    }
+    
+    body {
+        background-color: var(--light-bg);
+        color: var(--text-dark);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Language Switcher */
+    .lang-switcher {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        display: flex;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        background: transparent;
+        color: var(--text-gray);
+    }
+    
+    .lang-btn.active {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .lang-btn:not(.active):hover {
+        background: rgba(74, 108, 247, 0.1);
+        color: var(--primary-color);
+    }
+    
+    /* Navigation */
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .logo-main {
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .logo-sub {
+        color: var(--primary-color);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .nav-link {
+        color: var(--text-gray) !important;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link.active {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+    
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .lang-switcher {
+            top: 80px;
+            right: 20px;
+        }
+    }
+    
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Page Hero */
+    .page-hero {
+        padding: 160px 0 80px;
+        background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .page-hero .hero-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .page-hero .shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+    }
+    
+    .page-hero .shape-1 {
+        width: 400px;
+        height: 400px;
+        background: var(--primary-color);
+        top: -200px;
+        right: -200px;
+    }
+    
+    .page-hero .shape-2 {
+        width: 300px;
+        height: 300px;
+        background: var(--accent-color);
+        bottom: -150px;
+        left: -150px;
+    }
+    
+    .page-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 800;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .page-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-gray);
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    @media (max-width: 768px) {
+        .page-hero {
+            padding: 140px 0 60px;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+        }
+    }
+    
+    /* Philosophy Section */
+    .coop-philosophy {
+        padding: 6rem 0 4rem;
+    }
+    
+    .coop-philosophy h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text-dark);
+    }
+    
+    .philosophy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    
+    .philosophy-card {
+        background: var(--light-card);
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+    
+    .philosophy-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
+    }
+    
+    .philosophy-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        color: white;
+        background: var(--gradient-primary);
+        transition: all 0.3s ease;
+    }
+    
+    .philosophy-card:hover .philosophy-icon {
+        transform: rotateY(180deg);
+    }
+    
+    .philosophy-card h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+    
+    .philosophy-card p {
+        color: var(--text-gray);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+    
+    /* Process Section */
+    .coop-process {
+        padding: 6rem 0;
+        background: white;
+    }
+    
+    .coop-process .section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text-dark);
+    }
+    
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        counter-reset: step-counter;
+    }
+    
+    .process-step {
+        background: var(--light-card);
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        padding-left: 5rem;
+    }
+    
+    .process-step::before {
+        counter-increment: step-counter;
+        content: counter(step-counter, decimal-leading-zero);
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 800;
+        font-size: 2rem;
+        color: var(--primary-color);
+        opacity: 0.3;
+    }
+    
+    .process-step:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
+    }
+    
+    .process-step h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        color: var(--text-dark);
+    }
+    
+    .process-step p {
+        color: var(--text-gray);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+    
+    /* For Whom Section */
+    .coop-for-whom {
+        padding: 6rem 0;
+    }
+    
+    .coop-for-whom .section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--text-dark);
+    }
+    
+    .client-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .client-type {
+        background: var(--light-card);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+    
+    .client-type:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
+    }
+    
+    .client-type-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        background: var(--gradient-primary);
+        transition: all 0.3s ease;
+    }
+    
+    .client-type:hover .client-type-icon {
+        transform: rotateY(180deg);
+    }
+    
+    .client-type h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+    
+    .client-type p {
+        color: var(--text-gray);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+    
+    /* CTA Section */
+    .cta-section-modern {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta-content-modern {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 4rem;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: var(--shadow-lg);
+        position: relative;
+    }
+    
+    .cta-content-modern h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-dark);
+    }
+    
+    .cta-content-modern p {
+        font-size: 1.125rem;
+        color: var(--text-gray);
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-buttons-modern {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .btn-modern-primary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-modern-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn-modern-secondary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .btn-modern-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    .footer {
+        background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
+        color: white;
+        padding: 4rem 0 2rem;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .footer-section h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+    
+    .footer-section h4 {
+        color: white;
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+    }
+    
+    .footer-section p {
+        color: #B0B7C3;
+        margin-bottom: 1rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .footer-section p i {
+        color: white;
+        font-size: 1rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+        width: 16px;
+        text-align: center;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        color: white;
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+    }
+    
+    .social-links a:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+    }
+    
+    .social-links a i {
+        color: white !important;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-section a {
+        color: #B0B7C3;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-size: 0.9375rem;
+        transition: all 0.3s ease;
+        padding: 0.25rem 0;
+    }
+    
+    .footer-section a:hover {
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #8A94B0;
+        font-size: 0.875rem;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .philosophy-grid,
+        .process-steps,
+        .client-types {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        .process-step {
+            padding-left: 4rem;
+        }
+        
+        .process-step::before {
+            left: 1.5rem;
+            font-size: 1.75rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .page-hero {
+            padding: 120px 0 40px;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1rem;
+        }
+        
+        .coop-philosophy,
+        .coop-process,
+        .coop-for-whom {
+            padding: 4rem 0;
+        }
+        
+        .coop-philosophy h2,
+        .coop-process .section-title,
+        .coop-for-whom .section-title {
+            font-size: 2rem;
+        }
+        
+        .philosophy-card,
+        .process-step,
+        .client-type {
+            padding: 2rem;
+        }
+        
+        .process-step {
+            padding-left: 3.5rem;
+        }
+        
+        .cta-content-modern {
+            padding: 3rem 2rem;
+        }
+        
+        .cta-content-modern h2 {
+            font-size: 2rem;
+        }
+        
+        .cta-content-modern p {
+            font-size: 1rem;
+        }
+        
+        .cta-buttons-modern {
+            flex-direction: column;
+        }
+        
+        .btn-modern-primary,
+        .btn-modern-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2.5rem;
+        }
+        
+        .footer-section p {
+            justify-content: center;
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .lang-switcher {
+            top: 70px;
+            right: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .philosophy-card,
+        .process-step,
+        .client-type {
+            padding: 1.5rem;
+        }
+        
+        .process-step {
+            padding-left: 3rem;
+        }
+        
+        .philosophy-icon,
+        .client-type-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+        
+        .process-step::before {
+            font-size: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-main">CREATIFY</span>
+                <span class="logo-sub">DIGITAL DESIGN</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Галерея</a>
+                <a href="education.html" class="nav-link">Обучение</a>
+                <a href="partners.html" class="nav-link">Партнеры</a>
+                <a href="cooperation.html" class="nav-link active">Сотрудничество</a>
+                <a href="contact.html" class="nav-link">Связаться</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <h1 class="page-title" data-lang-ru="Сотрудничество" data-lang-en="Cooperation">
+                Сотрудничество
+            </h1>
+            <p class="page-subtitle" data-lang-ru="Мы создаем больше, чем дизайн. Мы создаем эталоны визуальной коммуникации" 
+               data-lang-en="We create more than design. We create standards of visual communication">
+                Мы создаем больше, чем дизайн. Мы создаем эталоны визуальной коммуникации
+            </p>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="coop-philosophy">
+        <div class="container">
+            <h2 data-lang-ru="Наш подход к сотрудничеству" data-lang-en="Our Approach to Cooperation" style="color: white;">
+                Наш подход к сотрудничеству
+            </h2>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 data-lang-ru="Глубокое погружение в ваш бизнес" 
+                        data-lang-en="Deep Dive into Your Business">
+                        Глубокое погружение в ваш бизнес
+                    </h3>
+                    <p data-lang-ru="Мы не просто исполнители, а партнеры. Изучаем ваши процессы, ценности и боли, чтобы дизайн стал органичным продолжением вашей компании и решал реальные проблемы." 
+                       data-lang-en="We are not just executors, but partners. We study your processes, values, and pain points so that design becomes an organic extension of your company and solves real problems.">
+                        Мы не просто исполнители, а партнеры. Изучаем ваши процессы, ценности и боли, чтобы дизайн стал органичным продолжением вашей компании и решал реальные проблемы.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-chess-knight"></i>
+                    </div>
+                    <h3 data-lang-ru="Стратегия вместо украшений" 
+                        data-lang-en="Strategy Instead of Decorations">
+                        Стратегия вместо украшений
+                    </h3>
+                    <p data-lang-ru="Каждый пиксель решает бизнес-задачу. Мы анализируем вашу аудиторию и цели перед тем, как приступить к дизайну." 
+                       data-lang-en="Every pixel solves a business problem. We analyze your audience and goals before starting design.">
+                        Каждый пиксель решает бизнес-задачу. Мы анализируем вашу аудиторию и цели перед тем, как приступить к дизайну.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 data-lang-ru="Современный подход к проекту" 
+                        data-lang-en="Modern Approach to Projects">
+                        Современный подход к проекту
+                    </h3>
+                    <p data-lang-ru="Современные инструменты + проверенные методологии. Создаем интерфейсы, которые восхищают." 
+                       data-lang-en="Modern tools + proven methodologies. We create interfaces that delight.">
+                        Современные инструменты + проверенные методологии. Создаем интерфейсы, которые восхищают.
+                    </p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 data-lang-ru="Качественное выполнение работы" 
+                        data-lang-en="Quality Work Execution">
+                        Качественное выполнение работы
+                    </h3>
+                    <p data-lang-ru="Четкие сроки, регулярная отчетность. Вы всегда в курсе прогресса и можете вносить правки на каждом этапе." 
+                       data-lang-en="Clear deadlines, regular reporting. You are always aware of progress and can make edits at every stage.">
+                        Четкие сроки, регулярная отчетность. Вы всегда в курсе прогресса и можете вносить правки на каждом этапе.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="coop-process">
+        <div class="container">
+            <h2 class="section-title" data-lang-ru="Процесс сотрудничества" 
+                data-lang-en="Cooperation Process">
+                Процесс сотрудничества
+            </h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3 data-lang-ru="Консультация" data-lang-en="Consultation">Консультация</h3>
+                    <p data-lang-ru="Бесплатная консультация, анализ задачи, предварительная оценка" 
+                       data-lang-en="Free consultation, task analysis, preliminary estimate">
+                        Бесплатная консультация, анализ задачи, предварительная оценка
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <h3 data-lang-ru="Бриф и ТЗ" data-lang-en="Brief & Specification">Бриф и ТЗ</h3>
+                    <p data-lang-ru="Детальное техническое задание, согласование сроков и бюджета" 
+                       data-lang-en="Detailed technical specification, agreement on deadlines and budget">
+                        Детальное техническое задание, согласование сроков и бюджета
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <h3 data-lang-ru="Концепция" data-lang-en="Concept">Концепция</h3>
+                    <p data-lang-ru="Разработка концепций, презентация идей, выбор направления" 
+                       data-lang-en="Concept development, idea presentation, direction selection">
+                        Разработка концепций, презентация идей, выбор направления
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <h3 data-lang-ru="Разработка" data-lang-en="Development">Разработка</h3>
+                    <p data-lang-ru="Детальная проработка дизайна, промежуточные показы" 
+                       data-lang-en="Detailed design development, intermediate presentations">
+                        Детальная проработка дизайна, промежуточные показы
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <h3 data-lang-ru="Тестирование" data-lang-en="Testing">Тестирование</h3>
+                    <p data-lang-ru="Тестирование на целевой аудитории, сбор обратной связи" 
+                       data-lang-en="Testing on target audience, gathering feedback">
+                        Тестирование на целевой аудитории, сбор обратной связи
+                    </p>
+                </div>
+                
+                <div class="process-step">
+                    <h3 data-lang-ru="Запуск" data-lang-en="Launch">Запуск</h3>
+                    <p data-lang-ru="Финальные правки, подготовка файлов, передача проекта" 
+                       data-lang-en="Final edits, file preparation, project handover">
+                        Финальные правки, подготовка файлов, передача проекта
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Whom Section -->
+    <section class="coop-for-whom">
+        <div class="container">
+            <h2 class="section-title" data-lang-ru="С кем мы работаем" 
+                data-lang-en="Who We Work With" style="color: white;">
+                С кем мы работаем
+            </h2>
+            
+            <div class="client-types">
+                <div class="client-type">
+                    <div class="client-type-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 data-lang-ru="Стартапы" data-lang-en="Startups">Стартапы</h3>
+                    <p data-lang-ru="Разработка айдентики, сайтов и презентаций для привлечения инвестиций" 
+                       data-lang-en="Development of identity, websites and presentations for attracting investments">
+                        Разработка айдентики, сайтов и презентаций для привлечения инвестиций
+                    </p>
+                </div>
+                
+                <div class="client-type">
+                    <div class="client-type-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 data-lang-ru="Бизнесы" data-lang-en="Businesses">Бизнесы</h3>
+                    <p data-lang-ru="Дизайн для увеличения конверсии и укрепления позиций на рынке" 
+                       data-lang-en="Design to increase conversion and strengthen market position">
+                        Дизайн для увеличения конверсии и укрепления позиций на рынке
+                    </p>
+                </div>
+                
+                <div class="client-type">
+                    <div class="client-type-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-lang-ru="Агентства" data-lang-en="Agencies">Агентства</h3>
+                    <p data-lang-ru="Аутсорс дизайна, совместная работа над крупными проектами" 
+                       data-lang-en="Design outsourcing, collaboration on large projects">
+                        Аутсорс дизайна, совместная работа над крупными проектами
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section-modern">
+        <div class="container">
+            <div class="cta-content-modern">
+                <h2 data-lang-ru="Готовы к сотрудничеству?" 
+                    data-lang-en="Ready to Cooperate?">
+                    Готовы к сотрудничеству?
+                </h2>
+                <p data-lang-ru="Давайте обсудим, как мы можем помочь вашему бизнесу" 
+                   data-lang-en="Let's discuss how we can help your business">
+                    Давайте обсудим, как мы можем помочь вашему бизнесу
+                </p>
+                <div class="cta-buttons-modern">
+                    <a href="contact.html" class="btn-modern-secondary">
+                        <i class="fas fa-comments"></i>
+                        Связаться с нами
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CREATIFY</h3>
+                    <p>Специализированное партнерство в области цифрового дизайна</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
+                    <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
+                    <div class="social-links">
+                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Документы</h4>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 CREATIFY. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/3d-effects.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/language-switcher.js"></script>
+</body>
+</html>

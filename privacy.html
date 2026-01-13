@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности | CREATIFY DIGITAL DESIGN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* =============================================
+       PRIVACY POLICY PAGE - MODERN STYLE
+       ============================================= */
+    
+    :root {
+        --primary-color: #4A6CF7;
+        --secondary-color: #6C63FF;
+        --accent-color: #FF6B8B;
+        --light-bg: #F8F9FA;
+        --light-card: #FFFFFF;
+        --text-dark: #1A1A2E;
+        --text-gray: #6C757D;
+        --text-light: #858B99;
+        --border-color: #E9ECEF;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+        --gradient-accent: linear-gradient(135deg, #FF6B8B 0%, #FFA07A 100%);
+        --footer-bg: #1A1A2E;
+    }
+    
+    body {
+        background-color: var(--light-bg);
+        color: var(--text-dark);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Language Switcher */
+    .lang-switcher {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        display: flex;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        background: transparent;
+        color: var(--text-gray);
+    }
+    
+    .lang-btn.active {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .lang-btn:not(.active):hover {
+        background: rgba(74, 108, 247, 0.1);
+        color: var(--primary-color);
+    }
+    
+    /* Navigation */
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .logo-main {
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .logo-sub {
+        color: var(--primary-color);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .nav-link {
+        color: var(--text-gray) !important;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+    
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .lang-switcher {
+            top: 80px;
+            right: 20px;
+        }
+    }
+    
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Legal Page */
+    .legal-page {
+        padding: 160px 0 80px;
+        background: white;
+    }
+    
+    .legal-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 2rem;
+        position: relative;
+    }
+    
+    .legal-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+    }
+    
+    .legal-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .legal-subtitle {
+        color: var(--text-gray);
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .legal-update {
+        color: var(--text-light);
+        font-size: 0.875rem;
+    }
+    
+    .legal-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .legal-text {
+        line-height: 1.8;
+        color: var(--text-dark);
+    }
+    
+    .legal-text h2 {
+        margin: 3rem 0 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--border-color);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.75rem;
+        color: var(--text-dark);
+    }
+    
+    .legal-text h3 {
+        margin: 2rem 0 1rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: var(--primary-color);
+    }
+    
+    .legal-text p {
+        margin-bottom: 1.5rem;
+        color: var(--text-gray);
+    }
+    
+    .legal-text ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        color: var(--text-gray);
+    }
+    
+    .legal-text li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1rem;
+    }
+    
+    .legal-text li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+    
+    .legal-note {
+        background: linear-gradient(135deg, rgba(74, 108, 247, 0.05), rgba(108, 99, 255, 0.05));
+        border-left: 4px solid var(--primary-color);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 12px 12px 0;
+        color: var(--text-dark);
+    }
+    
+    .legal-note strong {
+        color: var(--primary-color);
+    }
+    
+    /* Legal Tables */
+    .legal-text table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        background: var(--light-bg);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .legal-text th,
+    .legal-text td {
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .legal-text th {
+        background: var(--gradient-primary);
+        font-weight: 600;
+        color: white;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .legal-text tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .legal-text tr:hover td {
+        background: rgba(74, 108, 247, 0.02);
+    }
+    
+    /* Legal Contact */
+    .legal-contact {
+        background: var(--light-bg);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 3rem 0;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .legal-contact h4 {
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        text-align: center;
+    }
+    
+    .legal-contact p {
+        margin-bottom: 0.75rem;
+        color: var(--text-gray);
+        text-align: center;
+    }
+    
+    .legal-contact strong {
+        color: var(--text-dark);
+    }
+    
+    /* Legal Actions */
+    .legal-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 4rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--border-color);
+        flex-wrap: wrap;
+    }
+    
+    .btn-secondary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .btn-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+    
+    /* Table of Contents */
+    .table-of-contents {
+        background: var(--light-card);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 3rem;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .table-of-contents h3 {
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+    }
+    
+    .table-of-contents ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .table-of-contents li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .table-of-contents a {
+        color: var(--text-gray);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        background: var(--light-bg);
+        border: 1px solid var(--border-color);
+    }
+    
+    .table-of-contents a:hover {
+        color: var(--primary-color);
+        background: white;
+        border-color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .table-of-contents a::before {
+        content: '›';
+        margin-right: 10px;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+    
+    /* Footer */
+    .footer {
+        background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
+        color: white;
+        padding: 4rem 0 2rem;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .footer-section h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+    
+    .footer-section h4 {
+        color: white;
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+    }
+    
+    .footer-section p {
+        color: #B0B7C3;
+        margin-bottom: 1rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .footer-section p i {
+        color: white;
+        font-size: 1rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+        width: 16px;
+        text-align: center;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        color: white;
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+    }
+    
+    .social-links a:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+    }
+    
+    .social-links a i {
+        color: white !important;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .footer-section a {
+        color: #B0B7C3;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.75rem;
+        font-size: 0.9375rem;
+        transition: all 0.3s ease;
+        padding: 0.25rem 0;
+    }
+    
+    .footer-section a:hover {
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #8A94B0;
+        font-size: 0.875rem;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .legal-title {
+            font-size: 2.5rem;
+        }
+        
+        .legal-subtitle {
+            font-size: 1.125rem;
+        }
+        
+        .legal-text h2 {
+            font-size: 1.5rem;
+        }
+        
+        .legal-text h3 {
+            font-size: 1.125rem;
+        }
+        
+        .legal-text table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .legal-text th,
+        .legal-text td {
+            padding: 0.75rem 1rem;
+        }
+        
+        .legal-contact {
+            padding: 2rem;
+        }
+        
+        .legal-actions {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .legal-actions a {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+        
+        .table-of-contents {
+            padding: 1.5rem;
+        }
+        
+        .table-of-contents ul {
+            grid-template-columns: 1fr;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2.5rem;
+        }
+        
+        .footer-section p {
+            justify-content: center;
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .footer-section a:hover {
+            transform: none;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .legal-title {
+            font-size: 2rem;
+        }
+        
+        .legal-subtitle {
+            font-size: 1rem;
+        }
+        
+        .legal-note {
+            padding: 1rem;
+        }
+        
+        .legal-contact {
+            padding: 1.5rem;
+        }
+        
+        .table-of-contents {
+            padding: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .fade-in {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-main">CREATIFY</span>
+                <span class="logo-sub">DIGITAL DESIGN</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Галерея</a>
+                <a href="education.html" class="nav-link">Обучение</a>
+                <a href="partners.html" class="nav-link">Партнеры</a>
+                <a href="cooperation.html" class="nav-link">Сотрудничество</a>
+                <a href="contact.html" class="nav-link">Связаться</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Legal Page -->
+    <section class="legal-page">
+        <div class="container">
+            <div class="legal-header fade-in">
+                <h1 class="legal-title">Политика конфиденциальности</h1>
+                <p class="legal-subtitle">Об обработке и защите персональных данных</p>
+                <p class="legal-update">Дата последнего обновления: 08.11.2024</p>
+            </div>
+            
+            <div class="legal-container">
+                <!-- Table of Contents will be inserted here by JavaScript -->
+                
+                <div class="legal-text fade-in">
+                    <div class="legal-note">
+                        <strong>Важно:</strong> Настоящая Политика конфиденциальности применяется ко всей информации, которую сайт ZAROZHINA DIGITAL DESIGN может получить о Пользователе во время использования сайта.
+                    </div>
+
+                    <h2>1. Общие положения</h2>
+                    <p>1.1. Настоящая Политика Зарожиной Яны Александровны в отношении обработки персональных данных (далее — Политика) разработана во исполнение требований п. 2 ч. 1 ст. 18.1 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» (далее — Закон о персональных данных) в целях обеспечения защиты прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.</p>
+                    <p>1.2. Политика действует в отношении всех персональных данных, которые обрабатывает Зарожина Яна Александровна (ИНН 772095405666, адрес: Российская Федерация, г. Москва, электронная почта: creatify_cf@mail.ru).</p>
+                    <p>1.3. Политика распространяется на отношения в области обработки персональных данных, возникшие у Оператора как до, так и после утверждения настоящей Политики.</p>
+                    <p>1.4. Во исполнение требований ч. 2 ст. 18.1 Закона о персональных данных настоящая Политика публикуется в свободном доступе в информационно-телекоммуникационной сети Интернет.</p>
+
+                    <h2>2. Термины и принятые сокращения</h2>
+                    <p><strong>Персональные данные</strong> – любая информация, относящаяся к прямо или косвенно определенному или определяемому физическому лицу (субъекту персональных данных).</p>
+                    <p><strong>Оператор персональных данных (Оператор)</strong> – государственный орган, муниципальный орган, юридическое или физическое лицо, самостоятельно или совместно с другими лицами организующие и (или) осуществляющие обработку персональных данных, а также определяющие цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными. В рамках настоящей Политики Оператором является Зарожина Яна Александровна.</p>
+                    <p><strong>Обработка персональных данных</strong> – любое действие (операция) или совокупность действий (операций) с персональными данными, совершаемых с использованием средств автоматизации или без их использования. Обработка персональных данных включает в себя, в том числе:</p>
+                    <ul>
+                        <li>сбор;</li>
+                        <li>запись;</li>
+                        <li>систематизацию;</li>
+                        <li>накопление;</li>
+                        <li>хранение;</li>
+                        <li>уточнение (обновление, изменение);</li>
+                        <li>извлечение;</li>
+                        <li>использование;</li>
+                        <li>передачу (предоставление, доступ);</li>
+                        <li>обезличивание;</li>
+                        <li>блокирование;</li>
+                        <li>удаление;</li>
+                        <li>уничтожение.</li>
+                    </ul>
+
+                    <h2>3. Порядок и условия обработки и хранения персональных данных</h2>
+                    <p>3.1. Обработка персональных данных осуществляется Оператором в соответствии с требованиями законодательства Российской Федерации.</p>
+                    <p>3.2. Обработка персональных данных осуществляется с согласия субъектов персональных данных на обработку их персональных данных, а также без такового в случаях, предусмотренных законодательством Российской Федерации.</p>
+                    
+                    <h3>3.3. Виды данных и цели обработки персональных данных:</h3>
+                    <p><strong>3.3.1. Виды персональных данных, которые обрабатывает Оператор:</strong></p>
+                    <ul>
+                        <li>ФИО;</li>
+                        <li>номер телефона;</li>
+                        <li>адрес электронной почты;</li>
+                        <li>ссылки на страницы в социальных сетях;</li>
+                        <li>финансовая информация (только для целей оплаты услуг).</li>
+                    </ul>
+                    
+                    <p><strong>3.3.2. Цели обработки персональных данных:</strong></p>
+                    <ul>
+                        <li>обеспечение соблюдения Конституции, федеральных законов и иных нормативных правовых актов Российской Федерации;</li>
+                        <li>осуществление своей деятельности;</li>
+                        <li>осуществление гражданско-правовых отношений;</li>
+                        <li>ведение бухгалтерского учета;</li>
+                        <li>уведомление субъекта персональных данных об изменениях, дополнениях к оказываемым по договору с ним услугам;</li>
+                        <li>получение обратной связи, отзывов и рекомендаций от субъекта;</li>
+                        <li>проведение опросов для эффективной коммуникации с действующими и потенциальными клиентами Оператора.</li>
+                    </ul>
+
+                    <h3>3.4. Хранение персональных данных</h3>
+                    <p>3.4.1. Персональные данные субъектов могут быть получены, проходить дальнейшую обработку и передаваться на хранение как на бумажных носителях, так и в электронном виде.</p>
+                    <p>3.4.2. Персональные данные, зафиксированные на бумажных носителях, хранятся в запираемых шкафах либо в запираемых помещениях с ограниченным правом доступа.</p>
+                    <p>3.4.3. Хранение персональных данных в форме, позволяющей определить субъекта персональных данных, осуществляется не дольше, чем этого требуют цели их обработки, и они подлежат уничтожению по достижении целей обработки или в случае утраты необходимости в их достижении.</p>
+
+                    <h3>3.5. Использование cookies</h3>
+                    <p>На сайте Оператора используются куки (Cookies) и данные о посетителях от сервисов статистики посещаемости (IP-адрес; информация из cookies, информация о браузере, время доступа к сайту, адрес страницы, на которой расположен рекламный блок, реферер (адрес предыдущей страницы) и другие данные).</p>
+                    <p>При помощи этих данных собирается информация о действиях посетителей на сайте с целью улучшения его содержания, улучшения функциональных возможностей сайта и, как следствие, создания качественного контента и сервисов для посетителей.</p>
+                    <p>Субъект персональных данных может в любой момент изменить настройки своего браузера так, чтобы все файлы cookie блокировались или осуществлялось оповещение об их отправке. При этом субъект должен понимать, что некоторые функции и сервисы сайта не смогут работать должным образом.</p>
+
+                    <h2>4. Защита персональных данных</h2>
+                    <p>4.1. Оператор принимает необходимые правовые, организационные и технические меры для защиты персональных данных от неправомерного или случайного доступа к ним, уничтожения, изменения, блокирования, распространения и других несанкционированных действий, в том числе:</p>
+                    <ul>
+                        <li>определяет угрозы безопасности персональных данных при их обработке;</li>
+                        <li>принимает локальные нормативные акты и иные документы, регулирующие отношения в сфере обработки и защиты персональных данных;</li>
+                        <li>назначает лиц, ответственных за обеспечение безопасности персональных данных;</li>
+                        <li>организует учет документов, содержащих персональные данные;</li>
+                        <li>хранит персональные данные в условиях, при которых обеспечивается их сохранность и исключается неправомерный доступ к ним;</li>
+                        <li>организует обучение лиц, осуществляющих обработку персональных данных.</li>
+                    </ul>
+
+                    <h2>5. Права субъекта персональных данных</h2>
+                    <p>5.1. Субъект персональных данных имеет право:</p>
+                    <ul>
+                        <li>на получение информации, касающейся обработки его персональных данных;</li>
+                        <li>на уточнение, блокирование или уничтожение его персональных данных в случае, если они являются неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной цели обработки;</li>
+                        <li>на отзыв данного им согласия на обработку персональных данных;</li>
+                        <li>на защиту своих прав и законных интересов, в том числе на возмещение убытков и компенсацию морального вреда в судебном порядке;</li>
+                        <li>на обжалование действий или бездействия Оператора в уполномоченный орган по защите прав субъектов персональных данных или в судебном порядке.</li>
+                    </ul>
+
+                    <h2>6. Уничтожение персональных данных</h2>
+                    <p>6.1. Уничтожение документов (носителей), содержащих персональные данные, производится путем сожжения, дробления (измельчения), химического разложения, превращения в бесформенную массу или порошок. Для уничтожения бумажных документов допускается применение шредера.</p>
+                    <p>6.2. Персональные данные на электронных носителях уничтожаются путем стирания или форматирования носителя.</p>
+                    <p>6.3. Факт уничтожения персональных данных подтверждается документально актом об уничтожении носителей.</p>
+
+                    <h2>7. Заключительные положения</h2>
+                    <p>7.1. Настоящая Политика является публичным документом и доступна любому пользователю сети Интернет.</p>
+                    <p>7.2. Оператор вправе вносить изменения в настоящую Политику. При внесении изменений в заголовке Политики указывается дата последнего обновления редакции. Новая редакция Политики вступает в силу с момента ее размещения на сайте, если иное не предусмотрено новой редакцией Политики.</p>
+                    <p>7.3. К настоящей Политике и отношениям между субъектом персональных данных и Оператором, возникающим в связи с применением Политики, подлежит применению право Российской Федерации.</p>
+
+                    <div class="legal-contact fade-in">
+                        <h4>Контактная информация Оператора:</h4>
+                        <p><strong>ФИО:</strong> Зарожина Яна Александровна</p>
+                        <p><strong>ИНН:</strong> 772095405666</p>
+                        <p><strong>Адрес:</strong> Российская Федерация, г. Москва</p>
+                        <p><strong>E-mail:</strong> creatify_cf@mail.ru</p>
+                        <p><strong>Телефон:</strong> +7 (903) 738-02-76</p>
+                    </div>
+
+                    <div class="legal-note fade-in">
+                        <strong>Примечание:</strong> Используя сайт ZAROZHINA DIGITAL DESIGN, Вы подтверждаете, что ознакомились с условиями настоящей Политики конфиденциальности и согласны с ними.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-actions fade-in">
+                <a href="index.html" class="btn-secondary">
+                    <i class="fas fa-home"></i> На главную
+                </a>
+                <a href="offer.html" class="btn-primary">
+                    Читать публичную оферту <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CREATIFY</h3>
+                    <p>Специализированное партнерство в области цифрового дизайна</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
+                    <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
+                    <div class="social-links">
+                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Документы</h4>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 CREATIFY. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Language switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const lang = this.dataset.lang;
+                const elements = document.querySelectorAll('[data-lang-ru]');
+                elements.forEach(el => {
+                    if (lang === 'ru') {
+                        el.textContent = el.dataset.langRu;
+                    } else if (lang === 'en') {
+                        el.textContent = el.dataset.langEn;
+                    }
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+            
+            // Close menu when clicking on a link
+            navLinks.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        }
+        
+        // Table of Contents
+        const legalText = document.querySelector('.legal-text');
+        if (legalText) {
+            const headings = legalText.querySelectorAll('h2');
+            if (headings.length > 0) {
+                const toc = document.createElement('div');
+                toc.className = 'table-of-contents fade-in';
+                toc.innerHTML = '<h3>Содержание:</h3><ul></ul>';
+                
+                headings.forEach((heading, index) => {
+                    if (!heading.id) {
+                        heading.id = 'section-' + index;
+                    }
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#' + heading.id;
+                    a.textContent = heading.textContent;
+                    a.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                    li.appendChild(a);
+                    toc.querySelector('ul').appendChild(li);
+                });
+                
+                legalText.parentNode.insertBefore(toc, legalText);
+            }
+        }
+        
+        // Add scroll animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || !href.startsWith('#')) return;
+                
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
