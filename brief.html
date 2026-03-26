@@ -1697,51 +1697,123 @@
     </script>
     <script>
 // Функция отправки в Google Таблицу
-async function sendToGoogle(data) {
-    const GOOGLE_URL = 'https://script.google.com/macros/s/AKfycbwCEYDx7cBULiTybs8LLyGreuNGS3EblELODLnnI2FfI5vW7ySIVPgZt66c8wZ_9F9k/exec';
-    
+const GOOGLE_URL = 'https://script.google.com/macros/s/AKfycbwCEYDx7cBULiTybs8LLyGreuNGS3EblELODLnnI2FfI5vW7ySIVPgZt66c8wZ_9F9k/exec';
+
+async function sendToGoogle(formData) {
     try {
         await fetch(GOOGLE_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
         });
-        
-        alert('✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
         return true;
     } catch (error) {
-        alert('❌ Ошибка отправки. Пожалуйста, напишите нам в Telegram @creatify_cf');
+        console.error('Error:', error);
         return false;
     }
 }
 
-// Перехватываем отправку формы бриф
+function showMessage(msg, success) {
+    const div = document.createElement('div');
+    div.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${success ? '#10B981' : '#EF4444'};
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        z-index: 9999;
+        font-family: sans-serif;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    `;
+    div.textContent = msg;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 3000);
+}
+
+// Обработка формы брифа — СОБИРАЕМ ВСЕ ДАННЫЕ
 const briefForm = document.getElementById('briefForm');
 if (briefForm) {
     briefForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
+        // Собираем ВСЕ данные из формы
         const formData = {
+            // Контактные данные
             name: document.getElementById('contact-name')?.value || '',
             email: document.getElementById('contact-email')?.value || '',
             phone: document.getElementById('contact-phone')?.value || '',
+            
+            // Тип формы
             formType: 'Бриф',
-            message: `Компания: ${document.getElementById('company')?.value || ''}\nТип проекта: ${document.getElementById('project-type')?.value || ''}\nОписание: ${document.getElementById('description')?.value || ''}\nБюджет: ${document.getElementById('budget')?.value || ''}`
+            
+            // Основная информация
+            company: document.getElementById('company')?.value || '',
+            industry: document.getElementById('industry')?.value || '',
+            projectType: document.getElementById('project-type')?.value || '',
+            description: document.getElementById('description')?.value || '',
+            
+            // Детали проекта
+            goals: document.getElementById('goals')?.value || '',
+            targetAudience: document.getElementById('target-audience')?.value || '',
+            competitors: document.getElementById('competitors')?.value || '',
+            references: document.getElementById('references')?.value || '',
+            
+            // Контент
+            content: Array.from(document.querySelectorAll('input[name="content[]"]:checked')).map(cb => cb.value).join(', '),
+            
+            // Визуальные предпочтения
+            style: document.querySelector('input[name="style"]:checked')?.value || '',
+            colors: document.querySelector('input[placeholder*="цвета"]')?.value || document.getElementById('colors')?.value || '',
+            mood: document.getElementById('mood')?.value || '',
+            
+            // Бюджет и сроки
+            budget: document.getElementById('budget')?.value || '',
+            deadline: document.getElementById('deadline')?.value || '',
+            nda: document.getElementById('nda')?.checked ? 'Да' : 'Нет',
+            newsletter: document.getElementById('newsletter')?.checked ? 'Да' : 'Нет'
         };
         
-        await sendToGoogle(formData);
-        briefForm.reset();
+        // Формируем читаемое сообщение для Google Таблицы
+        const messageText = `
+Компания: ${formData.company}
+Сфера: ${formData.industry}
+Тип проекта: ${formData.projectType}
+Описание: ${formData.description}
+Цели: ${formData.goals}
+Целевая аудитория: ${formData.targetAudience}
+Конкуренты: ${formData.competitors}
+Референсы: ${formData.references}
+Готовый контент: ${formData.content}
+Стиль: ${formData.style}
+Цвета: ${formData.colors}
+Настроение: ${formData.mood}
+Бюджет: ${formData.budget}
+Сроки: ${formData.deadline}
+NDA: ${formData.nda}
+Рассылка: ${formData.newsletter}
+        `;
         
-        // Сброс шагов формы если есть
-        if (typeof showStep === 'function') {
-            showStep(1);
-        }
-        const progressSteps = document.querySelectorAll('.step');
-        if (progressSteps) {
-            progressSteps.forEach(s => s.classList.remove('completed'));
+        // Отправляем в Google
+        const dataToSend = {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            formType: formData.formType,
+            message: messageText
+        };
+        
+        const success = await sendToGoogle(dataToSend);
+        
+        if (success) {
+            showMessage('✅ Бриф отправлен! Мы свяжемся с вами.', true);
+            briefForm.reset();
+            if (typeof showStep === 'function') showStep(1);
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('completed'));
+        } else {
+            showMessage('❌ Ошибка. Напишите нам в Telegram @creatify_cf', false);
         }
     });
 }
