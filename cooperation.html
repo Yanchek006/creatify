@@ -423,12 +423,46 @@
         font-size: 0.9375rem;
         line-height: 1.6;
     }
+       .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
     
-    /* For Whom Section */
-/* Было (неправильно - темный фон) */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .lang-switcher {
+            top: 80px;
+            right: 20px;
+        }
+    }
+   /* For Whom Section - светлая версия */
 .coop-for-whom {
     padding: 6rem 0;
-    background: linear-gradient(135deg, var(--cta-bg) 0%, #0F0F1F 100%);
+    background: white;
 }
 
 .coop-for-whom .section-title {
@@ -437,21 +471,63 @@
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: white; /* белый текст на темном фоне */
+    color: var(--text-dark);
+}
+
+.client-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .client-type {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--light-card);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.client-type:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.client-type-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    background: var(--gradient-primary);
+    transition: all 0.3s ease;
+}
+
+.client-type:hover .client-type-icon {
+    transform: rotateY(180deg);
 }
 
 .client-type h3 {
-    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
 }
 
 .client-type p {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-gray);
+    font-size: 0.9375rem;
+    line-height: 1.6;
 }
 
 /* Должно быть (как в about.html - светлый фон) */
