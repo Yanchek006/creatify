@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+     <style>
     /* =============================================
        COOPERATION PAGE - MODERN STYLE
        ============================================= */
@@ -28,7 +28,6 @@
         --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
         --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
         --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
-        --cta-bg: #0A0A1A; /* ДОБАВИТЬ ЭТУ СТРОКУ */
         --footer-bg: #1A1A2E;
     }
     
@@ -160,42 +159,33 @@
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .lang-switcher {
+            top: 80px;
+            right: 20px;
+        }
     }
-    
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 1rem;
-        border-top: 1px solid var(--border-color);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .nav-link {
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem;
-        font-size: 1rem;
-    }
-    
-    .lang-switcher {
-        top: 80px;
-        right: 20px;
-    }
-}
-    
-    
     
     /* Container */
     .container {
@@ -839,7 +829,7 @@
                 <a href="portfolio.html" class="nav-link">Галерея</a>
                 <a href="education.html" class="nav-link">Обучение</a>
                 <a href="partners.html" class="nav-link">Партнеры</a>
-                <a href="cooperation.html" class="nav-link">Сотрудничество</a>
+                <a href="cooperation.html" class="nav-link active">Сотрудничество</a>
                 <a href="contact.html" class="nav-link">Связаться</a>
             </div>
             <button class="menu-toggle">
@@ -1176,10 +1166,6 @@
     });
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/3d-effects.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/language-switcher.js"></script>
     <script>
 async function sendToGoogle(data) {
     const GOOGLE_URL = 'https://script.google.com/macros/s/AKfycbwCEYDx7cBULiTybs8LLyGreuNGS3EblELODLnnI2FfI5vW7ySIVPgZt66c8wZ_9F9k/exec';
