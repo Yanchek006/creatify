@@ -14,23 +14,23 @@
        COOPERATION PAGE - MODERN STYLE
        ============================================= */
     
-:root {
-    --primary-color: #4A6CF7;
-    --secondary-color: #6C63FF;
-    --accent-color: #FF6B8B;
-    --light-bg: #F8F9FA;
-    --light-card: #FFFFFF;
-    --text-dark: #1A1A2E;
-    --text-gray: #6C757D;
-    --text-light: #858B99;
-    --border-color: #E9ECEF;
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
-    --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
-    --footer-bg: #1A1A2E;
-    --cta-bg: #0A0A1A; /* добавляем эту переменную */
-}
+    :root {
+        --primary-color: #4A6CF7;
+        --secondary-color: #6C63FF;
+        --accent-color: #FF6B8B;
+        --light-bg: #F8F9FA;
+        --light-card: #FFFFFF;
+        --text-dark: #1A1A2E;
+        --text-gray: #6C757D;
+        --text-light: #858B99;
+        --border-color: #E9ECEF;
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+       
+        --footer-bg: #1A1A2E;
+    }
     
     * {
         margin: 0;
@@ -154,16 +154,13 @@
         color: var(--primary-color) !important;
     }
     
-    .menu-toggle {
+        .menu-toggle {
         background: none;
         border: none;
         color: var(--text-dark);
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         cursor: pointer;
         display: none;
-        padding: 0.5rem;
-        transition: all 0.3s ease;
-        z-index: 1002;
     }
     
     .menu-toggle i {
@@ -178,17 +175,14 @@
         .nav-links {
             display: none;
             position: absolute;
-            top: calc(100% + 0px);
+            top: 100%;
             left: 0;
             right: 0;
             background: white;
             flex-direction: column;
-            padding: 1.5rem;
-            gap: 1rem;
+            padding: 1rem;
             border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
+            box-shadow: var(--shadow-md);
         }
         
         .nav-links.active {
