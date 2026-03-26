@@ -924,6 +924,7 @@
     <!-- Navigation -->
     <nav class="glass-nav">
         <div class="nav-container">
+            <img src="img/logo.svg" alt="CREATIFY" style="height: 45px; margin: 10px;">
             <a href="index.html" class="logo">
                 <span class="logo-main">CREATIFY</span>
                 <span class="logo-sub">DIGITAL DESIGN</span>
@@ -971,7 +972,7 @@
                         </div>
                         <h3 data-lang-ru="Телефон" data-lang-en="Phone">Телефон</h3>
                         <a href="tel:+79037380276">+7 (903) 738-02-76</a>
-                        <p data-lang-ru="Звонки и WhatsApp" data-lang-en="Calls and WhatsApp">Звонки и WhatsApp</p>
+                        <p data-lang-ru="Звонки и Cообщения" data-lang-en="Calls and Message">Звонки и Сообщения</p>
                     </div>
                     
                     <div class="info-card">
@@ -1062,52 +1063,56 @@
                 </div>
             </div>
 
-            <!-- Messengers Section -->
-            <div class="messengers-section">
-                <h2 data-lang-ru="Мессенджеры" data-lang-en="Messengers">Мессенджеры</h2>
-                <p class="section-subtitle" data-lang-ru="Выберите удобный способ связи" 
-                   data-lang-en="Choose a convenient way to communicate">
-                    Выберите удобный способ связи
-                </p>
-                
-                <div class="messengers-grid">
-                    <a href="https://t.me/creatify_cf" target="_blank" class="messenger-card">
-                        <div class="messenger-icon telegram">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                        <h3>Telegram</h3>
-                        <p>@creatify_cf</p>
-                        <span class="messenger-link">
-                            <span data-lang-ru="Написать" data-lang-en="Write">Написать</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </a>
-                    
-                    <a href="https://wa.me/79037380276" target="_blank" class="messenger-card">
-                        <div class="messenger-icon whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>WhatsApp</h3>
-                        <p>+7 (903) 738-02-76</p>
-                        <span class="messenger-link">
-                            <span data-lang-ru="Написать" data-lang-en="Write">Написать</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </a>
-                    
-                    <a href="https://instagram.com/creatify_cf" target="_blank" class="messenger-card">
-                        <div class="messenger-icon instagram">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <h3>Instagram</h3>
-                        <p>@creatify_cf</p>
-                        <span class="messenger-link">
-                            <span data-lang-ru="Подписаться" data-lang-en="Follow">Подписаться</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </a>
-                </div>
+           <!-- Contact Section -->
+<div class="messengers-section">
+    <h2 data-lang-ru="Свяжитесь с нами" data-lang-en="Contact Us">Свяжитесь с нами</h2>
+    <p class="section-subtitle" data-lang-ru="Выберите удобный способ связи" 
+       data-lang-en="Choose a convenient way to communicate">
+        Выберите удобный способ связи
+    </p>
+    
+    <div class="messengers-grid">
+        <!-- Телефон -->
+        <a href="tel:+79037380276" class="messenger-card">
+            <div class="messenger-icon" style="background: linear-gradient(135deg, #10B981, #059669);">
+                <i class="fas fa-phone-alt"></i>
             </div>
+            <h3>Телефон</h3>
+            <p>+7 (903) 738-02-76</p>
+            <span class="messenger-link">
+                <span data-lang-ru="Позвонить" data-lang-en="Call">Позвонить</span>
+                <i class="fas fa-arrow-right"></i>
+            </span>
+        </a>
+        
+        
+        <!-- VK -->
+        <a href="https://vk.com/creatify_cf" target="_blank" class="messenger-card">
+            <div class="messenger-icon" style="background: linear-gradient(135deg, #4C75A3, #2A5885);">
+                <i class="fab fa-vk"></i>
+            </div>
+            <h3>ВКонтакте</h3>
+            <p>vk.com/creatify_cf</p>
+            <span class="messenger-link">
+                <span data-lang-ru="Написать" data-lang-en="Write">Написать</span>
+                <i class="fas fa-arrow-right"></i>
+            </span>
+        </a>
+        
+        <!-- Email -->
+        <a href="mailto:creatify_cf@mail.ru" class="messenger-card">
+            <div class="messenger-icon" style="background: linear-gradient(135deg, #4A6CF7, #6C63FF);">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>creatify_cf@mail.ru</p>
+            <span class="messenger-link">
+                <span data-lang-ru="Написать" data-lang-en="Write">Написать</span>
+                <i class="fas fa-arrow-right"></i>
+            </span>
+        </a>
+    </div>
+</div>
 
             <!-- FAQ Section -->
             <section class="faq-section">
@@ -1346,7 +1351,7 @@ async function sendToGoogle(data) {
         alert('✅ Сообщение отправлено! Мы ответим в ближайшее время.');
         return true;
     } catch (error) {
-        alert('❌ Ошибка. Напишите нам в Telegram @creatify_cf');
+        alert('❌ Ошибка. Напишите нам на почту creatify_cf@mail.ru');
         return false;
     }
 }
