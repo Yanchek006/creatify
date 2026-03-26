@@ -14,23 +14,23 @@
        COOPERATION PAGE - MODERN STYLE
        ============================================= */
     
-    :root {
-        --primary-color: #4A6CF7;
-        --secondary-color: #6C63FF;
-        --accent-color: #FF6B8B;
-        --light-bg: #F8F9FA;
-        --light-card: #FFFFFF;
-        --text-dark: #1A1A2E;
-        --text-gray: #6C757D;
-        --text-light: #858B99;
-        --border-color: #E9ECEF;
-        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
-        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
-        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
-        --footer-bg: #1A1A2E;
-        --cta-bg: #0A0A1A;
-    }
+:root {
+    --primary-color: #4A6CF7;
+    --secondary-color: #6C63FF;
+    --accent-color: #FF6B8B;
+    --light-bg: #F8F9FA;
+    --light-card: #FFFFFF;
+    --text-dark: #1A1A2E;
+    --text-gray: #6C757D;
+    --text-light: #858B99;
+    --border-color: #E9ECEF;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+    --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+    --footer-bg: #1A1A2E;
+    --cta-bg: #0A0A1A; /* добавляем эту переменную */
+}
     
     * {
         margin: 0;
@@ -295,10 +295,11 @@
     }
     
     /* Philosophy Section */
-    .coop-philosophy {
-        padding: 6rem 0 4rem;
-        background: var(--light-bg);
-    }
+    /* Должно быть (как в about.html) */
+.coop-philosophy {
+    padding: 6rem 0 4rem;
+    background: var(--light-bg); /* добавляем фон */
+}
     
     .coop-philosophy h2 {
         font-family: 'Space Grotesk', sans-serif;
@@ -430,77 +431,88 @@
     }
     
     /* For Whom Section */
-    .coop-for-whom {
-        padding: 6rem 0;
-        background: linear-gradient(135deg, var(--cta-bg) 0%, #0F0F1F 100%);
-    }
-    
-    .coop-for-whom .section-title {
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 700;
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 3rem;
-        color: white;
-    }
-    
-    .client-types {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    
-    .client-type {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 2.5rem;
-        text-align: center;
-        box-shadow: var(--shadow-md);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-    }
-    
-    .client-type:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-lg);
-        border-color: var(--primary-color);
-        background: rgba(255, 255, 255, 0.15);
-    }
-    
-    .client-type-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 1.5rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: white;
-        background: var(--gradient-primary);
-        transition: all 0.3s ease;
-    }
-    
-    .client-type:hover .client-type-icon {
-        transform: rotateY(180deg);
-    }
-    
-    .client-type h3 {
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 600;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: white;
-    }
-    
-    .client-type p {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.9375rem;
-        line-height: 1.6;
-    }
+/* Было (неправильно - темный фон) */
+.coop-for-whom {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--cta-bg) 0%, #0F0F1F 100%);
+}
+
+.coop-for-whom .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white; /* белый текст на темном фоне */
+}
+
+.client-type {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.client-type h3 {
+    color: white;
+}
+
+.client-type p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Должно быть (как в about.html - светлый фон) */
+.coop-for-whom {
+    padding: 6rem 0;
+    background: white; /* или var(--light-card) */
+}
+
+.coop-for-whom .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark); /* темный текст */
+}
+
+.client-type {
+    background: var(--light-card);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    backdrop-filter: none; /* убираем blur */
+}
+
+.client-type h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark); /* темный текст */
+}
+
+.client-type p {
+    color: var(--text-gray); /* серый текст */
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.client-type-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    background: var(--gradient-primary);
+    transition: all 0.3s ease;
+}
     
     /* CTA Section */
     .cta-section-modern {
