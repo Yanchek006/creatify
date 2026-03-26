@@ -28,7 +28,7 @@
         --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
         --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
         --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
-       
+        --cta-bg: #0A0A1A; /* ДОБАВИТЬ ЭТУ СТРОКУ */
         --footer-bg: #1A1A2E;
     }
     
@@ -146,41 +146,56 @@
     }
     
    .menu-toggle {
-        background: none;
-        border: none;
-        color: var(--text-dark);
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: none;
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    padding: 0.5rem;
+    z-index: 1002;
+}
+
+.menu-toggle i {
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
     }
     
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            flex-direction: column;
-            padding: 1rem;
-            border-top: 1px solid var(--border-color);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .nav-links.active {
-            display: flex;
-        }
-        
-        .menu-toggle {
-            display: block;
-        }
-        
-        .lang-switcher {
-            top: 80px;
-            right: 20px;
-        }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
     }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+    
+    .lang-switcher {
+        top: 80px;
+        right: 20px;
+    }
+}
+    
+    
     
     /* Container */
     .container {
