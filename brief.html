@@ -1695,6 +1695,8 @@
         });
     });
     </script>
+    
+
     <script>
 // Функция отправки в Google Таблицу
 const GOOGLE_URL = 'https://script.google.com/macros/s/AKfycbwCEYDx7cBULiTybs8LLyGreuNGS3EblELODLnnI2FfI5vW7ySIVPgZt66c8wZ_9F9k/exec';
@@ -1733,87 +1735,115 @@ function showMessage(msg, success) {
     setTimeout(() => div.remove(), 3000);
 }
 
-// Обработка формы брифа — СОБИРАЕМ ВСЕ ДАННЫЕ
+// Полный сбор данных из формы брифа
 const briefForm = document.getElementById('briefForm');
 if (briefForm) {
     briefForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Собираем ВСЕ данные из формы
-        const formData = {
-            // Контактные данные
-            name: document.getElementById('contact-name')?.value || '',
-            email: document.getElementById('contact-email')?.value || '',
-            phone: document.getElementById('contact-phone')?.value || '',
-            
-            // Тип формы
-            formType: 'Бриф',
-            
-            // Основная информация
-            company: document.getElementById('company')?.value || '',
-            industry: document.getElementById('industry')?.value || '',
-            projectType: document.getElementById('project-type')?.value || '',
-            description: document.getElementById('description')?.value || '',
-            
-            // Детали проекта
-            goals: document.getElementById('goals')?.value || '',
-            targetAudience: document.getElementById('target-audience')?.value || '',
-            competitors: document.getElementById('competitors')?.value || '',
-            references: document.getElementById('references')?.value || '',
-            
-            // Контент
-            content: Array.from(document.querySelectorAll('input[name="content[]"]:checked')).map(cb => cb.value).join(', '),
-            
-            // Визуальные предпочтения
-            style: document.querySelector('input[name="style"]:checked')?.value || '',
-            colors: document.querySelector('input[placeholder*="цвета"]')?.value || document.getElementById('colors')?.value || '',
-            mood: document.getElementById('mood')?.value || '',
-            
-            // Бюджет и сроки
-            budget: document.getElementById('budget')?.value || '',
-            deadline: document.getElementById('deadline')?.value || '',
-            nda: document.getElementById('nda')?.checked ? 'Да' : 'Нет',
-            newsletter: document.getElementById('newsletter')?.checked ? 'Да' : 'Нет'
-        };
+        // Получаем выбранный стиль
+        let selectedStyle = '';
+        const styleRadio = document.querySelector('input[name="style"]:checked');
+        if (styleRadio) {
+            const styleLabels = {
+                'modern': 'Современный',
+                'minimal': 'Минимализм',
+                'corporate': 'Корпоративный',
+                'creative': 'Креативный',
+                'playful': 'Игривый',
+                'luxury': 'Люкс'
+            };
+            selectedStyle = styleLabels[styleRadio.value] || styleRadio.value;
+        }
         
-        // Формируем читаемое сообщение для Google Таблицы
-        const messageText = `
-Компания: ${formData.company}
-Сфера: ${formData.industry}
-Тип проекта: ${formData.projectType}
-Описание: ${formData.description}
-Цели: ${formData.goals}
-Целевая аудитория: ${formData.targetAudience}
-Конкуренты: ${formData.competitors}
-Референсы: ${formData.references}
-Готовый контент: ${formData.content}
-Стиль: ${formData.style}
-Цвета: ${formData.colors}
-Настроение: ${formData.mood}
-Бюджет: ${formData.budget}
-Сроки: ${formData.deadline}
-NDA: ${formData.nda}
-Рассылка: ${formData.newsletter}
+        // Получаем выбранные цвета
+        let selectedColors = '';
+        const colorInput = document.querySelector('input[placeholder*="цвета"]');
+        if (colorInput && colorInput.value) {
+            selectedColors = colorInput.value;
+        } else {
+            const selectedColor = document.querySelector('.color-option.selected');
+            if (selectedColor) {
+                selectedColors = selectedColor.style.backgroundColor;
+            }
+        }
+        
+        // Получаем выбранный контент
+        const contentChecked = Array.from(document.querySelectorAll('input[name="content[]"]:checked'));
+        const contentText = contentChecked.map(cb => {
+            const labels = {
+                'text': 'Текст готов',
+                'photos': 'Фото готовы',
+                'logo': 'Логотип есть',
+                'none': 'Нужна помощь'
+            };
+            return labels[cb.value] || cb.value;
+        }).join(', ');
+        
+        // Формируем полное сообщение со ВСЕМИ данными
+        const fullMessage = `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 ОСНОВНАЯ ИНФОРМАЦИЯ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏢 Компания: ${document.getElementById('company')?.value || 'не указано'}
+📂 Сфера: ${document.getElementById('industry')?.options[document.getElementById('industry')?.selectedIndex]?.text || 'не указано'}
+🎯 Тип проекта: ${document.getElementById('project-type')?.options[document.getElementById('project-type')?.selectedIndex]?.text || 'не указано'}
+📝 Описание: ${document.getElementById('description')?.value || 'не указано'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 ЦЕЛИ И АУДИТОРИЯ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⭐ Цели: ${document.getElementById('goals')?.value || 'не указано'}
+👥 Целевая аудитория: ${document.getElementById('target-audience')?.value || 'не указано'}
+🏆 Конкуренты: ${document.getElementById('competitors')?.value || 'не указано'}
+🎨 Референсы: ${document.getElementById('references')?.value || 'не указано'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎨 ВИЗУАЛЬНЫЕ ПРЕДПОЧТЕНИЯ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🖌️ Стиль: ${selectedStyle || 'не указан'}
+🎨 Цвета: ${selectedColors || 'не указаны'}
+💭 Настроение: ${document.getElementById('mood')?.value || 'не указано'}
+📦 Готовый контент: ${contentText || 'не указано'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💰 БЮДЖЕТ И СРОКИ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💵 Бюджет: ${document.getElementById('budget')?.options[document.getElementById('budget')?.selectedIndex]?.text || 'не указан'}
+⏰ Сроки: ${document.getElementById('deadline')?.options[document.getElementById('deadline')?.selectedIndex]?.text || 'не указаны'}
+📄 NDA: ${document.getElementById('nda')?.checked ? '✅ Требуется' : '❌ Не требуется'}
+📧 Рассылка: ${document.getElementById('newsletter')?.checked ? '✅ Да' : '❌ Нет'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 КОНТАКТНЫЕ ДАННЫЕ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 Имя: ${document.getElementById('contact-name')?.value || 'не указано'}
+📧 Email: ${document.getElementById('contact-email')?.value || 'не указано'}
+📞 Телефон: ${document.getElementById('contact-phone')?.value || 'не указано'}
+🌐 Сайт: ${document.getElementById('company-site')?.value || 'не указано'}
         `;
         
         // Отправляем в Google
         const dataToSend = {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            formType: formData.formType,
-            message: messageText
+            name: document.getElementById('contact-name')?.value || '',
+            email: document.getElementById('contact-email')?.value || '',
+            phone: document.getElementById('contact-phone')?.value || '',
+            formType: '📋 БРИФ',
+            message: fullMessage
         };
         
         const success = await sendToGoogle(dataToSend);
         
         if (success) {
-            showMessage('✅ Бриф отправлен! Мы свяжемся с вами.', true);
+            showMessage('✅ Бриф успешно отправлен! Мы свяжемся с вами в ближайшее время.', true);
             briefForm.reset();
+            // Сброс шагов
             if (typeof showStep === 'function') showStep(1);
             document.querySelectorAll('.step').forEach(s => s.classList.remove('completed'));
+            // Сброс выбора цвета
+            document.querySelectorAll('.color-option').forEach(c => c.classList.remove('selected'));
         } else {
-            showMessage('❌ Ошибка. Напишите нам в Telegram @creatify_cf', false);
+            showMessage('❌ Ошибка отправки. Пожалуйста, напишите нам в Telegram @creatify_cf', false);
         }
     });
 }
