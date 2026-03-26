@@ -1829,12 +1829,11 @@
                     <h4>Контакты</h4>
                     <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
                     <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
-                    <div class="social-links">
+                   <!-- <div class="social-links">
                         <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
                         <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+                </div>-->
                 <div class="footer-section">
                     <h4>Документы</h4>
                     <a href="privacy.html">Политика конфиденциальности</a>
@@ -1993,3 +1992,100 @@
     </script>
 </body>
 </html>
+
+<script>
+    // Add to each form page (brief.html, contact.html, etc.)
+// Replace the existing form submission code
+
+async function submitForm(endpoint, formData) {
+    try {
+        const response = await fetch(`https://localhost:5001/api/${endpoint}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Show success message
+            showNotification(result.message, 'success');
+            
+            // Reset form
+            document.getElementById('briefForm').reset();
+            
+            // Reset steps to first
+            showStep(1);
+        } else {
+            showNotification(result.message || 'Ошибка при отправке', 'error');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Ошибка соединения с сервером', 'error');
+    }
+}
+
+// For brief form submission
+if (document.getElementById('briefForm')) {
+    document.getElementById('briefForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            company: document.getElementById('company').value,
+            industry: document.getElementById('industry').value,
+            projectType: document.getElementById('project-type').value,
+            description: document.getElementById('description').value,
+            goals: document.getElementById('goals').value,
+            targetAudience: document.getElementById('target-audience').value,
+            competitors: document.getElementById('competitors').value,
+            references: document.getElementById('references').value,
+            content: Array.from(document.querySelectorAll('input[name="content[]"]:checked')).map(cb => cb.value),
+            style: document.querySelector('input[name="style"]:checked')?.value,
+            colors: document.querySelector('input[placeholder*="цвета"]')?.value,
+            mood: document.getElementById('mood')?.value,
+            contactName: document.getElementById('contact-name').value,
+            contactEmail: document.getElementById('contact-email').value,
+            contactPhone: document.getElementById('contact-phone').value,
+            companySite: document.getElementById('company-site').value,
+            budget: document.getElementById('budget').value,
+            deadline: document.getElementById('deadline').value,
+            nda: document.getElementById('nda')?.checked || false,
+            newsletter: document.getElementById('newsletter')?.checked || false,
+            privacyAgreement: document.getElementById('privacy-agreement')?.checked || false,
+            offerAgreement: document.getElementById('offer-agreement')?.checked || false
+        };
+        
+        await submitForm('brief', formData);
+    });
+}
+
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${type === 'success' ? '#10B981' : '#EF4444'};
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 10000;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
+}
+</script>
