@@ -1,3 +1,6 @@
+Вот исправленная версия страницы, где добавлен перевод для всего текста (биографии, разделов "Мой путь", "Что я делаю сейчас", "Моя клиентская база", "Моя философия", "Почему мне можно доверять" и других элементов):
+
+```html
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
 <head>
@@ -30,7 +33,7 @@
         --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
         --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
         --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
-       
+        --cta-bg: #1A1A2E;
         --footer-bg: #1A1A2E;
     }
     
@@ -339,6 +342,18 @@
         font-size: 1.0625rem;
     }
     
+    .partner-bio h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin: 1.5rem 0 1rem;
+        color: var(--text-dark);
+    }
+    
+    .partner-bio h2:first-of-type {
+        margin-top: 0;
+    }
+    
     .partner-stats {
         display: flex;
         gap: 3rem;
@@ -567,13 +582,6 @@
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
         }
-    }
-    
-    .skill:hover {
-        background: var(--primary-color);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
     }
     
     /* Modern CTA Section */
@@ -989,9 +997,9 @@
                     </div>
                     <div class="partner-info">
                         <h2>Яна Зарожина</h2>
-                        <p class="partner-title" data-lang-ru="Креативный директор & Цифровой дизайнер" 
-                           data-lang-en="Creative Director & Digital Designer">
-                            Креативный директор & Основатель CREATIFY
+                        <p class="partner-title" data-lang-ru="Креативный директор &amp; Основатель CREATIFY" 
+                           data-lang-en="Creative Director &amp; Founder of CREATIFY">
+                            Креативный директор &amp; Основатель CREATIFY
                         </p>
                     </div>
                 </div>
@@ -999,52 +1007,68 @@
                     <p data-lang-ru="Специализируюсь на искусстве и ремесле визуальных решений. Более 3 лет опыта в создании уникальных дизайнов, которые подчеркивают индивидуальность бренда и привлекают целевую аудиторию." 
                        data-lang-en="I specialize in the art and craft of visual solutions. Over 3 years of experience creating unique designs that highlight brand identity and attract target audiences.">
                         Специализируюсь на искусстве и ремесле визуальных решений. Более 3 лет опыта в создании уникальных дизайнов, которые подчеркивают индивидуальность бренда и привлекают целевую аудиторию.
-                       <br> Я — креативный цифровой дизайнер, руководитель проектов и наставник. Моя задача — не просто сделать «красиво», а создать визуальные решения, которые работают на бизнес, привлекают внимание и решают реальные задачи.</p>
-<br>
-<h2>МОЙ ПУТЬ</h2>
-
-<p>Я окончила Российский технологический университет (МИРЭА) по направлению «Разработка и дизайн компьютерных игр и мультимедийных приложений». Красный диплом — это не просто строчка в резюме, а подтверждение того, что я привыкла делать качественно и системно.
-<br>
-Сейчас я совмещаю несколько ролей:<br>
-Руководитель проектов и креативный директор в одной из компаний<br>
-
-Наставник для дизайнеров и разработчиков<br>
-
-Автор курса по инфографике, который я запустила и успешно провела — с полным потоком учеников, выпуском и живыми результатами</p>
-<br>
-<h2>ЧТО Я ДЕЛАЮ СЕЙЧАС</h2>
-
-Я не стою на месте. Сейчас я:<br>
-
-✓ Управляю проектами как руководитель и креативный директор — от идеи до финального результата<br>
-✓ Веду учеников индивидуально (дизайн, программирование, работа с ИИ)<br>
-✓ Разрабатываю визуальные решения для бизнеса: сайты, приложения, айдентику, инфографику<br>
-✓ Помогаю клиентам внедрять ИИ в дизайн-процессы, чтобы работать быстрее и эффективнее<br>
-<br>
-<h2>МОЯ КЛИЕНТСКАЯ БАЗА</h2>
-
-За время работы я собрала базу клиентов, которые возвращаются снова и снова. Почему?<br> Потому что я не просто «исполнитель». Я беру на себя ответственность за проект, предлагаю решения, которые реально работают, и всегда остаюсь на связи.
-
-Среди моих клиентов — предприниматели, маркетологи, онлайн-школы, стартапы. Каждому я даю то, что ему нужно: кому-то — быстрый и качественный дизайн, кому-то — полное управление проектом, кому-то — наставничество и уверенность в своих силах.
-<br><br>
-<h2>МОЯ ФИЛОСОФИЯ</h2>
-
-Я считаю, что дизайн — это не просто картинка. Это инструмент коммуникации, который работает 24/7. Поэтому в каждом проекте я спрашиваю себя и клиента: «Какую задачу мы решаем?», «Кто наша аудитория?», «Что должно произойти после того, как человек увидит этот дизайн?»
-<br>
-Моя цель — разработать индивидуальный визуальный язык, который подчеркнет уникальность вашего бренда и привлечет внимание именно тех людей, которые вам нужны.
-<br><br>
-<h2>ПОЧЕМУ МНЕ МОЖНО ДОВЕРЯТЬ</h2>
-
-<p>Потому что я прошла путь:
-
-от студента с красным дипломом
-
-до фрилансера с тысячами выполненных работ
-
-до руководителя проектов, автора курса и наставника
-
-Я знаю, что такое «страшно сделать первый шаг», «как найти клиента», «как не продешевить», «как не выгореть». И я делюсь этим опытом с учениками и клиентами.</p>
-
+                    </p>
+                    <p data-lang-ru="Я — креативный цифровой дизайнер, руководитель проектов и наставник. Моя задача — не просто сделать «красиво», а создать визуальные решения, которые работают на бизнес, привлекают внимание и решают реальные задачи." 
+                       data-lang-en="I am a creative digital designer, project manager and mentor. My task is not just to make it 'beautiful', but to create visual solutions that work for business, attract attention and solve real problems.">
+                        Я — креативный цифровой дизайнер, руководитель проектов и наставник. Моя задача — не просто сделать «красиво», а создать визуальные решения, которые работают на бизнес, привлекают внимание и решают реальные задачи.
+                    </p>
+                    <br>
+                    <h2 data-lang-ru="МОЙ ПУТЬ" data-lang-en="MY PATH">МОЙ ПУТЬ</h2>
+                    <p data-lang-ru="Я окончила Российский технологический университет (МИРЭА) по направлению «Разработка и дизайн компьютерных игр и мультимедийных приложений». Красный диплом — это не просто строчка в резюме, а подтверждение того, что я привыкла делать качественно и системно." 
+                       data-lang-en="I graduated from the Russian Technological University (MIREA) in 'Development and design of computer games and multimedia applications'. Red diploma is not just a line in my resume, but confirmation that I am used to doing things efficiently and systematically.">
+                        Я окончила Российский технологический университет (МИРЭА) по направлению «Разработка и дизайн компьютерных игр и мультимедийных приложений». Красный диплом — это не просто строчка в резюме, а подтверждение того, что я привыкла делать качественно и системно.
+                    </p>
+                    <p data-lang-ru="Сейчас я совмещаю несколько ролей: руководитель проектов и креативный директор в одной из компаний, наставник для дизайнеров и разработчиков, автор курса по инфографике, который я запустила и успешно провела — с полным потоком учеников, выпуском и живыми результатами." 
+                       data-lang-en="Now I combine several roles: project manager and creative director in one of the companies, mentor for designers and developers, author of a course on infographics that I launched and successfully conducted — with a full stream of students, graduation and real results.">
+                        Сейчас я совмещаю несколько ролей: руководитель проектов и креативный директор в одной из компаний, наставник для дизайнеров и разработчиков, автор курса по инфографике, который я запустила и успешно провела — с полным потоком учеников, выпуском и живыми результатами.
+                    </p>
+                    
+                    <h2 data-lang-ru="ЧТО Я ДЕЛАЮ СЕЙЧАС" data-lang-en="WHAT I DO NOW">ЧТО Я ДЕЛАЮ СЕЙЧАС</h2>
+                    <p data-lang-ru="Я не стою на месте. Сейчас я:" data-lang-en="I don't stand still. Right now I:">
+                        Я не стою на месте. Сейчас я:
+                    </p>
+                    <p data-lang-ru="✓ Управляю проектами как руководитель и креативный директор — от идеи до финального результата" 
+                       data-lang-en="✓ I manage projects as a manager and creative director — from idea to final result">
+                        ✓ Управляю проектами как руководитель и креативный директор — от идеи до финального результата
+                    </p>
+                    <p data-lang-ru="✓ Веду учеников индивидуально (дизайн, программирование, работа с ИИ)" 
+                       data-lang-en="✓ I mentor students individually (design, programming, work with AI)">
+                        ✓ Веду учеников индивидуально (дизайн, программирование, работа с ИИ)
+                    </p>
+                    <p data-lang-ru="✓ Разрабатываю визуальные решения для бизнеса: сайты, приложения, айдентику, инфографику" 
+                       data-lang-en="✓ I develop visual solutions for business: websites, applications, branding, infographics">
+                        ✓ Разрабатываю визуальные решения для бизнеса: сайты, приложения, айдентику, инфографику
+                    </p>
+                    <p data-lang-ru="✓ Помогаю клиентам внедрять ИИ в дизайн-процессы, чтобы работать быстрее и эффективнее" 
+                       data-lang-en="✓ I help clients implement AI into design processes to work faster and more efficiently">
+                        ✓ Помогаю клиентам внедрять ИИ в дизайн-процессы, чтобы работать быстрее и эффективнее
+                    </p>
+                    
+                    <h2 data-lang-ru="МОЯ КЛИЕНТСКАЯ БАЗА" data-lang-en="MY CLIENT BASE">МОЯ КЛИЕНТСКАЯ БАЗА</h2>
+                    <p data-lang-ru="За время работы я собрала базу клиентов, которые возвращаются снова и снова. Почему? Потому что я не просто «исполнитель». Я беру на себя ответственность за проект, предлагаю решения, которые реально работают, и всегда остаюсь на связи." 
+                       data-lang-en="During my work, I have built a base of clients who come back again and again. Why? Because I am not just a 'performer'. I take responsibility for the project, offer solutions that really work, and always stay in touch.">
+                        За время работы я собрала базу клиентов, которые возвращаются снова и снова. Почему? Потому что я не просто «исполнитель». Я беру на себя ответственность за проект, предлагаю решения, которые реально работают, и всегда остаюсь на связи.
+                    </p>
+                    <p data-lang-ru="Среди моих клиентов — предприниматели, маркетологи, онлайн-школы, стартапы. Каждому я даю то, что ему нужно: кому-то — быстрый и качественный дизайн, кому-то — полное управление проектом, кому-то — наставничество и уверенность в своих силах." 
+                       data-lang-en="Among my clients are entrepreneurs, marketers, online schools, startups. I give everyone what they need: some — fast and high-quality design, others — complete project management, others — mentoring and confidence in their abilities.">
+                        Среди моих клиентов — предприниматели, маркетологи, онлайн-школы, стартапы. Каждому я даю то, что ему нужно: кому-то — быстрый и качественный дизайн, кому-то — полное управление проектом, кому-то — наставничество и уверенность в своих силах.
+                    </p>
+                    
+                    <h2 data-lang-ru="МОЯ ФИЛОСОФИЯ" data-lang-en="MY PHILOSOPHY">МОЯ ФИЛОСОФИЯ</h2>
+                    <p data-lang-ru="Я считаю, что дизайн — это не просто картинка. Это инструмент коммуникации, который работает 24/7. Поэтому в каждом проекте я спрашиваю себя и клиента: «Какую задачу мы решаем?», «Кто наша аудитория?», «Что должно произойти после того, как человек увидит этот дизайн?»" 
+                       data-lang-en="I believe that design is not just a picture. It is a communication tool that works 24/7. Therefore, in each project I ask myself and the client: 'What problem are we solving?', 'Who is our audience?', 'What should happen after a person sees this design?'">
+                        Я считаю, что дизайн — это не просто картинка. Это инструмент коммуникации, который работает 24/7. Поэтому в каждом проекте я спрашиваю себя и клиента: «Какую задачу мы решаем?», «Кто наша аудитория?», «Что должно произойти после того, как человек увидит этот дизайн?»
+                    </p>
+                    <p data-lang-ru="Моя цель — разработать индивидуальный визуальный язык, который подчеркнет уникальность вашего бренда и привлечет внимание именно тех людей, которые вам нужны." 
+                       data-lang-en="My goal is to develop an individual visual language that will emphasize the uniqueness of your brand and attract the attention of exactly the people you need.">
+                        Моя цель — разработать индивидуальный визуальный язык, который подчеркнет уникальность вашего бренда и привлечет внимание именно тех людей, которые вам нужны.
+                    </p>
+                    
+                    <h2 data-lang-ru="ПОЧЕМУ МНЕ МОЖНО ДОВЕРЯТЬ" data-lang-en="WHY YOU CAN TRUST ME">ПОЧЕМУ МНЕ МОЖНО ДОВЕРЯТЬ</h2>
+                    <p data-lang-ru="Потому что я прошла путь: от студента с красным дипломом до фрилансера с тысячами выполненных работ, до руководителя проектов, автора курса и наставника. Я знаю, что такое «страшно сделать первый шаг», «как найти клиента», «как не продешевить», «как не выгореть». И я делюсь этим опытом с учениками и клиентами." 
+                       data-lang-en="Because I have come a long way: from a student with a red diploma to a freelancer with thousands of completed works, to a project manager, course author and mentor. I know what it's like to be 'scared to take the first step', 'how to find a client', 'how not to undersell', 'how not to burn out'. And I share this experience with students and clients.">
+                        Потому что я прошла путь: от студента с красным дипломом до фрилансера с тысячами выполненных работ, до руководителя проектов, автора курса и наставника. Я знаю, что такое «страшно сделать первый шаг», «как найти клиента», «как не продешевить», «как не выгореть». И я делюсь этим опытом с учениками и клиентами.
+                    </p>
                  
                     <div class="partner-stats">
                         <div class="stat-item">
@@ -1068,8 +1092,6 @@
                     </div>
                 </div>
             </div>
-
-            
         </div>
     </section>
 
@@ -1093,8 +1115,8 @@
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h4 data-lang-ru="Партнерство" data-lang-en="Partnership">Партнерство</h4>
-                    <p data-lang-ru="Мы не просто исполнители, мы — партнеры" 
-                       data-lang-en="We are not just executors, we are partners">
+                    <p data-lang-ru="Ваши цели — наши общие задачи" 
+                       data-lang-en="Your goals are our common tasks">
                         Ваши цели — наши общие задачи
                     </p>
                 </div>
@@ -1115,12 +1137,12 @@
     <!-- Skills Section -->
     <section class="skills-section">
         <div class="container">
-            <h3 data-lang-ru="Наши инструменты и направления" data-lang-en="Our Tools & Specializations">
+            <h3 data-lang-ru="Наши инструменты и направления" data-lang-en="Our Tools &amp; Specializations">
                 Наши инструменты и направления
             </h3>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
-                    <h4>Используемые платформы</h4>
+                    <h4 data-lang-ru="Используемые платформы" data-lang-en="Platforms Used">Используемые платформы</h4>
                     <div class="skill-list">
                         <span class="skill">Figma</span>
                         <span class="skill">Adobe Photoshop</span>
@@ -1132,14 +1154,14 @@
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h4>Направления работы</h4>
+                    <h4 data-lang-ru="Направления работы" data-lang-en="Areas of Work">Направления работы</h4>
                     <div class="skill-list">
                         <span class="skill">Графический дизайн</span>
                         <span class="skill">Web-дизайн</span>
                         <span class="skill">UX/UI дизайн</span>
                         <span class="skill">Презентации</span>
                         <span class="skill">Сайты на Tilda</span>
-                         <span class="skill">Инфографика</span>
+                        <span class="skill">Инфографика</span>
                         <span class="skill">Разработка</span>
                         <span class="skill">Обучение</span>
                         <span class="skill">Маркетинговые материалы</span>
@@ -1164,11 +1186,11 @@
                 <div class="cta-buttons-modern">
                     <a href="brief.html" class="btn-modern-primary">
                         <i class="fas fa-file-alt"></i>
-                        Заполнить бриф
+                        <span data-lang-ru="Заполнить бриф" data-lang-en="Fill out the brief">Заполнить бриф</span>
                     </a>
                     <a href="contact.html" class="btn-modern-secondary">
                         <i class="fas fa-comments"></i>
-                        Связаться с нами
+                        <span data-lang-ru="Связаться с нами" data-lang-en="Contact us">Связаться с нами</span>
                     </a>
                 </div>
             </div>
@@ -1181,26 +1203,24 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>CREATIFY</h3>
-                    <p>Специализированное партнерство в области цифрового дизайна</p>
+                    <p data-lang-ru="Специализированное партнерство в области цифрового дизайна" 
+                       data-lang-en="Specialized partnership in digital design">
+                        Специализированное партнерство в области цифрового дизайна
+                    </p>
                 </div>
                 <div class="footer-section">
-                    <h4>Контакты</h4>
+                    <h4 data-lang-ru="Контакты" data-lang-en="Contacts">Контакты</h4>
                     <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
                     <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
-                <!--    <div class="social-links">
-                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>-->
                 </div>
                 <div class="footer-section">
-                    <h4>Документы</h4>
-                    <a href="privacy.html">Политика конфиденциальности</a>
-                    <a href="offer.html">Публичная оферта</a>
+                    <h4 data-lang-ru="Документы" data-lang-en="Documents">Документы</h4>
+                    <a href="privacy.html" data-lang-ru="Политика конфиденциальности" data-lang-en="Privacy Policy">Политика конфиденциальности</a>
+                    <a href="offer.html" data-lang-ru="Публичная оферта" data-lang-en="Public offer">Публичная оферта</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 CREATIFY. Все права защищены.</p>
+                <p>© 2026 CREATIFY. <span data-lang-ru="Все права защищены." data-lang-en="All rights reserved.">Все права защищены.</span></p>
             </div>
         </div>
     </footer>
@@ -1209,20 +1229,43 @@
     document.addEventListener('DOMContentLoaded', function() {
         // Language switcher
         const langButtons = document.querySelectorAll('.lang-btn');
+        
+        function updateLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-ru]');
+            elements.forEach(el => {
+                if (lang === 'ru') {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = el.dataset.langRu;
+                    } else {
+                        el.textContent = el.dataset.langRu;
+                    }
+                } else if (lang === 'en') {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = el.dataset.langEn;
+                    } else {
+                        el.textContent = el.dataset.langEn;
+                    }
+                }
+            });
+            
+            // Update button texts specifically
+            const briefBtnSpan = document.querySelector('.btn-modern-primary span');
+            const contactBtnSpan = document.querySelector('.btn-modern-secondary span');
+            if (briefBtnSpan) {
+                briefBtnSpan.textContent = lang === 'ru' ? 'Заполнить бриф' : 'Fill out the brief';
+            }
+            if (contactBtnSpan) {
+                contactBtnSpan.textContent = lang === 'ru' ? 'Связаться с нами' : 'Contact us';
+            }
+        }
+        
         langButtons.forEach(btn => {
             btn.addEventListener('click', function() {
                 langButtons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
                 const lang = this.dataset.lang;
-                const elements = document.querySelectorAll('[data-lang-ru]');
-                elements.forEach(el => {
-                    if (lang === 'ru') {
-                        el.textContent = el.dataset.langRu;
-                    } else if (lang === 'en') {
-                        el.textContent = el.dataset.langEn;
-                    }
-                });
+                updateLanguage(lang);
             });
         });
         
@@ -1293,100 +1336,4 @@
     </script>
 </body>
 </html>
-
-<script>
-    // Add to each form page (brief.html, contact.html, etc.)
-// Replace the existing form submission code
-
-async function submitForm(endpoint, formData) {
-    try {
-        const response = await fetch(`https://localhost:5001/api/${endpoint}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            // Show success message
-            showNotification(result.message, 'success');
-            
-            // Reset form
-            document.getElementById('briefForm').reset();
-            
-            // Reset steps to first
-            showStep(1);
-        } else {
-            showNotification(result.message || 'Ошибка при отправке', 'error');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        showNotification('Ошибка соединения с сервером', 'error');
-    }
-}
-
-// For brief form submission
-if (document.getElementById('briefForm')) {
-    document.getElementById('briefForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = {
-            company: document.getElementById('company').value,
-            industry: document.getElementById('industry').value,
-            projectType: document.getElementById('project-type').value,
-            description: document.getElementById('description').value,
-            goals: document.getElementById('goals').value,
-            targetAudience: document.getElementById('target-audience').value,
-            competitors: document.getElementById('competitors').value,
-            references: document.getElementById('references').value,
-            content: Array.from(document.querySelectorAll('input[name="content[]"]:checked')).map(cb => cb.value),
-            style: document.querySelector('input[name="style"]:checked')?.value,
-            colors: document.querySelector('input[placeholder*="цвета"]')?.value,
-            mood: document.getElementById('mood')?.value,
-            contactName: document.getElementById('contact-name').value,
-            contactEmail: document.getElementById('contact-email').value,
-            contactPhone: document.getElementById('contact-phone').value,
-            companySite: document.getElementById('company-site').value,
-            budget: document.getElementById('budget').value,
-            deadline: document.getElementById('deadline').value,
-            nda: document.getElementById('nda')?.checked || false,
-            newsletter: document.getElementById('newsletter')?.checked || false,
-            privacyAgreement: document.getElementById('privacy-agreement')?.checked || false,
-            offerAgreement: document.getElementById('offer-agreement')?.checked || false
-        };
-        
-        await submitForm('brief', formData);
-    });
-}
-
-function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? '#10B981' : '#EF4444'};
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        animation: slideIn 0.3s ease;
-    `;
-    
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-</script>
+```

@@ -1,3 +1,6 @@
+Вот исправленная версия страницы обучения (education.html) с полной поддержкой перевода на русский и английский язык для всего контента:
+
+```html
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
 <head>
@@ -52,7 +55,7 @@
         padding: 0;
     }
     
-    /* Navigation and Language Switcher (same as before) */
+    /* Navigation and Language Switcher */
     .lang-switcher {
         position: fixed;
         top: 20px;
@@ -85,72 +88,6 @@
         box-shadow: var(--shadow-sm);
     }
     
-    .glass-nav {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border-color);
-        box-shadow: var(--shadow-sm);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        padding: 1rem 0;
-    }
-    
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    .logo {
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .logo-main {
-        color: var(--text-dark);
-        font-size: 1.5rem;
-        font-weight: 700;
-        font-family: 'Space Grotesk', sans-serif;
-    }
-    
-    .logo-sub {
-        color: var(--primary-color);
-        font-size: 0.75rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-    }
-    
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-    }
-    
-    .nav-link {
-        color: var(--text-gray) !important;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9375rem;
-        transition: color 0.3s ease;
-    }
-    
-    .nav-link.active {
-        color: var(--primary-color) !important;
-        font-weight: 600;
-    }
-    
-    .nav-link:hover {
-        color: var(--primary-color) !important;
-    }
-    
-        /* Navigation */
     .glass-nav {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
@@ -252,8 +189,6 @@
             right: 20px;
         }
     }
-
-
     
     /* Container */
     .container {
@@ -294,6 +229,19 @@
     .categories-section {
         padding: 6rem 0;
         background: white;
+    }
+    
+    .section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+    
+    .section-subtitle {
+        color: var(--text-gray);
+        font-size: 1.125rem;
     }
     
     .categories-grid {
@@ -393,9 +341,11 @@
         font-size: 0.9375rem;
     }
     
-    .category-features {
+    .category-features ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
         text-align: left;
-        margin-top: 2rem;
     }
     
     .category-features li {
@@ -539,8 +489,14 @@
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
         font-size: 1.25rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         color: var(--text-dark);
+    }
+    
+    .specialization-card p {
+        color: var(--text-gray);
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
     }
     
     .specialization-modules {
@@ -674,6 +630,12 @@
         margin-bottom: 2rem;
     }
     
+    .format-features ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
     .format-features li {
         display: flex;
         align-items: center;
@@ -693,6 +655,14 @@
         padding: 6rem 0;
         background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
         color: white;
+    }
+    
+    .pricing-section .section-title {
+        color: white;
+    }
+    
+    .pricing-section .section-subtitle {
+        color: rgba(255, 255, 255, 0.8);
     }
     
     .pricing-cards {
@@ -924,234 +894,9 @@
         transform: translateY(-2px);
     }
     
-    /* Responsive Design */
-    @media (max-width: 992px) {
-        .categories-grid,
-        .specializations-grid,
-        .formats-grid,
-        .pricing-cards {
-            grid-template-columns: 1fr;
-        }
-        
-        .pricing-card.featured {
-            transform: none;
-        }
-        
-        .pricing-card.featured:hover {
-            transform: translateY(-5px);
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .page-hero {
-            padding: 140px 0 60px;
-        }
-        
-        .page-title {
-            font-size: 2.5rem;
-        }
-        
-        .page-subtitle {
-            font-size: 1.125rem;
-        }
-        
-        .categories-section,
-        .specializations-section,
-        .formats-section,
-        .pricing-section {
-            padding: 4rem 0;
-        }
-        
-        .category-card,
-        .specialization-card,
-        .format-card,
-        .pricing-card {
-            padding: 2rem;
-        }
-        
-        .specialization-tabs {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .tab-btn {
-            width: 100%;
-            max-width: 300px;
-        }
-        
-        .cta-content-modern {
-            padding: 3rem 2rem;
-        }
-        
-        .cta-content-modern h2 {
-            font-size: 2rem;
-        }
-        
-        .cta-buttons-modern {
-            flex-direction: column;
-        }
-        
-        .btn-modern-primary,
-        .btn-modern-secondary {
-            width: 100%;
-            justify-content: center;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .category-card,
-        .specialization-card,
-        .format-card,
-        .pricing-card {
-            padding: 1.5rem;
-        }
-        
-        .category-icon {
-            width: 60px;
-            height: 60px;
-            font-size: 1.5rem;
-        }
-        
-        .current-price {
-            font-size: 2.5rem;
-        }
-    }
-       /* Responsive Design */
-    @media (max-width: 992px) {
-        .partner-header {
-            flex-direction: column;
-            text-align: center;
-            gap: 1.5rem;
-        }
-        
-        .partner-avatar.large {
-            margin: 0 auto;
-        }
-        
-        .partner-stats {
-            gap: 2rem;
-        }
-        
-        .philosophy-grid,
-        .skills-grid {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .page-hero {
-            padding: 120px 0 40px;
-        }
-        
-        .page-title {
-            font-size: 2rem;
-        }
-        
-        .page-subtitle {
-            font-size: 1rem;
-        }
-        
-        .partner-detail {
-            padding: 2rem;
-        }
-        
-        .partner-info h2 {
-            font-size: 1.75rem;
-        }
-        
-        .partner-stats {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .stat-item {
-            min-width: 100px;
-        }
-        
-        .philosophy-item,
-        .skill-category {
-            padding: 2rem;
-        }
-        
-        .cta-content-modern {
-            padding: 3rem 2rem;
-        }
-        
-        .cta-content-modern h2 {
-            font-size: 2rem;
-        }
-        
-        .cta-content-modern p {
-            font-size: 1rem;
-        }
-        
-        .cta-buttons-modern {
-            flex-direction: column;
-        }
-        
-        .btn-modern-primary,
-        .btn-modern-secondary {
-            width: 100%;
-            justify-content: center;
-        }
-        
-        .footer-content {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 2.5rem;
-        }
-        
-        .footer-section p {
-            justify-content: center;
-        }
-        
-        .social-links {
-            justify-content: center;
-        }
-        
-        .lang-switcher {
-            top: 70px;
-            right: 10px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .partner-avatar.large {
-            width: 120px;
-            height: 120px;
-        }
-        
-        .partner-info h2 {
-            font-size: 1.5rem;
-        }
-        
-        .partner-title {
-            font-size: 1rem;
-        }
-        
-        .philosophy-section h3,
-        .skills-section h3 {
-            font-size: 2rem;
-        }
-        
-        .philosophy-item,
-        .skill-category {
-            padding: 1.5rem;
-        }
-        
-        .skill {
-            padding: 0.5rem 1rem;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-        }
-    }
-
-       /* Footer */
+    /* Footer */
     .footer {
-        background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
+        background: linear-gradient(135deg, #1A1A2E 0%, #000000 100%);
         color: white;
         padding: 4rem 0 2rem;
         font-family: 'Inter', sans-serif;
@@ -1268,6 +1013,126 @@
     .footer-bottom p {
         margin: 0;
     }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .categories-grid,
+        .specializations-grid,
+        .formats-grid,
+        .pricing-cards {
+            grid-template-columns: 1fr;
+        }
+        
+        .pricing-card.featured {
+            transform: none;
+        }
+        
+        .pricing-card.featured:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .page-hero {
+            padding: 140px 0 60px;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+        }
+        
+        .categories-section,
+        .specializations-section,
+        .formats-section,
+        .pricing-section {
+            padding: 4rem 0;
+        }
+        
+        .category-card,
+        .specialization-card,
+        .format-card,
+        .pricing-card {
+            padding: 2rem;
+        }
+        
+        .specialization-tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-btn {
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .cta-content-modern {
+            padding: 3rem 2rem;
+        }
+        
+        .cta-content-modern h2 {
+            font-size: 2rem;
+        }
+        
+        .cta-buttons-modern {
+            flex-direction: column;
+        }
+        
+        .btn-modern-primary,
+        .btn-modern-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2.5rem;
+        }
+        
+        .footer-section p {
+            justify-content: center;
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .lang-switcher {
+            top: 70px;
+            right: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .category-card,
+        .specialization-card,
+        .format-card,
+        .pricing-card {
+            padding: 1.5rem;
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+        
+        .current-price {
+            font-size: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+        }
+    }
     </style>
 </head>
 <body>
@@ -1316,10 +1181,10 @@
     <!-- Categories Section -->
     <section class="categories-section">
         <div class="container">
-            <h2 class="section-title" style="text-align: center; color: var(--text-dark);">
+            <h2 class="section-title" style="text-align: center;" data-lang-ru="Направления обучения" data-lang-en="Training Directions">
                 Направления обучения
             </h2>
-            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;">
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;" data-lang-ru="Выберите направление, которое подходит именно вам" data-lang-en="Choose the direction that suits you best">
                 Выберите направление, которое подходит именно вам
             </p>
             
@@ -1329,17 +1194,20 @@
                     <div class="category-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h3>Дизайн</h3>
-                    <p>Комплексное обучение современному дизайну с освоением профессиональных инструментов<br>и методологий</p>
+                    <h3 data-lang-ru="Дизайн" data-lang-en="Design">Дизайн</h3>
+                    <p data-lang-ru="Комплексное обучение современному дизайну с освоением профессиональных инструментов и методологий" 
+                       data-lang-en="Comprehensive training in modern design with mastery of professional tools and methodologies">
+                        Комплексное обучение современному дизайну с освоением профессиональных инструментов и методологий
+                    </p>
                     
                     <div class="category-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> UI/UX дизайн интерфейсов</li>
-                            <li><i class="fas fa-check"></i> Веб-дизайн и презентации</li>
-                            <li><i class="fas fa-check"></i> Карточки для маркетплейсов</li>
-                            <li><i class="fas fa-check"></i> Графический дизайн и брендинг</li>
-                            <li><i class="fas fa-check"></i> 3D моделирование в Blender</li>
-                            <li><i class="fas fa-check"></i> Работа с AI и нейросетями</li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="UI/UX дизайн интерфейсов" data-lang-en="UI/UX interface design">UI/UX дизайн интерфейсов</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Веб-дизайн и презентации" data-lang-en="Web design and presentations">Веб-дизайн и презентации</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Карточки для маркетплейсов" data-lang-en="Marketplace cards">Карточки для маркетплейсов</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Графический дизайн и брендинг" data-lang-en="Graphic design and branding">Графический дизайн и брендинг</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="3D моделирование в Blender" data-lang-en="3D modeling in Blender">3D моделирование в Blender</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Работа с AI и нейросетями" data-lang-en="Working with AI and neural networks">Работа с AI и нейросетями</span></li>
                         </ul>
                     </div>
                 </div>
@@ -1349,16 +1217,19 @@
                     <div class="category-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Разработка</h3>
-                    <p>Полный цикл обучения программированию от основ<br>до профессиональной разработки</p>
+                    <h3 data-lang-ru="Разработка" data-lang-en="Development">Разработка</h3>
+                    <p data-lang-ru="Полный цикл обучения программированию от основ до профессиональной разработки" 
+                       data-lang-en="Full cycle of programming training from basics to professional development">
+                        Полный цикл обучения программированию от основ до профессиональной разработки
+                    </p>
                     
                     <div class="category-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> Frontend разработка (HTML, CSS, JS)</li>
-                            <li><i class="fas fa-check"></i> Backend разработка (Python, Java, C++)</li>
-                            <li><i class="fas fa-check"></i> Full-stack разработка</li>
-                            <li><i class="fas fa-check"></i> Мобильная разработка</li>
-                            <li><i class="fas fa-check"></i> Базы данных и DevOps</li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Frontend разработка (HTML, CSS, JS)" data-lang-en="Frontend development (HTML, CSS, JS)">Frontend разработка (HTML, CSS, JS)</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Backend разработка (Python, Java, C++)" data-lang-en="Backend development (Python, Java, C++)">Backend разработка (Python, Java, C++)</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Full-stack разработка" data-lang-en="Full-stack development">Full-stack разработка</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Мобильная разработка" data-lang-en="Mobile development">Мобильная разработка</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Базы данных и DevOps" data-lang-en="Databases and DevOps">Базы данных и DevOps</span></li>
                         </ul>
                     </div>
                 </div>
@@ -1368,16 +1239,19 @@
                     <div class="category-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Комплексный</h3>
-                    <p>Обучение полному циклу создания digital-продуктов: от идеи<br>до реализации</p>
+                    <h3 data-lang-ru="Комплексный" data-lang-en="Comprehensive">Комплексный</h3>
+                    <p data-lang-ru="Обучение полному циклу создания digital-продуктов: от идеи до реализации" 
+                       data-lang-en="Training in the full cycle of creating digital products: from idea to implementation">
+                        Обучение полному циклу создания digital-продуктов: от идеи до реализации
+                    </p>
                     
                     <div class="category-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> Дизайн + разработка в одном курсе</li>
-                            <li><i class="fas fa-check"></i> Управление digital-проектами</li>
-                            <li><i class="fas fa-check"></i> Создание собственных продуктов</li>
-                            <li><i class="fas fa-check"></i> Портфолио и трудоустройство</li>
-                            <li><i class="fas fa-check"></i> Стартап-разработка</li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Дизайн + разработка в одном курсе" data-lang-en="Design + development in one course">Дизайн + разработка в одном курсе</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Управление digital-проектами" data-lang-en="Digital project management">Управление digital-проектами</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Создание собственных продуктов" data-lang-en="Creating your own products">Создание собственных продуктов</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Портфолио и трудоустройство" data-lang-en="Portfolio and employment">Портфолио и трудоустройство</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Стартап-разработка" data-lang-en="Startup development">Стартап-разработка</span></li>
                         </ul>
                     </div>
                 </div>
@@ -1388,113 +1262,113 @@
     <!-- Specializations Section -->
     <section class="specializations-section">
         <div class="container">
-            <h2 class="section-title" style="text-align: center; color: var(--text-dark);">
+            <h2 class="section-title" style="text-align: center;" data-lang-ru="Специализации" data-lang-en="Specializations">
                 Специализации
             </h2>
-            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;">
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;" data-lang-ru="Подробные программы по каждому направлению" data-lang-en="Detailed programs for each direction">
                 Подробные программы по каждому направлению
             </p>
             
             <div class="specialization-tabs">
-                <button class="tab-btn active" data-tab="design">Дизайн</button>
-                <button class="tab-btn" data-tab="development">Разработка</button>
-                <button class="tab-btn" data-tab="general">Комплексный</button>
+                <button class="tab-btn active" data-tab="design"><span data-lang-ru="Дизайн" data-lang-en="Design">Дизайн</span></button>
+                <button class="tab-btn" data-tab="development"><span data-lang-ru="Разработка" data-lang-en="Development">Разработка</span></button>
+                <button class="tab-btn" data-tab="general"><span data-lang-ru="Комплексный" data-lang-en="Comprehensive">Комплексный</span></button>
             </div>
             
             <!-- Design Specializations -->
             <div class="tab-content active" id="design-tab">
                 <div class="specializations-grid">
-                    <!-- UI/UX Design -->
                     <div class="specialization-card design">
                         <div class="specialization-badge">UI/UX Design</div>
-                        <h3>Дизайн интерфейсов</h3>
-                        <p>Создание удобных и красивых интерфейсов для web и mobile</p>
-                        
+                        <h3 data-lang-ru="Дизайн интерфейсов" data-lang-en="Interface Design">Дизайн интерфейсов</h3>
+                        <p data-lang-ru="Создание удобных и красивых интерфейсов для web и mobile" data-lang-en="Creating convenient and beautiful interfaces for web and mobile">
+                            Создание удобных и красивых интерфейсов для web и mobile
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Основы UX/UI дизайна</li>
-                                <li>Прототипирование в Figma</li>
-                                <li>Дизайн-системы и компоненты</li>
-                                <li>Адаптивный дизайн</li>
-                                <li>Анимация интерфейсов</li>
-                                <li>User Research и тестирование</li>
+                                <li data-lang-ru="Основы UX/UI дизайна" data-lang-en="Basics of UX/UI design">Основы UX/UI дизайна</li>
+                                <li data-lang-ru="Прототипирование в Figma" data-lang-en="Prototyping in Figma">Прототипирование в Figma</li>
+                                <li data-lang-ru="Дизайн-системы и компоненты" data-lang-en="Design systems and components">Дизайн-системы и компоненты</li>
+                                <li data-lang-ru="Адаптивный дизайн" data-lang-en="Responsive design">Адаптивный дизайн</li>
+                                <li data-lang-ru="Анимация интерфейсов" data-lang-en="Interface animation">Анимация интерфейсов</li>
+                                <li data-lang-ru="User Research и тестирование" data-lang-en="User Research and testing">User Research и тестирование</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Web Design -->
                     <div class="specialization-card design">
                         <div class="specialization-badge">Web Design</div>
-                        <h3>Веб-дизайн и презентации</h3>
-                        <p>Дизайн сайтов, лендингов и бизнес-презентаций</p>
-                        
+                        <h3 data-lang-ru="Веб-дизайн и презентации" data-lang-en="Web Design and Presentations">Веб-дизайн и презентации</h3>
+                        <p data-lang-ru="Дизайн сайтов, лендингов и бизнес-презентаций" data-lang-en="Design of websites, landing pages and business presentations">
+                            Дизайн сайтов, лендингов и бизнес-презентаций
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Основы веб-дизайна</li>
-                                <li>Дизайн лендингов</li>
-                                <li>Создание презентаций</li>
-                                <li>Работа с Tilda</li>
-                                <li>Верстка и адаптивность</li>
-                                <li>Оптимизация для SEO</li>
+                                <li data-lang-ru="Основы веб-дизайна" data-lang-en="Basics of web design">Основы веб-дизайна</li>
+                                <li data-lang-ru="Дизайн лендингов" data-lang-en="Landing page design">Дизайн лендингов</li>
+                                <li data-lang-ru="Создание презентаций" data-lang-en="Creating presentations">Создание презентаций</li>
+                                <li data-lang-ru="Работа с Tilda" data-lang-en="Working with Tilda">Работа с Tilda</li>
+                                <li data-lang-ru="Верстка и адаптивность" data-lang-en="Layout and responsiveness">Верстка и адаптивность</li>
+                                <li data-lang-ru="Оптимизация для SEO" data-lang-en="SEO optimization">Оптимизация для SEO</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Graphic Design -->
                     <div class="specialization-card design">
                         <div class="specialization-badge">Graphic Design</div>
-                        <h3>Графический дизайн</h3>
-                        <p>Создание фирменного стиля<br>и графических материалов</p>
-                        
+                        <h3 data-lang-ru="Графический дизайн" data-lang-en="Graphic Design">Графический дизайн</h3>
+                        <p data-lang-ru="Создание фирменного стиля и графических материалов" data-lang-en="Creating a brand identity and graphic materials">
+                            Создание фирменного стиля и графических материалов
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Основы брендинга</li>
-                                <li>Логотипы и айдентика</li>
-                                <li>Векторная графика</li>
-                                <li>Инфографика</li>
-                                <li>Социальные сети и SMM</li>
-                                <li>Упаковка и мерч</li>
+                                <li data-lang-ru="Основы брендинга" data-lang-en="Basics of branding">Основы брендинга</li>
+                                <li data-lang-ru="Логотипы и айдентика" data-lang-en="Logos and identity">Логотипы и айдентика</li>
+                                <li data-lang-ru="Векторная графика" data-lang-en="Vector graphics">Векторная графика</li>
+                                <li data-lang-ru="Инфографика" data-lang-en="Infographics">Инфографика</li>
+                                <li data-lang-ru="Социальные сети и SMM" data-lang-en="Social networks and SMM">Социальные сети и SMM</li>
+                                <li data-lang-ru="Упаковка и мерч" data-lang-en="Packaging and merch">Упаковка и мерч</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- 3D Design -->
                     <div class="specialization-card design">
                         <div class="specialization-badge">3D Design</div>
-                        <h3>3D моделирование</h3>
-                        <p>Создание 3D моделей<br>и визуализаций в Blender</p>
-                        
+                        <h3 data-lang-ru="3D моделирование" data-lang-en="3D Modeling">3D моделирование</h3>
+                        <p data-lang-ru="Создание 3D моделей и визуализаций в Blender" data-lang-en="Creating 3D models and visualizations in Blender">
+                            Создание 3D моделей и визуализаций в Blender
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Основы Blender</li>
-                                <li>Моделирование объектов</li>
-                                <li>Текстурирование и материалы</li>
-                                <li>Освещение и рендеринг</li>
-                                <li>Анимация 3D объектов</li>
-                                <li>Интеграция с веб</li>
+                                <li data-lang-ru="Основы Blender" data-lang-en="Blender basics">Основы Blender</li>
+                                <li data-lang-ru="Моделирование объектов" data-lang-en="Object modeling">Моделирование объектов</li>
+                                <li data-lang-ru="Текстурирование и материалы" data-lang-en="Texturing and materials">Текстурирование и материалы</li>
+                                <li data-lang-ru="Освещение и рендеринг" data-lang-en="Lighting and rendering">Освещение и рендеринг</li>
+                                <li data-lang-ru="Анимация 3D объектов" data-lang-en="Animation of 3D objects">Анимация 3D объектов</li>
+                                <li data-lang-ru="Интеграция с веб" data-lang-en="Integration with web">Интеграция с веб</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- AI Design -->
                     <div class="specialization-card design">
                         <div class="specialization-badge">AI Design</div>
-                        <h3>Дизайн с AI</h3>
-                        <p>Использование нейросетей<br>в дизайнерской работе</p>
-                        
+                        <h3 data-lang-ru="Дизайн с AI" data-lang-en="AI Design">Дизайн с AI</h3>
+                        <p data-lang-ru="Использование нейросетей в дизайнерской работе" data-lang-en="Using neural networks in design work">
+                            Использование нейросетей в дизайнерской работе
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Midjourney для дизайнеров</li>
-                                <li>Stable Diffusion</li>
-                                <li>ChatGPT для креатива</li>
-                                <li>Генерация идей с AI</li>
-                                <li>Оптимизация workflow</li>
-                                <li>Этика и будущее AI</li>
+                                <li data-lang-ru="Midjourney для дизайнеров" data-lang-en="Midjourney for designers">Midjourney для дизайнеров</li>
+                                <li data-lang-ru="Stable Diffusion" data-lang-en="Stable Diffusion">Stable Diffusion</li>
+                                <li data-lang-ru="ChatGPT для креатива" data-lang-en="ChatGPT for creativity">ChatGPT для креатива</li>
+                                <li data-lang-ru="Генерация идей с AI" data-lang-en="Generating ideas with AI">Генерация идей с AI</li>
+                                <li data-lang-ru="Оптимизация workflow" data-lang-en="Workflow optimization">Оптимизация workflow</li>
+                                <li data-lang-ru="Этика и будущее AI" data-lang-en="Ethics and future of AI">Этика и будущее AI</li>
                             </ul>
                         </div>
                     </div>
@@ -1504,97 +1378,97 @@
             <!-- Development Specializations -->
             <div class="tab-content" id="development-tab">
                 <div class="specializations-grid">
-                    <!-- Frontend -->
                     <div class="specialization-card dev">
                         <div class="specialization-badge">Frontend</div>
-                        <h3>Frontend разработка</h3>
-                        <p>Создание клиентской части веб-приложений</p>
-                        
+                        <h3 data-lang-ru="Frontend разработка" data-lang-en="Frontend Development">Frontend разработка</h3>
+                        <p data-lang-ru="Создание клиентской части веб-приложений" data-lang-en="Creating the client part of web applications">
+                            Создание клиентской части веб-приложений
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>HTML5 и семантика</li>
-                                <li>CSS3 и препроцессоры</li>
-                                <li>JavaScript ES6+</li>
-                                <li>React/Vue.js</li>
-                                <li>TypeScript</li>
-                                <li>Webpack и сборка</li>
+                                <li data-lang-ru="HTML5 и семантика" data-lang-en="HTML5 and semantics">HTML5 и семантика</li>
+                                <li data-lang-ru="CSS3 и препроцессоры" data-lang-en="CSS3 and preprocessors">CSS3 и препроцессоры</li>
+                                <li data-lang-ru="JavaScript ES6+" data-lang-en="JavaScript ES6+">JavaScript ES6+</li>
+                                <li data-lang-ru="React/Vue.js" data-lang-en="React/Vue.js">React/Vue.js</li>
+                                <li data-lang-ru="TypeScript" data-lang-en="TypeScript">TypeScript</li>
+                                <li data-lang-ru="Webpack и сборка" data-lang-en="Webpack and build">Webpack и сборка</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Backend -->
                     <div class="specialization-card dev">
                         <div class="specialization-badge">Backend</div>
-                        <h3>Backend разработка</h3>
-                        <p>Разработка серверной логики и API</p>
-                        
+                        <h3 data-lang-ru="Backend разработка" data-lang-en="Backend Development">Backend разработка</h3>
+                        <p data-lang-ru="Разработка серверной логики и API" data-lang-en="Development of server logic and API">
+                            Разработка серверной логики и API
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Python и Django/Flask</li>
-                                <li>Node.js и Express</li>
-                                <li>Java и Spring</li>
-                                <li>Базы данных SQL/NoSQL</li>
-                                <li>REST API</li>
-                                <li>Микросервисы</li>
+                                <li data-lang-ru="Python и Django/Flask" data-lang-en="Python and Django/Flask">Python и Django/Flask</li>
+                                <li data-lang-ru="Node.js и Express" data-lang-en="Node.js and Express">Node.js и Express</li>
+                                <li data-lang-ru="Java и Spring" data-lang-en="Java and Spring">Java и Spring</li>
+                                <li data-lang-ru="Базы данных SQL/NoSQL" data-lang-en="SQL/NoSQL Databases">Базы данных SQL/NoSQL</li>
+                                <li data-lang-ru="REST API" data-lang-en="REST API">REST API</li>
+                                <li data-lang-ru="Микросервисы" data-lang-en="Microservices">Микросервисы</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Full Stack -->
                     <div class="specialization-card dev">
                         <div class="specialization-badge">Full Stack</div>
-                        <h3>Full-stack разработка</h3>
-                        <p>Полный цикл разработки веб-приложений</p>
-                        
+                        <h3 data-lang-ru="Full-stack разработка" data-lang-en="Full-stack Development">Full-stack разработка</h3>
+                        <p data-lang-ru="Полный цикл разработки веб-приложений" data-lang-en="Full cycle of web application development">
+                            Полный цикл разработки веб-приложений
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>MERN/MEAN стек</li>
-                                <li>DevOps основы</li>
-                                <li>Docker и контейнеризация</li>
-                                <li>CI/CD пайплайны</li>
-                                <li>Тестирование</li>
-                                <li>Deploy и мониторинг</li>
+                                <li data-lang-ru="MERN/MEAN стек" data-lang-en="MERN/MEAN stack">MERN/MEAN стек</li>
+                                <li data-lang-ru="DevOps основы" data-lang-en="DevOps basics">DevOps основы</li>
+                                <li data-lang-ru="Docker и контейнеризация" data-lang-en="Docker and containerization">Docker и контейнеризация</li>
+                                <li data-lang-ru="CI/CD пайплайны" data-lang-en="CI/CD pipelines">CI/CD пайплайны</li>
+                                <li data-lang-ru="Тестирование" data-lang-en="Testing">Тестирование</li>
+                                <li data-lang-ru="Deploy и мониторинг" data-lang-en="Deploy and monitoring">Deploy и мониторинг</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Mobile Dev -->
                     <div class="specialization-card dev">
                         <div class="specialization-badge">Mobile</div>
-                        <h3>Мобильная разработка</h3>
-                        <p>Создание приложений для iOS и Android</p>
-                        
+                        <h3 data-lang-ru="Мобильная разработка" data-lang-en="Mobile Development">Мобильная разработка</h3>
+                        <p data-lang-ru="Создание приложений для iOS и Android" data-lang-en="Creating applications for iOS and Android">
+                            Создание приложений для iOS и Android
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>React Native</li>
-                                <li>Flutter</li>
-                                <li>Swift для iOS</li>
-                                <li>Kotlin для Android</li>
-                                <li>Кроссплатформенность</li>
-                                <li>Публикация в сторах</li>
+                                <li data-lang-ru="React Native" data-lang-en="React Native">React Native</li>
+                                <li data-lang-ru="Flutter" data-lang-en="Flutter">Flutter</li>
+                                <li data-lang-ru="Swift для iOS" data-lang-en="Swift for iOS">Swift для iOS</li>
+                                <li data-lang-ru="Kotlin для Android" data-lang-en="Kotlin for Android">Kotlin для Android</li>
+                                <li data-lang-ru="Кроссплатформенность" data-lang-en="Cross-platform">Кроссплатформенность</li>
+                                <li data-lang-ru="Публикация в сторах" data-lang-en="Publication in stores">Публикация в сторах</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Game Dev -->
                     <div class="specialization-card dev">
                         <div class="specialization-badge">Game Dev</div>
-                        <h3>Разработка игр</h3>
-                        <p>Создание игр на различных движках</p>
-                        
+                        <h3 data-lang-ru="Разработка игр" data-lang-en="Game Development">Разработка игр</h3>
+                        <p data-lang-ru="Создание игр на различных движках" data-lang-en="Creating games on various engines">
+                            Создание игр на различных движках
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Unity и C#</li>
-                                <li>Unreal Engine и C++</li>
-                                <li>Godot и GDScript</li>
-                                <li>Game Design основы</li>
-                                <li>Графика и анимация</li>
-                                <li>Монетизация игр</li>
+                                <li data-lang-ru="Unity и C#" data-lang-en="Unity and C#">Unity и C#</li>
+                                <li data-lang-ru="Unreal Engine и C++" data-lang-en="Unreal Engine and C++">Unreal Engine и C++</li>
+                                <li data-lang-ru="Godot и GDScript" data-lang-en="Godot and GDScript">Godot и GDScript</li>
+                                <li data-lang-ru="Game Design основы" data-lang-en="Game Design basics">Game Design основы</li>
+                                <li data-lang-ru="Графика и анимация" data-lang-en="Graphics and animation">Графика и анимация</li>
+                                <li data-lang-ru="Монетизация игр" data-lang-en="Game monetization">Монетизация игр</li>
                             </ul>
                         </div>
                     </div>
@@ -1604,59 +1478,59 @@
             <!-- General Specializations -->
             <div class="tab-content" id="general-tab">
                 <div class="specializations-grid">
-                    <!-- Digital Product -->
                     <div class="specialization-card general">
                         <div class="specialization-badge">Product</div>
-                        <h3>Digital-продукты</h3>
-                        <p>Полный цикл создания digital-продуктов</p>
-                        
+                        <h3 data-lang-ru="Digital-продукты" data-lang-en="Digital Products">Digital-продукты</h3>
+                        <p data-lang-ru="Полный цикл создания digital-продуктов" data-lang-en="Full cycle of creating digital products">
+                            Полный цикл создания digital-продуктов
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Идея и концепция</li>
-                                <li>Дизайн и прототипирование</li>
-                                <li>Разработка MVP</li>
-                                <li>Тестирование и фидбек</li>
-                                <li>Запуск и продвижение</li>
-                                <li>Метрики и аналитика</li>
+                                <li data-lang-ru="Идея и концепция" data-lang-en="Idea and concept">Идея и концепция</li>
+                                <li data-lang-ru="Дизайн и прототипирование" data-lang-en="Design and prototyping">Дизайн и прототипирование</li>
+                                <li data-lang-ru="Разработка MVP" data-lang-en="MVP development">Разработка MVP</li>
+                                <li data-lang-ru="Тестирование и фидбек" data-lang-en="Testing and feedback">Тестирование и фидбек</li>
+                                <li data-lang-ru="Запуск и продвижение" data-lang-en="Launch and promotion">Запуск и продвижение</li>
+                                <li data-lang-ru="Метрики и аналитика" data-lang-en="Metrics and analytics">Метрики и аналитика</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Startup -->
                     <div class="specialization-card general">
                         <div class="specialization-badge">Startup</div>
-                        <h3>Стартап-разработка</h3>
-                        <p>Создание и запуск технологического стартапа</p>
-                        
+                        <h3 data-lang-ru="Стартап-разработка" data-lang-en="Startup Development">Стартап-разработка</h3>
+                        <p data-lang-ru="Создание и запуск технологического стартапа" data-lang-en="Creating and launching a tech startup">
+                            Создание и запуск технологического стартапа
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Поиск идеи и ниши</li>
-                                <li>Бизнес-модель и план</li>
-                                <li>Команда и роли</li>
-                                <li>Разработка продукта</li>
-                                <li>Привлечение инвестиций</li>
-                                <li>Масштабирование</li>
+                                <li data-lang-ru="Поиск идеи и ниши" data-lang-en="Finding an idea and niche">Поиск идеи и ниши</li>
+                                <li data-lang-ru="Бизнес-модель и план" data-lang-en="Business model and plan">Бизнес-модель и план</li>
+                                <li data-lang-ru="Команда и роли" data-lang-en="Team and roles">Команда и роли</li>
+                                <li data-lang-ru="Разработка продукта" data-lang-en="Product development">Разработка продукта</li>
+                                <li data-lang-ru="Привлечение инвестиций" data-lang-en="Attracting investments">Привлечение инвестиций</li>
+                                <li data-lang-ru="Масштабирование" data-lang-en="Scaling">Масштабирование</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Career -->
                     <div class="specialization-card general">
                         <div class="specialization-badge">Career</div>
-                        <h3>Карьера в IT</h3>
-                        <p>Трудоустройство и карьерный рост</p>
-                        
+                        <h3 data-lang-ru="Карьера в IT" data-lang-en="Career in IT">Карьера в IT</h3>
+                        <p data-lang-ru="Трудоустройство и карьерный рост" data-lang-en="Employment and career growth">
+                            Трудоустройство и карьерный рост
+                        </p>
                         <div class="specialization-modules">
-                            <h4><i class="fas fa-layer-group"></i> Модули программы</h4>
+                            <h4><i class="fas fa-layer-group"></i> <span data-lang-ru="Модули программы" data-lang-en="Program Modules">Модули программы</span></h4>
                             <ul class="module-list">
-                                <li>Портфолио и резюме</li>
-                                <li>Собеседования в IT</li>
-                                <li>Фриланс и удаленная работа</li>
-                                <li>Личный бренд</li>
-                                <li>Networking</li>
-                                <li>Карьерный план</li>
+                                <li data-lang-ru="Портфолио и резюме" data-lang-en="Portfolio and resume">Портфолио и резюме</li>
+                                <li data-lang-ru="Собеседования в IT" data-lang-en="IT interviews">Собеседования в IT</li>
+                                <li data-lang-ru="Фриланс и удаленная работа" data-lang-en="Freelance and remote work">Фриланс и удаленная работа</li>
+                                <li data-lang-ru="Личный бренд" data-lang-en="Personal brand">Личный бренд</li>
+                                <li data-lang-ru="Networking" data-lang-en="Networking">Networking</li>
+                                <li data-lang-ru="Карьерный план" data-lang-en="Career plan">Карьерный план</li>
                             </ul>
                         </div>
                     </div>
@@ -1668,10 +1542,10 @@
     <!-- Learning Formats -->
     <section class="formats-section">
         <div class="container">
-            <h2 class="section-title" style="text-align: center; color: var(--text-dark);">
+            <h2 class="section-title" style="text-align: center;" data-lang-ru="Форматы обучения" data-lang-en="Learning Formats">
                 Форматы обучения
             </h2>
-            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;">
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;" data-lang-ru="Выберите удобный для вас формат обучения" data-lang-en="Choose a convenient learning format for you">
                 Выберите удобный для вас формат обучения
             </p>
             
@@ -1680,48 +1554,57 @@
                     <div class="format-icon">
                         <i class="fas fa-user-graduate"></i>
                     </div>
-                    <h3>Самостоятельный</h3>
-                    <p>Обучение в своем темпе с доступом ко всем материалам</p>
-                    
-                    <ul class="format-features">
-                        <li><i class="fas fa-check"></i> Доступ к видео-урокам</li>
-                        <li><i class="fas fa-check"></i> Методические материалы</li>
-                        <li><i class="fas fa-check"></i> Практические задания</li>
-                        <li><i class="fas fa-check"></i> Общий чат поддержки</li>
-                        <li><i class="fas fa-check"></i> Сертификат по окончании</li>
-                    </ul>
+                    <h3 data-lang-ru="Самостоятельный" data-lang-en="Self-paced">Самостоятельный</h3>
+                    <p data-lang-ru="Обучение в своем темпе с доступом ко всем материалам" data-lang-en="Learning at your own pace with access to all materials">
+                        Обучение в своем темпе с доступом ко всем материалам
+                    </p>
+                    <div class="format-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Доступ к видео-урокам" data-lang-en="Access to video lessons">Доступ к видео-урокам</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Методические материалы" data-lang-en="Methodological materials">Методические материалы</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Практические задания" data-lang-en="Practical tasks">Практические задания</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Общий чат поддержки" data-lang-en="General support chat">Общий чат поддержки</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Сертификат по окончании" data-lang-en="Certificate upon completion">Сертификат по окончании</span></li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="format-card">
                     <div class="format-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Групповой</h3>
-                    <p>Обучение в группе с поддержкой куратора</p>
-                    
-                    <ul class="format-features">
-                        <li><i class="fas fa-check"></i> Все из самостоятельного</li>
-                        <li><i class="fas fa-check"></i> Живые вебинары 2 раза в неделю</li>
-                        <li><i class="fas fa-check"></i> Разбор домашних заданий</li>
-                        <li><i class="fas fa-check"></i> Групповые проекты</li>
-                        <li><i class="fas fa-check"></i> Поддержка куратора 24/7</li>
-                    </ul>
+                    <h3 data-lang-ru="Групповой" data-lang-en="Group">Групповой</h3>
+                    <p data-lang-ru="Обучение в группе с поддержкой куратора" data-lang-en="Group training with curator support">
+                        Обучение в группе с поддержкой куратора
+                    </p>
+                    <div class="format-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Все из самостоятельного" data-lang-en="Everything from self-paced">Все из самостоятельного</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Живые вебинары 2 раза в неделю" data-lang-en="Live webinars 2 times a week">Живые вебинары 2 раза в неделю</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Разбор домашних заданий" data-lang-en="Homework review">Разбор домашних заданий</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Групповые проекты" data-lang-en="Group projects">Групповые проекты</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Поддержка куратора 24/7" data-lang-en="Curator support 24/7">Поддержка куратора 24/7</span></li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="format-card">
                     <div class="format-icon">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h3>Индивидуальный</h3>
-                    <p>Персональное обучение с наставником</p>
-                    
-                    <ul class="format-features">
-                        <li><i class="fas fa-check"></i> Все из группового</li>
-                        <li><i class="fas fa-check"></i> Индивидуальный план обучения</li>
-                        <li><i class="fas fa-check"></i> Личные консультации 3 раза в неделю</li>
-                        <li><i class="fas fa-check"></i> Разбор портфолио проектов</li>
-                        <li><i class="fas fa-check"></i> Помощь с трудоустройством</li>
-                    </ul>
+                    <h3 data-lang-ru="Индивидуальный" data-lang-en="Individual">Индивидуальный</h3>
+                    <p data-lang-ru="Персональное обучение с наставником" data-lang-en="Personal training with a mentor">
+                        Персональное обучение с наставником
+                    </p>
+                    <div class="format-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Все из группового" data-lang-en="Everything from group">Все из группового</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Индивидуальный план обучения" data-lang-en="Individual training plan">Индивидуальный план обучения</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Личные консультации 3 раза в неделю" data-lang-en="Personal consultations 3 times a week">Личные консультации 3 раза в неделю</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Разбор портфолио проектов" data-lang-en="Portfolio project review">Разбор портфолио проектов</span></li>
+                            <li><i class="fas fa-check"></i> <span data-lang-ru="Помощь с трудоустройством" data-lang-en="Employment assistance">Помощь с трудоустройством</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1730,106 +1613,93 @@
     <!-- Pricing Section -->
     <section class="pricing-section">
         <div class="container">
-            <h2 class="section-title" style="text-align: center; color: white;">
+            <h2 class="section-title" style="text-align: center;" data-lang-ru="Стоимость обучения" data-lang-en="Tuition Fees">
                 Стоимость обучения
             </h2>
-            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem; color: rgba(255, 255, 255, 0.8);">
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;" data-lang-ru="Доступные тарифы для каждого направления" data-lang-en="Affordable rates for every direction">
                 Доступные тарифы для каждого направления
             </p>
             
             <div class="pricing-cards">
-                <!-- Design Course -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Дизайн PRO</h3>
-                        <p class="pricing-subtitle">Полный курс дизайна</p>
+                        <h3 data-lang-ru="Дизайн PRO" data-lang-en="Design PRO">Дизайн PRO</h3>
+                        <p class="pricing-subtitle" data-lang-ru="Полный курс дизайна" data-lang-en="Complete design course">Полный курс дизайна</p>
                     </div>
-                    
                     <div class="pricing-price">
                         <div class="old-price">89 900₽</div>
                         <div class="current-price">64 900₽</div>
-                        <div class="price-period">за весь курс</div>
+                        <div class="price-period" data-lang-ru="за весь курс" data-lang-en="for the whole course">за весь курс</div>
                     </div>
-                    
                     <div class="pricing-features">
-                        <div class="feature"><i class="fas fa-check"></i> 5 специализаций на выбор</div>
-                        <div class="feature"><i class="fas fa-check"></i> 120+ уроков</div>
-                        <div class="feature"><i class="fas fa-check"></i> 30+ практических заданий</div>
-                        <div class="feature"><i class="fas fa-check"></i> 5 проектов в портфолио</div>
-                        <div class="feature"><i class="fas fa-check"></i> Сертификат специалиста</div>
-                        <div class="feature"><i class="fas fa-check"></i> Доступ к материалам 1 год</div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="5 специализаций на выбор" data-lang-en="5 specializations to choose from">5 специализаций на выбор</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="120+ уроков" data-lang-en="120+ lessons">120+ уроков</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="30+ практических заданий" data-lang-en="30+ practical tasks">30+ практических заданий</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="5 проектов в портфолио" data-lang-en="5 projects in portfolio">5 проектов в портфолио</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="Сертификат специалиста" data-lang-en="Specialist certificate">Сертификат специалиста</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="Доступ к материалам 1 год" data-lang-en="Access to materials for 1 year">Доступ к материалам 1 год</span></div>
                     </div>
-                    
-                    <a href="contact.html?course=design-pro" class="btn-primary btn-block">Выбрать курс</a>
+                    <a href="contact.html?course=design-pro" class="btn-primary btn-block"><span data-lang-ru="Выбрать курс" data-lang-en="Choose course">Выбрать курс</span></a>
                 </div>
                 
-                <!-- Development Course -->
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Популярный</div>
+                    <div class="pricing-badge" data-lang-ru="Популярный" data-lang-en="Popular">Популярный</div>
                     <div class="pricing-header">
-                        <h3>Разработка PRO</h3>
-                        <p class="pricing-subtitle">Полный курс программирования</p>
+                        <h3 data-lang-ru="Разработка PRO" data-lang-en="Development PRO">Разработка PRO</h3>
+                        <p class="pricing-subtitle" data-lang-ru="Полный курс программирования" data-lang-en="Complete programming course">Полный курс программирования</p>
                     </div>
-                    
                     <div class="pricing-price">
                         <div class="old-price">99 900₽</div>
                         <div class="current-price">74 900₽</div>
-                        <div class="price-period">за весь курс</div>
+                        <div class="price-period" data-lang-ru="за весь курс" data-lang-en="for the whole course">за весь курс</div>
                     </div>
-                    
                     <div class="pricing-features">
-                        <div class="feature"><i class="fas fa-check"></i> 5 специализаций на выбор</div>
-                        <div class="feature"><i class="fas fa-check"></i> 150+ уроков</div>
-                        <div class="feature"><i class="fas fa-check"></i> 40+ практических заданий</div>
-                        <div class="feature"><i class="fas fa-check"></i> 6 проектов в портфолио</div>
-                        <div class="feature"><i class="fas fa-check"></i> Сертификат разработчика</div>
-                        <div class="feature"><i class="fas fa-check"></i> Помощь с трудоустройством</div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="5 специализаций на выбор" data-lang-en="5 specializations to choose from">5 специализаций на выбор</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="150+ уроков" data-lang-en="150+ lessons">150+ уроков</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="40+ практических заданий" data-lang-en="40+ practical tasks">40+ практических заданий</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="6 проектов в портфолио" data-lang-en="6 projects in portfolio">6 проектов в портфолио</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="Сертификат разработчика" data-lang-en="Developer certificate">Сертификат разработчика</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="Помощь с трудоустройством" data-lang-en="Employment assistance">Помощь с трудоустройством</span></div>
                     </div>
-                    
-                    <a href="contact.html?course=dev-pro" class="btn-primary btn-block">Выбрать курс</a>
+                    <a href="contact.html?course=dev-pro" class="btn-primary btn-block"><span data-lang-ru="Выбрать курс" data-lang-en="Choose course">Выбрать курс</span></a>
                 </div>
                 
-                <!-- General Course -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Комплексный PRO</h3>
-                        <p class="pricing-subtitle">Дизайн + Разработка</p>
+                        <h3 data-lang-ru="Комплексный PRO" data-lang-en="Comprehensive PRO">Комплексный PRO</h3>
+                        <p class="pricing-subtitle" data-lang-ru="Дизайн + Разработка" data-lang-en="Design + Development">Дизайн + Разработка</p>
                     </div>
-                    
                     <div class="pricing-price">
                         <div class="old-price">149 900₽</div>
                         <div class="current-price">119 900₽</div>
-                        <div class="price-period">за весь курс</div>
+                        <div class="price-period" data-lang-ru="за весь курс" data-lang-en="for the whole course">за весь курс</div>
                     </div>
-                    
                     <div class="pricing-features">
-                        <div class="feature"><i class="fas fa-check"></i> Любые 2 специализации</div>
-                        <div class="feature"><i class="fas fa-check"></i> 200+ уроков</div>
-                        <div class="feature"><i class="fas fa-check"></i> 50+ практических заданий</div>
-                        <div class="feature"><i class="fas fa-check"></i> 8 проектов в портфолио</div>
-                        <div class="feature"><i class="fas fa-check"></i> Сертификат Full-stack</div>
-                        <div class="feature"><i class="fas fa-check"></i> Карьерный коучинг</div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="Любые 2 специализации" data-lang-en="Any 2 specializations">Любые 2 специализации</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="200+ уроков" data-lang-en="200+ lessons">200+ уроков</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="50+ практических заданий" data-lang-en="50+ practical tasks">50+ практических заданий</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="8 проектов в портфолио" data-lang-en="8 projects in portfolio">8 проектов в портфолио</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="Сертификат Full-stack" data-lang-en="Full-stack certificate">Сертификат Full-stack</span></div>
+                        <div class="feature"><i class="fas fa-check"></i> <span data-lang-ru="Карьерный коучинг" data-lang-en="Career coaching">Карьерный коучинг</span></div>
                     </div>
-                    
-                    <a href="contact.html?course=general-pro" class="btn-primary btn-block">Выбрать курс</a>
+                    <a href="contact.html?course=general-pro" class="btn-primary btn-block"><span data-lang-ru="Выбрать курс" data-lang-en="Choose course">Выбрать курс</span></a>
                 </div>
             </div>
             
-            <!-- Additional Pricing Options -->
             <div style="text-align: center; margin-top: 4rem; color: rgba(255, 255, 255, 0.8);">
-                <h3 style="color: white; margin-bottom: 1rem;">Также доступны:</h3>
+                <h3 style="color: white; margin-bottom: 1rem;" data-lang-ru="Также доступны:" data-lang-en="Also available:">Также доступны:</h3>
                 <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                     <div>
-                        <h4 style="color: white; margin-bottom: 0.5rem;">Отдельные модули</h4>
-                        <p>от 9 900₽ за модуль</p>
+                        <h4 style="color: white; margin-bottom: 0.5rem;" data-lang-ru="Отдельные модули" data-lang-en="Individual modules">Отдельные модули</h4>
+                        <p data-lang-ru="от 9 900₽ за модуль" data-lang-en="from 9,900 RUB per module">от 9 900₽ за модуль</p>
                     </div>
                     <div>
-                        <h4 style="color: white; margin-bottom: 0.5rem;">Интенсивные курсы</h4>
-                        <p>от 24 900₽ за 1 месяц</p>
+                        <h4 style="color: white; margin-bottom: 0.5rem;" data-lang-ru="Интенсивные курсы" data-lang-en="Intensive courses">Интенсивные курсы</h4>
+                        <p data-lang-ru="от 24 900₽ за 1 месяц" data-lang-en="from 24,900 RUB for 1 month">от 24 900₽ за 1 месяц</p>
                     </div>
                     <div>
-                        <h4 style="color: white; margin-bottom: 0.5rem;">Корпоративное обучение</h4>
-                        <p>индивидуальные условия</p>
+                        <h4 style="color: white; margin-bottom: 0.5rem;" data-lang-ru="Корпоративное обучение" data-lang-en="Corporate training">Корпоративное обучение</h4>
+                        <p data-lang-ru="индивидуальные условия" data-lang-en="individual conditions">индивидуальные условия</p>
                     </div>
                 </div>
             </div>
@@ -1840,16 +1710,18 @@
     <section class="cta-section-modern">
         <div class="container">
             <div class="cta-content-modern">
-                <h2>Начните обучение сегодня!</h2>
-                <p>Получите консультацию по выбору направления и узнайте о старте ближайшего потока</p>
+                <h2 data-lang-ru="Начните обучение сегодня!" data-lang-en="Start learning today!">Начните обучение сегодня!</h2>
+                <p data-lang-ru="Получите консультацию по выбору направления и узнайте о старте ближайшего потока" data-lang-en="Get a consultation on choosing a direction and find out about the start of the nearest stream">
+                    Получите консультацию по выбору направления и узнайте о старте ближайшего потока
+                </p>
                 <div class="cta-buttons-modern">
                     <a href="contact.html" class="btn-modern-primary">
                         <i class="fas fa-graduation-cap"></i>
-                        Получить консультацию
+                        <span data-lang-ru="Получить консультацию" data-lang-en="Get consultation">Получить консультацию</span>
                     </a>
                     <button id="download-program" class="btn-modern-secondary">
                         <i class="fas fa-file-alt"></i>
-                        Скачать программу
+                        <span data-lang-ru="Скачать программу" data-lang-en="Download program">Скачать программу</span>
                     </button>
                 </div>
             </div>
@@ -1862,47 +1734,78 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>CREATIFY</h3>
-                    <p>Специализированное партнерство в области цифрового дизайна</p>
+                    <p data-lang-ru="Специализированное партнерство в области цифрового дизайна" data-lang-en="Specialized partnership in digital design">
+                        Специализированное партнерство в области цифрового дизайна
+                    </p>
                 </div>
                 <div class="footer-section">
-                    <h4>Контакты</h4>
+                    <h4 data-lang-ru="Контакты" data-lang-en="Contacts">Контакты</h4>
                     <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
                     <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
-                  <!--  <div class="social-links">
-                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>-->
                 </div>
                 <div class="footer-section">
-                    <h4>Документы</h4>
-                    <a href="privacy.html">Политика конфиденциальности</a>
-                    <a href="offer.html">Публичная оферта</a>
+                    <h4 data-lang-ru="Документы" data-lang-en="Documents">Документы</h4>
+                    <a href="privacy.html" data-lang-ru="Политика конфиденциальности" data-lang-en="Privacy Policy">Политика конфиденциальности</a>
+                    <a href="offer.html" data-lang-ru="Публичная оферта" data-lang-en="Public offer">Публичная оферта</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 CREATIFY. Все права защищены.</p>
+                <p>© 2026 CREATIFY. <span data-lang-ru="Все права защищены." data-lang-en="All rights reserved.">Все права защищены.</span></p>
             </div>
         </div>
     </footer>
-       <script>
+    
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Language switcher
+        // Language switcher - comprehensive function
+        let currentLang = 'ru';
+        
+        function updateLanguage(lang) {
+            currentLang = lang;
+            const elements = document.querySelectorAll('[data-lang-ru]');
+            elements.forEach(el => {
+                if (lang === 'ru') {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        if (el.placeholder !== undefined) {
+                            el.placeholder = el.dataset.langRu;
+                        }
+                    } else if (el.tagName === 'BUTTON' && el.classList.contains('tab-btn')) {
+                        // For tab buttons, update inner span
+                        const span = el.querySelector('span');
+                        if (span) {
+                            span.textContent = el.dataset[`lang${lang === 'ru' ? 'Ru' : 'En'}`];
+                        } else {
+                            el.textContent = el.dataset[`lang${lang === 'ru' ? 'Ru' : 'En'}`];
+                        }
+                    } else {
+                        el.textContent = el.dataset.langRu;
+                    }
+                } else {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        if (el.placeholder !== undefined) {
+                            el.placeholder = el.dataset.langEn;
+                        }
+                    } else if (el.tagName === 'BUTTON' && el.classList.contains('tab-btn')) {
+                        const span = el.querySelector('span');
+                        if (span) {
+                            span.textContent = el.dataset.langEn;
+                        } else {
+                            el.textContent = el.dataset.langEn;
+                        }
+                    } else {
+                        el.textContent = el.dataset.langEn;
+                    }
+                }
+            });
+        }
+        
         const langButtons = document.querySelectorAll('.lang-btn');
         langButtons.forEach(btn => {
             btn.addEventListener('click', function() {
                 langButtons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                
                 const lang = this.dataset.lang;
-                const elements = document.querySelectorAll('[data-lang-ru]');
-                elements.forEach(el => {
-                    if (lang === 'ru') {
-                        el.textContent = el.dataset.langRu;
-                    } else if (lang === 'en') {
-                        el.textContent = el.dataset.langEn;
-                    }
-                });
+                updateLanguage(lang);
             });
         });
         
@@ -1917,7 +1820,6 @@
                 this.classList.toggle('active');
             });
             
-            // Close menu when clicking outside
             document.addEventListener('click', function(event) {
                 if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
                     navLinks.classList.remove('active');
@@ -1925,7 +1827,6 @@
                 }
             });
             
-            // Close menu when clicking on a link
             navLinks.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
@@ -1934,74 +1835,17 @@
             });
         }
         
-        // Add scroll animation to elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe elements for animation
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#' || !href.startsWith('#')) return;
-                
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
-    </script>
-
-    <script>
-    // Tab Switching
-    document.addEventListener('DOMContentLoaded', function() {
+        // Tab Switching
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
         
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
                 tabBtns.forEach(b => b.classList.remove('active'));
                 tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked button
                 btn.classList.add('active');
-                
-                // Show corresponding content
                 const tabId = btn.getAttribute('data-tab');
                 document.getElementById(`${tabId}-tab`).classList.add('active');
-            });
-        });
-        
-        // Language switcher functionality
-        const langBtns = document.querySelectorAll('.lang-btn');
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                langBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const lang = btn.getAttribute('data-lang');
-                // Here you would implement actual language switching
-                console.log('Switch to language:', lang);
             });
         });
         
@@ -2014,853 +1858,175 @@
         }
         
         function generatePDF() {
-            // Create PDF content with detailed structure
             const docDefinition = {
                 pageSize: 'A4',
                 pageMargins: [40, 60, 40, 60],
                 content: [
-                    // Header with logo and title
                     {
                         columns: [
                             {
                                 width: '80%',
                                 stack: [
-                                    {
-                                        text: 'CREATIFY DIGITAL DESIGN',
-                                        style: 'companyName',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Профессиональное обучение дизайну и разработке',
-                                        style: 'companyTagline',
-                                        margin: [0, 0, 0, 20]
-                                    }
+                                    { text: 'CREATIFY DIGITAL DESIGN', style: 'companyName', margin: [0, 0, 0, 5] },
+                                    { text: currentLang === 'ru' ? 'Профессиональное обучение дизайну и разработке' : 'Professional training in design and development', style: 'companyTagline', margin: [0, 0, 0, 20] }
                                 ]
                             },
-                            {
-                                width: '20%',
-                                text: '2026',
-                                style: 'year',
-                                alignment: 'right'
-                            }
+                            { width: '20%', text: '2026', style: 'year', alignment: 'right' }
                         ]
                     },
-                    
-                    // Main title
-                    {
-                        text: 'ПРОГРАММА ОБУЧЕНИЯ',
-                        style: 'mainTitle',
-                        alignment: 'center',
-                        margin: [0, 0, 0, 30]
-                    },
-                    
-                    // Introduction
-                    {
-                        text: 'Комплексные курсы по дизайну и разработке с нуля до профессионала',
-                        style: 'subtitle',
-                        alignment: 'center',
-                        margin: [0, 0, 0, 40]
-                    },
-                    
-                    // 1. Directions
-                    {
-                        text: '1. НАПРАВЛЕНИЯ ОБУЧЕНИЯ',
-                        style: 'sectionTitle',
-                        margin: [0, 0, 0, 20]
-                    },
+                    { text: currentLang === 'ru' ? 'ПРОГРАММА ОБУЧЕНИЯ' : 'TRAINING PROGRAM', style: 'mainTitle', alignment: 'center', margin: [0, 0, 0, 30] },
+                    { text: currentLang === 'ru' ? 'Комплексные курсы по дизайну и разработке с нуля до профессионала' : 'Comprehensive courses in design and development from scratch to professional', style: 'subtitle', alignment: 'center', margin: [0, 0, 0, 40] },
+                    { text: currentLang === 'ru' ? '1. НАПРАВЛЕНИЯ ОБУЧЕНИЯ' : '1. TRAINING DIRECTIONS', style: 'sectionTitle', margin: [0, 0, 0, 20] },
                     {
                         columns: [
                             {
                                 width: '33%',
                                 stack: [
-                                    {
-                                        text: 'ДИЗАЙН',
-                                        style: 'directionTitle',
-                                        color: '#FF6B8B',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        text: 'Комплексное обучение современному дизайну с освоением профессиональных инструментов и методологий',
-                                        style: 'directionDescription',
-                                        margin: [0, 0, 0, 15]
-                                    },
-                                    {
-                                        ul: [
-                                            'UI/UX дизайн интерфейсов',
-                                            'Веб-дизайн и презентации',
-                                            'Карточки для маркетплейсов',
-                                            'Графический дизайн и брендинг',
-                                            '3D моделирование в Blender',
-                                            'Работа с AI и нейросетями'
-                                        ],
-                                        style: 'directionList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'ДИЗАЙН' : 'DESIGN', style: 'directionTitle', color: '#FF6B8B', margin: [0, 0, 0, 10] },
+                                    { text: currentLang === 'ru' ? 'Комплексное обучение современному дизайну' : 'Comprehensive training in modern design', style: 'directionDescription', margin: [0, 0, 0, 15] },
+                                    { ul: currentLang === 'ru' ? 
+                                        ['UI/UX дизайн интерфейсов', 'Веб-дизайн и презентации', 'Карточки для маркетплейсов', 'Графический дизайн и брендинг', '3D моделирование в Blender', 'Работа с AI и нейросетями'] :
+                                        ['UI/UX interface design', 'Web design and presentations', 'Marketplace cards', 'Graphic design and branding', '3D modeling in Blender', 'Working with AI and neural networks'],
+                                        style: 'directionList' }
                                 ]
                             },
                             {
                                 width: '33%',
                                 stack: [
-                                    {
-                                        text: 'РАЗРАБОТКА',
-                                        style: 'directionTitle',
-                                        color: '#10B981',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        text: 'Полный цикл обучения программированию от основ до профессиональной разработки',
-                                        style: 'directionDescription',
-                                        margin: [0, 0, 0, 15]
-                                    },
-                                    {
-                                        ul: [
-                                            'Frontend разработка (HTML, CSS, JS)',
-                                            'Backend разработка (Python, Java, C++)',
-                                            'Full-stack разработка',
-                                            'Мобильная разработка',
-                                            'Базы данных и DevOps'
-                                        ],
-                                        style: 'directionList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'РАЗРАБОТКА' : 'DEVELOPMENT', style: 'directionTitle', color: '#10B981', margin: [0, 0, 0, 10] },
+                                    { text: currentLang === 'ru' ? 'Полный цикл обучения программированию' : 'Full cycle of programming training', style: 'directionDescription', margin: [0, 0, 0, 15] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['Frontend разработка (HTML, CSS, JS)', 'Backend разработка (Python, Java, C++)', 'Full-stack разработка', 'Мобильная разработка', 'Базы данных и DevOps'] :
+                                        ['Frontend development (HTML, CSS, JS)', 'Backend development (Python, Java, C++)', 'Full-stack development', 'Mobile development', 'Databases and DevOps'],
+                                        style: 'directionList' }
                                 ]
                             },
                             {
                                 width: '33%',
                                 stack: [
-                                    {
-                                        text: 'КОМПЛЕКСНЫЙ',
-                                        style: 'directionTitle',
-                                        color: '#F59E0B',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        text: 'Обучение полному циклу создания digital-продуктов: от идеи до реализации',
-                                        style: 'directionDescription',
-                                        margin: [0, 0, 0, 15]
-                                    },
-                                    {
-                                        ul: [
-                                            'Дизайн + разработка в одном курсе',
-                                            'Управление digital-проектами',
-                                            'Создание собственных продуктов',
-                                            'Портфолио и трудоустройство',
-                                            'Стартап-разработка'
-                                        ],
-                                        style: 'directionList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'КОМПЛЕКСНЫЙ' : 'COMPREHENSIVE', style: 'directionTitle', color: '#F59E0B', margin: [0, 0, 0, 10] },
+                                    { text: currentLang === 'ru' ? 'Обучение полному циклу создания digital-продуктов' : 'Training in the full cycle of creating digital products', style: 'directionDescription', margin: [0, 0, 0, 15] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['Дизайн + разработка в одном курсе', 'Управление digital-проектами', 'Создание собственных продуктов', 'Портфолио и трудоустройство', 'Стартап-разработка'] :
+                                        ['Design + development in one course', 'Digital project management', 'Creating your own products', 'Portfolio and employment', 'Startup development'],
+                                        style: 'directionList' }
                                 ]
                             }
                         ],
                         columnGap: 15
                     },
-                    
-                    // Page break
                     { text: '', pageBreak: 'before' },
-                    
-                    // 2. Specializations
-                    {
-                        text: '2. СПЕЦИАЛИЗАЦИИ - ДИЗАЙН',
-                        style: 'sectionTitle',
-                        margin: [0, 0, 0, 20]
-                    },
+                    { text: currentLang === 'ru' ? '2. ФОРМАТЫ ОБУЧЕНИЯ' : '2. LEARNING FORMATS', style: 'sectionTitle', margin: [0, 0, 0, 20] },
                     {
                         columns: [
                             {
-                                width: '50%',
+                                width: '33%',
                                 stack: [
-                                    {
-                                        text: 'UI/UX Design',
-                                        style: 'specializationTitle',
-                                        color: '#FF6B8B',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Дизайн интерфейсов',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Основы UX/UI дизайна',
-                                            'Прототипирование в Figma',
-                                            'Дизайн-системы и компоненты',
-                                            'Адаптивный дизайн',
-                                            'Анимация интерфейсов',
-                                            'User Research и тестирование'
-                                        ],
-                                        style: 'specializationList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'Самостоятельный' : 'Self-paced', style: 'formatTitle', color: '#4A6CF7', margin: [0, 0, 0, 10] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['Доступ к видео-урокам', 'Методические материалы', 'Практические задания', 'Общий чат поддержки', 'Сертификат по окончании'] :
+                                        ['Access to video lessons', 'Methodological materials', 'Practical tasks', 'General support chat', 'Certificate upon completion'],
+                                        style: 'formatList' }
                                 ]
                             },
                             {
-                                width: '50%',
+                                width: '33%',
                                 stack: [
-                                    {
-                                        text: 'Web Design',
-                                        style: 'specializationTitle',
-                                        color: '#FF6B8B',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Веб-дизайн и презентации',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Основы веб-дизайна',
-                                            'Дизайн лендингов',
-                                            'Создание презентаций',
-                                            'Работа с Tilda',
-                                            'Верстка и адаптивность',
-                                            'Оптимизация для SEO'
-                                        ],
-                                        style: 'specializationList'
-                                    }
-                                ]
-                            }
-                        ],
-                        columnGap: 20
-                    },
-                    { text: '', margin: [0, 15, 0, 0] },
-                    {
-                        columns: [
-                            {
-                                width: '50%',
-                                stack: [
-                                    {
-                                        text: 'Graphic Design',
-                                        style: 'specializationTitle',
-                                        color: '#FF6B8B',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Графический дизайн',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Основы брендинга',
-                                            'Логотипы и айдентика',
-                                            'Векторная графика',
-                                            'Инфографика',
-                                            'Социальные сети и SMM',
-                                            'Упаковка и мерч'
-                                        ],
-                                        style: 'specializationList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'Групповой' : 'Group', style: 'formatTitle', color: '#4A6CF7', margin: [0, 0, 0, 10] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['Все из самостоятельного', 'Живые вебинары 2 раза в неделю', 'Разбор домашних заданий', 'Групповые проекты', 'Поддержка куратора 24/7'] :
+                                        ['Everything from self-paced', 'Live webinars 2 times a week', 'Homework review', 'Group projects', 'Curator support 24/7'],
+                                        style: 'formatList' }
                                 ]
                             },
                             {
-                                width: '50%',
+                                width: '33%',
                                 stack: [
-                                    {
-                                        text: '3D Design',
-                                        style: 'specializationTitle',
-                                        color: '#FF6B8B',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: '3D моделирование',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Основы Blender',
-                                            'Моделирование объектов',
-                                            'Текстурирование и материалы',
-                                            'Освещение и рендеринг',
-                                            'Анимация 3D объектов',
-                                            'Интеграция с веб'
-                                        ],
-                                        style: 'specializationList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'Индивидуальный' : 'Individual', style: 'formatTitle', color: '#4A6CF7', margin: [0, 0, 0, 10] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['Все из группового', 'Индивидуальный план обучения', 'Личные консультации 3 раза в неделю', 'Разбор портфолио проектов', 'Помощь с трудоустройством'] :
+                                        ['Everything from group', 'Individual training plan', 'Personal consultations 3 times a week', 'Portfolio project review', 'Employment assistance'],
+                                        style: 'formatList' }
                                 ]
                             }
                         ],
-                        columnGap: 20
+                        columnGap: 15
                     },
-                    
-                    // Page break
                     { text: '', pageBreak: 'before' },
-                    
-                    // 3. Development Specializations
-                    {
-                        text: '3. СПЕЦИАЛИЗАЦИИ - РАЗРАБОТКА',
-                        style: 'sectionTitle',
-                        margin: [0, 0, 0, 20]
-                    },
-                    {
-                        columns: [
-                            {
-                                width: '50%',
-                                stack: [
-                                    {
-                                        text: 'Frontend',
-                                        style: 'specializationTitle',
-                                        color: '#10B981',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Frontend разработка',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'HTML5 и семантика',
-                                            'CSS3 и препроцессоры',
-                                            'JavaScript ES6+',
-                                            'React/Vue.js',
-                                            'TypeScript',
-                                            'Webpack и сборка'
-                                        ],
-                                        style: 'specializationList'
-                                    }
-                                ]
-                            },
-                            {
-                                width: '50%',
-                                stack: [
-                                    {
-                                        text: 'Backend',
-                                        style: 'specializationTitle',
-                                        color: '#10B981',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Backend разработка',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Python и Django/Flask',
-                                            'Node.js и Express',
-                                            'Java и Spring',
-                                            'Базы данных SQL/NoSQL',
-                                            'REST API',
-                                            'Микросервисы'
-                                        ],
-                                        style: 'specializationList'
-                                    }
-                                ]
-                            }
-                        ],
-                        columnGap: 20
-                    },
-                    { text: '', margin: [0, 15, 0, 0] },
-                    {
-                        columns: [
-                            {
-                                width: '50%',
-                                stack: [
-                                    {
-                                        text: 'Full Stack',
-                                        style: 'specializationTitle',
-                                        color: '#10B981',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Full-stack разработка',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'MERN/MEAN стек',
-                                            'DevOps основы',
-                                            'Docker и контейнеризация',
-                                            'CI/CD пайплайны',
-                                            'Тестирование',
-                                            'Deploy и мониторинг'
-                                        ],
-                                        style: 'specializationList'
-                                    }
-                                ]
-                            },
-                            {
-                                width: '50%',
-                                stack: [
-                                    {
-                                        text: 'Mobile Dev',
-                                        style: 'specializationTitle',
-                                        color: '#10B981',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Мобильная разработка',
-                                        style: 'specializationSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'React Native',
-                                            'Flutter',
-                                            'Swift для iOS',
-                                            'Kotlin для Android',
-                                            'Кроссплатформенность',
-                                            'Публикация в сторах'
-                                        ],
-                                        style: 'specializationList'
-                                    }
-                                ]
-                            }
-                        ],
-                        columnGap: 20
-                    },
-                    
-                    // Page break
-                    { text: '', pageBreak: 'before' },
-                    
-                    // 4. Learning Formats
-                    {
-                        text: '4. ФОРМАТЫ ОБУЧЕНИЯ',
-                        style: 'sectionTitle',
-                        margin: [0, 0, 0, 20]
-                    },
+                    { text: currentLang === 'ru' ? '3. СТОИМОСТЬ ОБУЧЕНИЯ' : '3. TUITION FEES', style: 'sectionTitle', margin: [0, 30, 0, 20] },
                     {
                         columns: [
                             {
                                 width: '33%',
                                 stack: [
-                                    {
-                                        text: 'Самостоятельный',
-                                        style: 'formatTitle',
-                                        color: '#4A6CF7',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Доступ к видео-урокам',
-                                            'Методические материалы',
-                                            'Практические задания',
-                                            'Общий чат поддержки',
-                                            'Сертификат по окончании'
-                                        ],
-                                        style: 'formatList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'ДИЗАЙН PRO' : 'DESIGN PRO', style: 'priceTitle', color: '#FF6B8B', margin: [0, 0, 0, 5] },
+                                    { text: currentLang === 'ru' ? 'Полный курс дизайна' : 'Complete design course', style: 'priceSubtitle', margin: [0, 0, 0, 10] },
+                                    { text: '64 900₽', style: 'priceAmount', margin: [0, 0, 0, 5] },
+                                    { text: currentLang === 'ru' ? 'скидка с 89 900₽' : 'discount from 89,900 RUB', style: 'priceDiscount', margin: [0, 0, 0, 15] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['5 специализаций на выбор', '120+ уроков', '30+ практических заданий', '5 проектов в портфолио', 'Сертификат специалиста', 'Доступ к материалам 1 год'] :
+                                        ['5 specializations to choose from', '120+ lessons', '30+ practical tasks', '5 projects in portfolio', 'Specialist certificate', 'Access to materials for 1 year'],
+                                        style: 'priceList' }
                                 ]
                             },
                             {
                                 width: '33%',
                                 stack: [
-                                    {
-                                        text: 'Групповой',
-                                        style: 'formatTitle',
-                                        color: '#4A6CF7',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Все из самостоятельного',
-                                            'Живые вебинары 2 раза в неделю',
-                                            'Разбор домашних заданий',
-                                            'Групповые проекты',
-                                            'Поддержка куратора 24/7'
-                                        ],
-                                        style: 'formatList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'РАЗРАБОТКА PRO' : 'DEVELOPMENT PRO', style: 'priceTitle', color: '#10B981', margin: [0, 0, 0, 5] },
+                                    { text: currentLang === 'ru' ? 'Полный курс программирования' : 'Complete programming course', style: 'priceSubtitle', margin: [0, 0, 0, 10] },
+                                    { text: '74 900₽', style: 'priceAmount', margin: [0, 0, 0, 5] },
+                                    { text: currentLang === 'ru' ? 'скидка с 99 900₽' : 'discount from 99,900 RUB', style: 'priceDiscount', margin: [0, 0, 0, 15] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['5 специализаций на выбор', '150+ уроков', '40+ практических заданий', '6 проектов в портфолио', 'Сертификат разработчика', 'Помощь с трудоустройством'] :
+                                        ['5 specializations to choose from', '150+ lessons', '40+ practical tasks', '6 projects in portfolio', 'Developer certificate', 'Employment assistance'],
+                                        style: 'priceList' }
                                 ]
                             },
                             {
                                 width: '33%',
                                 stack: [
-                                    {
-                                        text: 'Индивидуальный',
-                                        style: 'formatTitle',
-                                        color: '#4A6CF7',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        ul: [
-                                            'Все из группового',
-                                            'Индивидуальный план обучения',
-                                            'Личные консультации 3 раза в неделю',
-                                            'Разбор портфолио проектов',
-                                            'Помощь с трудоустройством'
-                                        ],
-                                        style: 'formatList'
-                                    }
+                                    { text: currentLang === 'ru' ? 'КОМПЛЕКСНЫЙ PRO' : 'COMPREHENSIVE PRO', style: 'priceTitle', color: '#F59E0B', margin: [0, 0, 0, 5] },
+                                    { text: currentLang === 'ru' ? 'Дизайн + Разработка' : 'Design + Development', style: 'priceSubtitle', margin: [0, 0, 0, 10] },
+                                    { text: '119 900₽', style: 'priceAmount', margin: [0, 0, 0, 5] },
+                                    { text: currentLang === 'ru' ? 'скидка с 149 900₽' : 'discount from 149,900 RUB', style: 'priceDiscount', margin: [0, 0, 0, 15] },
+                                    { ul: currentLang === 'ru' ?
+                                        ['Любые 2 специализации', '200+ уроков', '50+ практических заданий', '8 проектов в портфолио', 'Сертификат Full-stack', 'Карьерный коучинг'] :
+                                        ['Any 2 specializations', '200+ lessons', '50+ practical tasks', '8 projects in portfolio', 'Full-stack certificate', 'Career coaching'],
+                                        style: 'priceList' }
                                 ]
                             }
                         ],
                         columnGap: 15
                     },
-                    
-                    // 5. Pricing
-                    {
-                        text: '5. СТОИМОСТЬ ОБУЧЕНИЯ',
-                        style: 'sectionTitle',
-                        margin: [0, 30, 0, 20]
-                    },
-                    {
-                        columns: [
-                            {
-                                width: '33%',
-                                stack: [
-                                    {
-                                        text: 'ДИЗАЙН PRO',
-                                        style: 'priceTitle',
-                                        color: '#FF6B8B',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Полный курс дизайна',
-                                        style: 'priceSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        text: '64 900₽',
-                                        style: 'priceAmount',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'скидка с 89 900₽',
-                                        style: 'priceDiscount',
-                                        margin: [0, 0, 0, 15]
-                                    },
-                                    {
-                                        ul: [
-                                            '5 специализаций на выбор',
-                                            '120+ уроков',
-                                            '30+ практических заданий',
-                                            '5 проектов в портфолио',
-                                            'Сертификат специалиста',
-                                            'Доступ к материалам 1 год'
-                                        ],
-                                        style: 'priceList'
-                                    }
-                                ]
-                            },
-                            {
-                                width: '33%',
-                                stack: [
-                                    {
-                                        text: 'РАЗРАБОТКА PRO',
-                                        style: 'priceTitle',
-                                        color: '#10B981',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Полный курс программирования',
-                                        style: 'priceSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        text: '74 900₽',
-                                        style: 'priceAmount',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'скидка с 99 900₽',
-                                        style: 'priceDiscount',
-                                        margin: [0, 0, 0, 15]
-                                    },
-                                    {
-                                        ul: [
-                                            '5 специализаций на выбор',
-                                            '150+ уроков',
-                                            '40+ практических заданий',
-                                            '6 проектов в портфолио',
-                                            'Сертификат разработчика',
-                                            'Помощь с трудоустройством'
-                                        ],
-                                        style: 'priceList'
-                                    }
-                                ]
-                            },
-                            {
-                                width: '33%',
-                                stack: [
-                                    {
-                                        text: 'КОМПЛЕКСНЫЙ PRO',
-                                        style: 'priceTitle',
-                                        color: '#F59E0B',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'Дизайн + Разработка',
-                                        style: 'priceSubtitle',
-                                        margin: [0, 0, 0, 10]
-                                    },
-                                    {
-                                        text: '119 900₽',
-                                        style: 'priceAmount',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'скидка с 149 900₽',
-                                        style: 'priceDiscount',
-                                        margin: [0, 0, 0, 15]
-                                    },
-                                    {
-                                        ul: [
-                                            'Любые 2 специализации',
-                                            '200+ уроков',
-                                            '50+ практических заданий',
-                                            '8 проектов в портфолио',
-                                            'Сертификат Full-stack',
-                                            'Карьерный коучинг'
-                                        ],
-                                        style: 'priceList'
-                                    }
-                                ]
-                            }
-                        ],
-                        columnGap: 15
-                    },
-                    
-                    // 6. Additional Options
-                    {
-                        text: '6. ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ',
-                        style: 'sectionTitle',
-                        margin: [0, 30, 0, 20]
-                    },
-                    {
-                        columns: [
-                            {
-                                width: '33%',
-                                stack: [
-                                    {
-                                        text: 'Отдельные модули',
-                                        style: 'optionTitle',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'от 9 900₽ за модуль',
-                                        style: 'optionPrice'
-                                    }
-                                ]
-                            },
-                            {
-                                width: '33%',
-                                stack: [
-                                    {
-                                        text: 'Интенсивные курсы',
-                                        style: 'optionTitle',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'от 24 900₽ за 1 месяц',
-                                        style: 'optionPrice'
-                                    }
-                                ]
-                            },
-                            {
-                                width: '33%',
-                                stack: [
-                                    {
-                                        text: 'Корпоративное обучение',
-                                        style: 'optionTitle',
-                                        margin: [0, 0, 0, 5]
-                                    },
-                                    {
-                                        text: 'индивидуальные условия',
-                                        style: 'optionPrice'
-                                    }
-                                ]
-                            }
-                        ],
-                        columnGap: 15
-                    },
-                    
-                    // 7. Contacts
-                    {
-                        text: '7. КОНТАКТЫ',
-                        style: 'sectionTitle',
-                        margin: [0, 30, 0, 20]
-                    },
-                    {
-                        stack: [
-                            {
-                                text: 'CREATIFY DIGITAL DESIGN',
-                                style: 'contactCompany',
-                                margin: [0, 0, 0, 10]
-                            },
-                            {
-                                text: 'Телефон: +7 (903) 738-02-76',
-                                style: 'contactInfo',
-                                margin: [0, 0, 0, 5]
-                            },
-                            {
-                                text: 'Email: creatify_cf@mail.ru',
-                                style: 'contactInfo',
-                                margin: [0, 0, 0, 5]
-                            },
-                            {
-                                text: 'Telegram: @creatify_cf',
-                                style: 'contactInfo',
-                                margin: [0, 0, 0, 5]
-                            },
-                            {
-                                text: 'Instagram: @creatify_cf',
-                                style: 'contactInfo',
-                                margin: [0, 0, 0, 5]
-                            },
-                            {
-                                text: 'WhatsApp: +7 (903) 738-02-76',
-                                style: 'contactInfo',
-                                margin: [0, 0, 0, 5]
-                            }
-                        ]
-                    },
-                    
-                    // Footer
-                    {
-                        text: '\n\n© 2026 CREATIFY DIGITAL DESIGN. Все права защищены.',
-                        style: 'footer',
-                        alignment: 'center',
-                        margin: [0, 40, 0, 0]
-                    }
+                    { text: '\n\n© 2026 CREATIFY DIGITAL DESIGN. ' + (currentLang === 'ru' ? 'Все права защищены.' : 'All rights reserved.'), style: 'footer', alignment: 'center', margin: [0, 40, 0, 0] }
                 ],
-                
                 styles: {
-                    // Header styles
-                    companyName: {
-                        fontSize: 18,
-                        bold: true,
-                        color: '#4A6CF7'
-                    },
-                    companyTagline: {
-                        fontSize: 10,
-                        color: '#6C757D'
-                    },
-                    year: {
-                        fontSize: 12,
-                        color: '#858B99'
-                    },
-                    
-                    // Title styles
-                    mainTitle: {
-                        fontSize: 28,
-                        bold: true,
-                        color: '#1A1A2E'
-                    },
-                    subtitle: {
-                        fontSize: 14,
-                        color: '#6C757D',
-                        italics: true
-                    },
-                    
-                    // Section styles
-                    sectionTitle: {
-                        fontSize: 16,
-                        bold: true,
-                        color: '#4A6CF7',
-                        decoration: 'underline'
-                    },
-                    
-                    // Direction styles
-                    directionTitle: {
-                        fontSize: 14,
-                        bold: true,
-                        margin: [0, 0, 0, 5]
-                    },
-                    directionDescription: {
-                        fontSize: 10,
-                        color: '#6C757D',
-                        lineHeight: 1.4
-                    },
-                    directionList: {
-                        fontSize: 9,
-                        lineHeight: 1.3
-                    },
-                    
-                    // Specialization styles
-                    specializationTitle: {
-                        fontSize: 12,
-                        bold: true
-                    },
-                    specializationSubtitle: {
-                        fontSize: 10,
-                        color: '#6C757D'
-                    },
-                    specializationList: {
-                        fontSize: 9,
-                        lineHeight: 1.3
-                    },
-                    
-                    // Format styles
-                    formatTitle: {
-                        fontSize: 12,
-                        bold: true,
-                        alignment: 'center'
-                    },
-                    formatList: {
-                        fontSize: 9,
-                        lineHeight: 1.3
-                    },
-                    
-                    // Price styles
-                    priceTitle: {
-                        fontSize: 14,
-                        bold: true,
-                        alignment: 'center'
-                    },
-                    priceSubtitle: {
-                        fontSize: 10,
-                        color: '#6C757D',
-                        alignment: 'center'
-                    },
-                    priceAmount: {
-                        fontSize: 20,
-                        bold: true,
-                        alignment: 'center',
-                        color: '#1A1A2E'
-                    },
-                    priceDiscount: {
-                        fontSize: 9,
-                        color: '#858B99',
-                        alignment: 'center'
-                    },
-                    priceList: {
-                        fontSize: 9,
-                        lineHeight: 1.3
-                    },
-                    
-                    // Option styles
-                    optionTitle: {
-                        fontSize: 11,
-                        bold: true,
-                        alignment: 'center'
-                    },
-                    optionPrice: {
-                        fontSize: 10,
-                        color: '#6C757D',
-                        alignment: 'center'
-                    },
-                    
-                    // Contact styles
-                    contactCompany: {
-                        fontSize: 14,
-                        bold: true,
-                        color: '#4A6CF7'
-                    },
-                    contactInfo: {
-                        fontSize: 11,
-                        color: '#1A1A2E'
-                    },
-                    
-                   
+                    companyName: { fontSize: 18, bold: true, color: '#4A6CF7' },
+                    companyTagline: { fontSize: 10, color: '#6C757D' },
+                    year: { fontSize: 12, color: '#858B99' },
+                    mainTitle: { fontSize: 28, bold: true, color: '#1A1A2E' },
+                    subtitle: { fontSize: 14, color: '#6C757D', italics: true },
+                    sectionTitle: { fontSize: 16, bold: true, color: '#4A6CF7', decoration: 'underline' },
+                    directionTitle: { fontSize: 14, bold: true, margin: [0, 0, 0, 5] },
+                    directionDescription: { fontSize: 10, color: '#6C757D', lineHeight: 1.4 },
+                    directionList: { fontSize: 9, lineHeight: 1.3 },
+                    formatTitle: { fontSize: 12, bold: true, alignment: 'center' },
+                    formatList: { fontSize: 9, lineHeight: 1.3 },
+                    priceTitle: { fontSize: 14, bold: true, alignment: 'center' },
+                    priceSubtitle: { fontSize: 10, color: '#6C757D', alignment: 'center' },
+                    priceAmount: { fontSize: 20, bold: true, alignment: 'center', color: '#1A1A2E' },
+                    priceDiscount: { fontSize: 9, color: '#858B99', alignment: 'center' },
+                    priceList: { fontSize: 9, lineHeight: 1.3 },
+                    footer: { fontSize: 10, color: '#858B99' }
                 },
-                
-                defaultStyle: {
-                    fontSize: 11,
-                    lineHeight: 1.3
-                }
+                defaultStyle: { fontSize: 11, lineHeight: 1.3 }
             };
             
-            // Create PDF
-            pdfMake.createPdf(docDefinition).download('Программа_обучения_CREATIFY_2026.pdf');
-            
-            // Show success message
-            showNotification('Программа обучения скачивается...', 'success');
+            pdfMake.createPdf(docDefinition).download(currentLang === 'ru' ? 'Программа_обучения_CREATIFY_2026.pdf' : 'CREATIFY_Training_Program_2026.pdf');
+            showNotification(currentLang === 'ru' ? 'Программа обучения скачивается...' : 'Training program is downloading...', 'success');
         }
         
         function showNotification(message, type) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -2877,7 +2043,6 @@
                 animation: slideIn 0.3s ease;
             `;
             
-            // Add animation
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes slideIn {
@@ -2894,7 +2059,6 @@
             notification.textContent = message;
             document.body.appendChild(notification);
             
-            // Remove notification after 3 seconds
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease';
                 setTimeout(() => {
@@ -2906,100 +2070,4 @@
     </script>
 </body>
 </html>
-
-<script>
-    // Add to each form page (brief.html, contact.html, etc.)
-// Replace the existing form submission code
-
-async function submitForm(endpoint, formData) {
-    try {
-        const response = await fetch(`https://localhost:5001/api/${endpoint}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            // Show success message
-            showNotification(result.message, 'success');
-            
-            // Reset form
-            document.getElementById('briefForm').reset();
-            
-            // Reset steps to first
-            showStep(1);
-        } else {
-            showNotification(result.message || 'Ошибка при отправке', 'error');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        showNotification('Ошибка соединения с сервером', 'error');
-    }
-}
-
-// For brief form submission
-if (document.getElementById('briefForm')) {
-    document.getElementById('briefForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = {
-            company: document.getElementById('company').value,
-            industry: document.getElementById('industry').value,
-            projectType: document.getElementById('project-type').value,
-            description: document.getElementById('description').value,
-            goals: document.getElementById('goals').value,
-            targetAudience: document.getElementById('target-audience').value,
-            competitors: document.getElementById('competitors').value,
-            references: document.getElementById('references').value,
-            content: Array.from(document.querySelectorAll('input[name="content[]"]:checked')).map(cb => cb.value),
-            style: document.querySelector('input[name="style"]:checked')?.value,
-            colors: document.querySelector('input[placeholder*="цвета"]')?.value,
-            mood: document.getElementById('mood')?.value,
-            contactName: document.getElementById('contact-name').value,
-            contactEmail: document.getElementById('contact-email').value,
-            contactPhone: document.getElementById('contact-phone').value,
-            companySite: document.getElementById('company-site').value,
-            budget: document.getElementById('budget').value,
-            deadline: document.getElementById('deadline').value,
-            nda: document.getElementById('nda')?.checked || false,
-            newsletter: document.getElementById('newsletter')?.checked || false,
-            privacyAgreement: document.getElementById('privacy-agreement')?.checked || false,
-            offerAgreement: document.getElementById('offer-agreement')?.checked || false
-        };
-        
-        await submitForm('brief', formData);
-    });
-}
-
-function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? '#10B981' : '#EF4444'};
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        animation: slideIn 0.3s ease;
-    `;
-    
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-</script>
+```

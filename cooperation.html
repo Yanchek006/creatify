@@ -701,7 +701,50 @@
             font-size: 1.75rem;
         }
     }
-    
+    /* Исправление для мобильной версии - блоки процесса сотрудничества */
+@media (max-width: 768px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .process-step {
+        padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+        position: relative;
+    }
+
+    .process-step::before {
+        position: absolute;
+        top: 1.5rem;
+        left: 1rem;
+        font-size: 1.3rem;
+        opacity: 0.4;
+    }
+
+    .process-step h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+}
+
+/* Для очень маленьких экранов (до 480px) */
+@media (max-width: 480px) {
+    .process-step {
+        padding: 1.2rem 1.2rem 1.2rem 2.8rem;
+    }
+
+    .process-step::before {
+        font-size: 1.1rem;
+        top: 1.2rem;
+        left: 0.8rem;
+    }
+}
+
     @media (max-width: 768px) {
         .page-hero {
             padding: 120px 0 40px;
