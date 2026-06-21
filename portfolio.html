@@ -1156,6 +1156,59 @@
     .fade-in {
         animation: fadeInUp 0.6s ease forwards;
     }
+
+
+    /* ===== Улучшение галереи ===== */
+.work-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(74, 108, 247, 0.2);
+    border-color: var(--primary-color);
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+.image-container .work-image {
+    transition: transform 0.5s ease;
+}
+
+.work-item:hover .work-image {
+    transform: scale(1.03);
+}
+
+/* Маленькая подпись «Смотреть на Deziiign» */
+.work-item .external-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.work-item .external-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .work-item {
+        border-radius: 16px;
+    }
+
+    .image-container {
+        border-radius: 16px 16px 0 0;
+    }
+}
     </style>
 </head>
 <body>
@@ -1494,6 +1547,10 @@
                                 <span class="tag">Адаптивный дизайн</span>
                                 <span class="tag">Web дизайн</span>
                             </div>
+                            <!-- Внутри блока .work-info после .project-tags -->
+<a href="https://deziiign.com/project/dc502c9575264c02bf8e8ec210e3d8f3" target="_blank" class="external-link">
+    <i class="fas fa-external-link-alt"></i> Смотреть на Deziiign
+</a><br><br>
                             <button class="view-project-btn" onclick="openProjectModal('website-ibni')">
                                 <i class="fas fa-images"></i>
                                 Смотреть проект
@@ -1534,6 +1591,10 @@
                                 <span class="tag">UX/UI</span>
                                 <span class="tag">Прототипирование</span>
                             </div>
+                            <!-- Внутри блока .work-info после .project-tags -->
+<a href="https://deziiign.com/project/cb17dd8da2784089a2ccbe065a975424" target="_blank" class="external-link">
+    <i class="fas fa-external-link-alt"></i> Смотреть на Deziiign
+</a><br><br>
                             <button class="view-project-btn" onclick="openProjectModal('app-designer')">
                                 <i class="fas fa-images"></i>
                                 Смотреть проект
@@ -1564,6 +1625,10 @@
                                 <span class="tag">Ozon</span>
                                 <span class="tag">Продажи</span>
                             </div>
+                            <!-- Внутри блока .work-info после .project-tags -->
+<a href="https://deziiign.com/project/3abe75b921664420b56af3115298a400" target="_blank" class="external-link">
+    <i class="fas fa-external-link-alt"></i> Смотреть на Deziiign
+</a><br><br>
                             <button class="view-project-btn" onclick="openProjectModal('infographic-shaver')">
                                 <i class="fas fa-images"></i>
                                 Смотреть все работы
