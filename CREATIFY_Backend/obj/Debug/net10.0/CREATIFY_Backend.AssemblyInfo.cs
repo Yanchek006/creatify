@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CREATIFY_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e3934094e794e9c3b06d52f1d04514ab48a859d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+016fad14c8567766ebea893665d02a2a8c2de7e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CREATIFY_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CREATIFY_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
