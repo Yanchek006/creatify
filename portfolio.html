@@ -11,997 +11,604 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
-    /* =============================================
-       PORTFOLIO PAGE - MODAL GALLERY VERSION
-       ============================================= */
-    
-    :root {
-        --primary-color: #4A6CF7;
-        --secondary-color: #6C63FF;
-        --accent-color: #FF6B8B;
-        --light-bg: #F8F9FA;
-        --light-card: #FFFFFF;
-        --text-dark: #1A1A2E;
-        --text-gray: #6C757D;
-        --text-light: #858B99;
-        --border-color: #E9ECEF;
-        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
-        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
-        --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
-        --gradient-accent: linear-gradient(135deg, #FF6B8B 0%, #FFA07A 100%);
-     
-        --footer-bg: #1A1A2E;
-    }
-    
-    body {
-        background-color: var(--light-bg);
-        color: var(--text-dark);
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    
-    /* Language Switcher */
-    .lang-switcher {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        display: flex;
-        gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 0.5rem;
-        border-radius: 12px;
-        box-shadow: var(--shadow-md);
-        border: 1px solid var(--border-color);
-    }
-    
-    .lang-btn {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 0.875rem;
-        transition: all 0.3s ease;
-        background: transparent;
-        color: var(--text-gray);
-    }
-    
-    .lang-btn.active {
-        background: var(--gradient-primary);
-        color: white;
-        box-shadow: var(--shadow-sm);
-    }
-    
-    .lang-btn:not(.active):hover {
-        background: rgba(74, 108, 247, 0.1);
-        color: var(--primary-color);
-    }
-    
-    /* Navigation */
-    .glass-nav {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border-color);
-        box-shadow: var(--shadow-sm);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        padding: 1rem 0;
-    }
-    
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    .logo {
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .logo-main {
-        color: var(--text-dark);
-        font-size: 1.5rem;
-        font-weight: 700;
-        font-family: 'Space Grotesk', sans-serif;
-    }
-    
-    .logo-sub {
-        color: var(--primary-color);
-        font-size: 0.75rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-    }
-    
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-    }
-    
-    .nav-link {
-        color: var(--text-gray) !important;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9375rem;
-        transition: color 0.3s ease;
-    }
-    
-    .nav-link.active {
-        color: var(--primary-color) !important;
-        font-weight: 600;
-    }
-    
-    .nav-link:hover {
-        color: var(--primary-color) !important;
-    }
-    
-    .menu-toggle {
-        background: none;
-        border: none;
-        color: var(--text-dark);
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: none;
-    }
-    
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            flex-direction: column;
-            padding: 1rem;
-            border-top: 1px solid var(--border-color);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .nav-links.active {
-            display: flex;
-        }
-        
-        .menu-toggle {
-            display: block;
-        }
-        
-        .lang-switcher {
-            top: 80px;
-            right: 20px;
-        }
-    }
-    
-    /* Container */
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    /* Page Hero */
-    .page-hero {
-        padding: 160px 0 80px;
-        background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .page-hero .hero-shapes {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow: hidden;
-        z-index: 1;
-    }
-    
-    .page-hero .shape {
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0.1;
-    }
-    
-    .page-hero .shape-1 {
-        width: 400px;
-        height: 400px;
-        background: var(--primary-color);
-        top: -200px;
-        right: -200px;
-    }
-    
-    .page-hero .shape-2 {
-        width: 300px;
-        height: 300px;
-        background: var(--accent-color);
-        bottom: -150px;
-        left: -150px;
-    }
-    
-    .page-title {
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 800;
-        font-size: 3.5rem;
-        line-height: 1.1;
-        margin-bottom: 1rem;
-        background: var(--gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        position: relative;
-        z-index: 2;
-    }
-    
-    .page-subtitle {
-        font-size: 1.25rem;
-        color: var(--text-gray);
-        max-width: 600px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 2;
-    }
-    
-    @media (max-width: 768px) {
-        .page-hero {
-            padding: 140px 0 60px;
-        }
-        
-        .page-title {
-            font-size: 2.5rem;
-        }
-        
-        .page-subtitle {
-            font-size: 1.125rem;
-        }
-        
-.lang-switcher {
-            top: 70px;
-            right: 10px;
+        /* =============================================
+           PORTFOLIO PAGE - CAROUSEL VERSION
+           ============================================= */
+
+        :root {
+            --primary-color: #4A6CF7;
+            --secondary-color: #6C63FF;
+            --accent-color: #FF6B8B;
+            --light-bg: #F8F9FA;
+            --light-card: #FFFFFF;
+            --text-dark: #1A1A2E;
+            --text-gray: #6C757D;
+            --text-light: #858B99;
+            --border-color: #E9ECEF;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #4A6CF7 0%, #6C63FF 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B8B 0%, #FFA07A 100%);
+            --footer-bg: #1A1A2E;
         }
 
-    }
-    
-    /* Portfolio Navigation */
-    .portfolio-nav {
-        position: sticky;
-        top: 80px;
-        z-index: 999;
-        padding: 1.5rem 0;
-        margin-bottom: 3rem;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border-color);
-        box-shadow: var(--shadow-sm);
-    }
-    
-    .portfolio-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-    
-    .portfolio-tab {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem 1.5rem;
-        background: var(--light-card);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        color: var(--text-gray);
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        box-shadow: var(--shadow-sm);
-    }
-    
-    .portfolio-tab:hover {
-        background: rgba(74, 108, 247, 0.05);
-        color: var(--primary-color);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--primary-color);
-    }
-    
-    .portfolio-tab.active {
-        background: var(--gradient-primary);
-        border-color: transparent;
-        color: white;
-        box-shadow: var(--shadow-md);
-    }
-    
-    .portfolio-tab i {
-        font-size: 1.125rem;
-    }
-    
-    @media (max-width: 768px) {
-        .portfolio-nav {
-            top: 70px;
+        * {
+            box-sizing: border-box;
         }
-        
-        .portfolio-tabs {
-            overflow-x: auto;
-            padding-bottom: 1rem;
-            justify-content: flex-start;
-            flex-wrap: nowrap;
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
-        
-        .portfolio-tab {
-            white-space: nowrap;
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
         }
-    }
-    
-    @media (max-width: 480px) {
-        .portfolio-tab span {
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--text-gray);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-btn:not(.active):hover {
+            background: rgba(74, 108, 247, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Navigation */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .logo-sub {
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-gray) !important;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
             display: none;
         }
-        
-        .portfolio-tab {
-            padding: 0.75rem;
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                border-top: 1px solid var(--border-color);
+                box-shadow: var(--shadow-md);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .lang-switcher {
+                top: 80px;
+                right: 20px;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 160px 0 60px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero .hero-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .page-hero .shape {
+            position: absolute;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            justify-content: center;
+            opacity: 0.1;
         }
-    }
-    
-    /* Portfolio Content */
-    .portfolio-content {
-        padding: 0 0 6rem;
-    }
-    
-    .portfolio-category {
-        display: none;
-        animation: fadeInUp 0.5s ease-out;
-    }
-    
-    .portfolio-category.active {
-        display: block;
-    }
-    
-    /* Category Title */
-    .category-title {
-        text-align: center;
-        margin-bottom: 4rem;
-        padding-bottom: 1.5rem;
-        position: relative;
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 700;
-        font-size: 2.5rem;
-        color: var(--text-dark);
-    }
-    
-    .category-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: var(--gradient-primary);
-        border-radius: 2px;
-    }
-    
-    /* Portfolio Grid */
-    .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 2.5rem;
-        margin: 3rem 0;
-    }
-    
-    /* Work Item */
-    .work-item {
-        background: var(--light-card);
-        border-radius: 20px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow-sm);
-        height: auto;
-    }
-    
-    .work-item:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-lg);
-        border-color: var(--primary-color);
-    }
-    
-    /* Image Container */
-    .image-container {
-        width: 100%;
-        height: 250px;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .work-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s ease;
-    }
-    
-    .work-item:hover .work-image {
-        transform: scale(1.05);
-    }
-    
-    /* Work Info */
-    .work-info {
-        padding: 2rem;
-        background: white;
-    }
-    
-    .work-info h3 {
-        font-size: 1.25rem;
-        margin-bottom: 0.75rem;
-        color: var(--text-dark);
-        font-weight: 600;
-        font-family: 'Space Grotesk', sans-serif;
-    }
-    
-    .work-info p {
-        color: var(--text-gray);
-        font-size: 0.9375rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
-    
-    /* Project Tags */
-    .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .tag {
-        padding: 0.375rem 0.75rem;
-        background: rgba(74, 108, 247, 0.1);
-        color: var(--primary-color);
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 500;
-    }
-    
-    /* View Project Button */
-    .view-project-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.5rem;
-        background: var(--gradient-primary);
-        color: white;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9375rem;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .view-project-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(74, 108, 247, 0.3);
-    }
-    
-    /* PROJECT MODAL STYLES */
-    .project-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(26, 26, 46, 0.98);
-        backdrop-filter: blur(20px);
-        z-index: 2000;
-        overflow-y: auto;
-        padding: 2rem;
-    }
-    
-    .project-modal.active {
-        display: block;
-    }
-    
-    .modal-content {
-        background: white;
-        border-radius: 24px;
-        max-width: 1400px;
-        margin: 2rem auto;
-        position: relative;
-        box-shadow: var(--shadow-lg);
-        animation: modalSlideIn 0.4s ease-out;
-    }
-    
-    @keyframes modalSlideIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+
+        .page-hero .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-color);
+            top: -200px;
+            right: -200px;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .page-hero .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-color);
+            bottom: -150px;
+            left: -150px;
         }
-    }
-    
-    .modal-close {
-        position: fixed;
-        top: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 50%;
-        color: var(--text-dark);
-        font-size: 1.5rem;
-        cursor: pointer;
-        z-index: 2001;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: var(--shadow-sm);
-    }
-    
-    .modal-close:hover {
-        background: var(--primary-color);
-        color: white;
-        border-color: var(--primary-color);
-        transform: rotate(90deg);
-    }
-    
-    .modal-header {
-        padding: 3rem 3rem 2rem;
-        border-bottom: 1px solid var(--border-color);
-        background: white;
-        border-radius: 24px 24px 0 0;
-    }
-    
-    .modal-header h2 {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 2.5rem;
-        margin: 0 0 1rem 0;
-        color: var(--text-dark);
-    }
-    
-    .modal-header p {
-        color: var(--text-gray);
-        font-size: 1.125rem;
-        margin-bottom: 2rem;
-        line-height: 1.7;
-        max-width: 800px;
-    }
-    
-    .modal-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-    
-    .modal-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-top: 1rem;
-    }
-    
-    .modal-tag {
-        padding: 0.5rem 1rem;
-        background: rgba(74, 108, 247, 0.1);
-        color: var(--primary-color);
-        border-radius: 20px;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-    
-    /* Modal Gallery */
-    .modal-gallery {
-        padding: 2rem 3rem 3rem;
-        background: white;
-    }
-    
-    .modal-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-    
-    .modal-image-item {
-        border-radius: 16px;
-        overflow: hidden;
-        background: var(--light-bg);
-        border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-    }
-    
-    .modal-image-item:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .modal-img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        display: block;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-    
-    .modal-img:hover {
-        transform: scale(1.02);
-    }
-    
-    .image-info {
-        padding: 1.5rem;
-        background: white;
-    }
-    
-    .image-info h4 {
-        margin: 0 0 0.5rem 0;
-        font-size: 1rem;
-        color: var(--text-dark);
-    }
-    
-    .image-info p {
-        margin: 0;
-        font-size: 0.875rem;
-        color: var(--text-gray);
-    }
-    
-    /* Full Screen Image Viewer */
-    .fullscreen-viewer {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 3000;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-    }
-    
-    .fullscreen-viewer.active {
-        display: flex;
-    }
-    
-    .fullscreen-image {
-        max-width: 90vw;
-        max-height: 90vh;
-        object-fit: contain;
-        border-radius: 8px;
-    }
-    
-    .fullscreen-close {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-dark);
-    }
-    
-    .fullscreen-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 2rem;
-        pointer-events: none;
-    }
-    
-    .fullscreen-nav button {
-        background: white;
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-dark);
-        pointer-events: auto;
-        transition: all 0.3s ease;
-    }
-    
-    .fullscreen-nav button:hover {
-        background: var(--primary-color);
-        color: white;
-    }
-    
-    .image-counter {
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(255, 255, 255, 0.9);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        color: var(--text-dark);
-        font-weight: 600;
-    }
-    
-    @media (max-width: 768px) {
-        .portfolio-grid {
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
         }
-        
-        .modal-content {
-            margin: 1rem auto;
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
-        
-        .modal-header {
-            padding: 2rem 1.5rem 1.5rem;
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 140px 0 40px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .lang-switcher {
+                top: 70px;
+                right: 10px;
+            }
         }
-        
-        .modal-header h2 {
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio-section {
+            padding: 2rem 0 5rem;
+        }
+
+        /* Category Title - БЕЛЫЙ ЦВЕТ */
+        .category-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
             font-size: 2rem;
+            margin: 3rem 0 1.5rem 0;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--gradient-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
         }
-        
-        .modal-gallery {
-            padding: 1.5rem 1.5rem 2rem;
+
+        .category-title i {
+            color: white;
+            font-size: 1.6rem;
         }
-        
-        .modal-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+
+        .category-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            margin-left: 1rem;
         }
-        
-        .modal-img {
-            height: 250px;
+
+        .category-description {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
         }
-        
-        .modal-close {
-            top: 1rem;
-            right: 1rem;
+
+        /* ===== SLICK CAROUSEL OVERRIDES ===== */
+        .carousel-wrapper {
+            position: relative;
+            padding: 0 40px;
+            margin-bottom: 1rem;
+        }
+
+        .slick-slide {
+            padding: 0 10px;
+        }
+
+        .slick-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .slick-prev, .slick-next {
             width: 40px;
             height: 40px;
-            font-size: 1.25rem;
+            background: white;
+            border-radius: 50%;
+            box-shadow: var(--shadow-md);
+            z-index: 10;
+            transition: all 0.3s ease;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .portfolio-grid {
-            grid-template-columns: 1fr;
+
+        .slick-prev:hover, .slick-next:hover {
+            background: var(--primary-color);
         }
-        
-        .modal-header h2 {
-            font-size: 1.75rem;
+
+        .slick-prev:hover:before, .slick-next:hover:before {
+            color: white;
         }
-        
-        .modal-meta {
-            flex-direction: column;
-            gap: 1rem;
+
+        .slick-prev:before, .slick-next:before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--text-dark);
+            opacity: 1;
         }
-        
-        .modal-grid {
-            grid-template-columns: 1fr;
+
+        .slick-prev:before {
+            content: '\f104';
         }
-    }
-    
-    /* Portfolio Stats */
-    .portfolio-stats {
-        padding: 6rem 0;
-        margin: 6rem 0;
-        position: relative;
-        background: white;
-    }
-    
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 3rem;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 3rem;
-        background: var(--light-bg);
-        border-radius: 24px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .stat-item {
-        text-align: center;
-        padding: 2rem;
-    }
-    
-    .stat-number {
-        display: block;
-        font-size: 3.5rem;
-        font-weight: 800;
-        background: var(--gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 1rem;
-        font-family: 'Space Grotesk', sans-serif;
-    }
-    
-    .stat-label {
-        font-size: 0.9375rem;
-        color: var(--text-light);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        line-height: 1.5;
-    }
-    
-    @media (max-width: 992px) {
-        .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            padding: 2rem;
+
+        .slick-next:before {
+            content: '\f105';
         }
-    }
-    
-    @media (max-width: 768px) {
-        .stats-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+
+        .slick-prev {
+            left: -5px;
         }
-        
-        .stat-number {
-            font-size: 2.5rem;
+
+        .slick-next {
+            right: -5px;
         }
-    }
-    
-    /* CTA Section */
-    .cta-section-modern {
-        padding: 6rem 0;
-        background: linear-gradient(135deg, var(--cta-bg) 0%, #3A3A7E 100%);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .cta-content-modern {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 4rem;
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: var(--shadow-lg);
-        position: relative;
-    }
-    
-    .cta-content-modern h2 {
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 700;
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--text-dark);
-    }
-    
-    .cta-content-modern p {
-        font-size: 1.125rem;
-        color: var(--text-gray);
-        margin-bottom: 3rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .cta-buttons-modern {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .btn-modern-primary {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-        background: var(--gradient-primary);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        box-shadow: var(--shadow-sm);
-    }
-    
-    .btn-modern-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-    }
-    
-    .btn-modern-secondary {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-        background: transparent;
-        border: 2px solid var(--primary-color);
-        color: var(--primary-color);
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    
-    .btn-modern-secondary:hover {
-        background: var(--primary-color);
-        color: white;
-        transform: translateY(-2px);
-    }
-    
-    @media (max-width: 768px) {
-        .cta-content-modern {
-            padding: 3rem 2rem;
+
+        .slick-dots {
+            bottom: -35px;
         }
-        
-        .cta-content-modern h2 {
-            font-size: 2rem;
+
+        .slick-dots li button:before {
+            font-size: 10px;
+            color: var(--text-gray);
+            opacity: 0.5;
         }
-        
-        .cta-content-modern p {
-            font-size: 1rem;
+
+        .slick-dots li.slick-active button:before {
+            color: var(--primary-color);
+            opacity: 1;
         }
-        
-        .cta-buttons-modern {
-            flex-direction: column;
+
+        /* Slide caption */
+        .slide-caption {
+            text-align: center;
+            padding: 12px 0 8px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 500;
         }
-        
-        .btn-modern-primary,
-        .btn-modern-secondary {
+
+        /* ===== FEATURED PROJECTS (4 in a row) ===== */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .featured-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .featured-card .featured-img {
             width: 100%;
-            justify-content: center;
+            height: 200px;
+            object-fit: cover;
+            background: #f0f0f0;
+            display: block;
         }
-    }
-    
-    /* Footer */
+
+        .featured-card .featured-body {
+            padding: 1.2rem;
+        }
+
+        .featured-card .featured-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            margin: 0 0 0.4rem 0;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .featured-card .featured-body p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin: 0 0 0.6rem 0;
+            line-height: 1.4;
+        }
+
+        .featured-card .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .featured-card .featured-tags span {
+            background: rgba(74, 108, 247, 0.1);
+            color: var(--primary-color);
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 500;
+        }
+
+        .featured-card .featured-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.6rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .featured-card .featured-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .featured-card:hover .featured-link i {
+            transform: translateX(4px);
+        }
+
+        /* ===== CTA Section ===== */
+        .cta-section-modern {
+            padding: 6rem 0;
+           
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content-modern {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 4rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .cta-content-modern h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .cta-content-modern p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons-modern {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-modern-primary {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-modern-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-modern-secondary {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-modern-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .cta-content-modern {
+                padding: 3rem 2rem;
+            }
+            
+            .cta-content-modern h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-content-modern p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons-modern {
+                flex-direction: column;
+            }
+            
+            .btn-modern-primary,
+            .btn-modern-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+       /* Footer */
     .footer {
         background: linear-gradient(135deg, var(--cta-bg) 0%, #000000 100%);
         color: white;
@@ -1120,95 +727,78 @@
     .footer-bottom p {
         margin: 0;
     }
-    
-    @media (max-width: 768px) {
-        .footer-content {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 2.5rem;
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1200px) {
+            .featured-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
         }
-        
-        .footer-section p {
-            justify-content: center;
+
+        @media (max-width: 992px) {
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .featured-card .featured-img {
+                height: 220px;
+            }
         }
-        
-        .social-links {
-            justify-content: center;
+
+        @media (max-width: 768px) {
+            .slick-slide img {
+                height: 280px;
+            }
+            
+            .carousel-wrapper {
+                padding: 0 30px;
+            }
+            
+            .slick-prev {
+                left: -8px;
+            }
+            
+            .slick-next {
+                right: -8px;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+                padding: 0.5rem 1rem;
+            }
         }
-        
-        .footer-section a:hover {
-            transform: none;
+
+        @media (max-width: 480px) {
+            .slick-slide img {
+                height: 220px;
+            }
+            
+            .carousel-wrapper {
+                padding: 0 20px;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
         }
-    }
-    
-    /* Animation */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+
+        /* Fade-in */
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-    }
-    
-    .fade-in {
-        animation: fadeInUp 0.6s ease forwards;
-    }
-
-
-    /* ===== Улучшение галереи ===== */
-.work-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.work-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(74, 108, 247, 0.2);
-    border-color: var(--primary-color);
-}
-
-.image-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px 16px 0 0;
-}
-
-.image-container .work-image {
-    transition: transform 0.5s ease;
-}
-
-.work-item:hover .work-image {
-    transform: scale(1.03);
-}
-
-/* Маленькая подпись «Смотреть на Deziiign» */
-.work-item .external-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.work-item .external-link:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 768px) {
-    .work-item {
-        border-radius: 16px;
-    }
-
-    .image-container {
-        border-radius: 16px 16px 0 0;
-    }
-}
     </style>
 </head>
 <body>
@@ -1244,8 +834,6 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
         </div>
         <div class="container">
             <h1 class="page-title" data-lang-ru="Наши работы" data-lang-en="Our Works">
@@ -1257,421 +845,203 @@
         </div>
     </section>
 
-    <!-- Portfolio Navigation -->
-    <div class="portfolio-nav">
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
         <div class="container">
-            <div class="portfolio-tabs">
-                <a href="#ai" class="portfolio-tab active" data-category="ai">
-                    <i class="fas fa-robot"></i>
-                    <span data-lang-ru="AI проекты" data-lang-en="AI Projects">AI проекты</span>
-                </a>
-                <a href="#graphic" class="portfolio-tab" data-category="graphic">
-                    <i class="fas fa-paint-brush"></i>
-                    <span data-lang-ru="Графический дизайн" data-lang-en="Graphic Design">Графический дизайн</span>
-                </a>
-                <a href="#web" class="portfolio-tab" data-category="web">
-                    <i class="fas fa-laptop-code"></i>
-                    <span data-lang-ru="Web-дизайн" data-lang-en="Web Design">Web-дизайн</span>
-                </a>
-                <a href="#infographic" class="portfolio-tab" data-category="infographic">
-                    <i class="fas fa-chart-pie"></i>
-                    <span data-lang-ru="Инфографика" data-lang-en="Infographics">Инфографика</span>
-                </a>
-                <a href="#presentations" class="portfolio-tab" data-category="presentations">
-                    <i class="fas fa-chalkboard"></i>
-                    <span data-lang-ru="Презентации" data-lang-en="Presentations">Презентации</span>
-                </a>
-                
-            </div>
-        </div>
-    </div>
 
-    <!-- Portfolio Content -->
-    <section class="portfolio-content">
-        <div class="container">
-            <!-- AI Projects -->
-            <div id="ai" class="portfolio-category active">
-                <h2 class="category-title" data-lang-ru="AI проекты" data-lang-en="AI Projects" style="color: white;">
-                    AI проекты
-                </h2>
-                
-                <div class="portfolio-grid">
-                    <!-- Интерьерный дизайн -->
-                    <div class="work-item fade-in" data-project="ai-interior">
-                        <div class="image-container">
-                            <img src="img/portfolio/ai/interer_1.jpg" alt="AI Интерьерный дизайн" class="work-image">
+            <!-- ===== FEATURED PROJECTS (4 in a row) ===== -->
+            <h2 class="category-title" data-lang-ru="Избранные проекты" data-lang-en="Featured Projects">
+                <i class="fas fa-star"></i> Избранные проекты
+            </h2>
+            <p class="category-description" data-lang-ru="Проекты с подробным описанием и ссылкой на полную версию" data-lang-en="Projects with detailed description and link to full version">
+                Проекты с подробным описанием и ссылкой на полную версию
+            </p>
+
+            <div class="featured-grid">
+                <!-- 1. CREATIFY - Корпоративный сайт -->
+                <a href="https://deziiign.com/project/cb17dd8da2784089a2ccbe065a975424" target="_blank" class="featured-card fade-in">
+                    <img src="img/portfolio/digital/ux_ui/ux_ui_1.jpg" alt="Creatify Project" class="featured-img">
+                    <div class="featured-body">
+                        <h3>CREATIFY — корпоративный сайт</h3>
+                        <p>Полный цикл разработки корпоративного сайта для CREATIFY. Современный дизайн, адаптивная верстка.</p>
+                        <div class="featured-tags">
+                            <span>Веб-дизайн</span>
+                            <span>UI/UX</span>
                         </div>
-                        <div class="work-info">
-                            <h3>AI Интерьерный дизайн</h3>
-                            <p>Серия интерьеров, созданных с помощью нейросетей. Современные и классические стили, полная визуализация пространств.</p>
-                            <div class="project-tags">
-                                <span class="tag">Midjourney</span>
-                                <span class="tag">Stable Diffusion</span>
-                                <span class="tag">3D визуализация</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('ai-interior')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
+                        <div class="featured-link">
+                            Смотреть <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
-                    
-                    <!-- Old Money эстетика -->
-                    <div class="work-item fade-in" data-project="ai-oldmoney">
-                        <div class="image-container">
-                            <img src="img/portfolio/ai/oldmoney_1.jpg" alt="Old Money эстетика" class="work-image">
+                </a>
+
+                <!-- 2. LED GARLAND - Инфографика -->
+                <a href="https://deziiign.com/project/05c4a7b7b3424a3b8d38d4abf4d67bd3" target="_blank" class="featured-card fade-in">
+                    <img src="img/portfolio//digital/newyear/newyear_1.jpg" alt="LED Garland Инфографика" class="featured-img">
+                    <div class="featured-body">
+                        <h3>LED GARLANDS</h3>
+                        <p>LED GARLANDS — не просто визитка. Это высокоэффективный маркетинговый механизм, спроектированный для генерации заявок и демонстрации экспертизы.</p>
+                        <div class="featured-tags">
+                            <span>Лендинг</span>
+                            <span>Tilda</span>
                         </div>
-                        <div class="work-info">
-                            <h3>Old Money эстетика</h3>
-                            <p>Аристократический стиль, сгенерированный нейросетью. Классическая элегантность и винтажная роскошь.</p>
-                            <div class="project-tags">
-                                <span class="tag">Нейросеть</span>
-                                <span class="tag">Ретро стиль</span>
-                                <span class="tag">Аристократия</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('ai-oldmoney')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
+                        <div class="featured-link">
+                            Смотреть <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
-                    
-                    <!-- Русская эстетика -->
-                    <div class="work-item fade-in" data-project="ai-russian">
-                        <div class="image-container">
-                            <img src="img/portfolio/ai/russ.png" alt="Русская эстетика" class="work-image">
+                </a>
+
+                <!-- 3. Информационная база -->
+                <a href="https://deziiign.com/project/dc502c9575264c02bf8e8ec210e3d8f3" target="_blank" class="featured-card fade-in">
+                    <img src="img/portfolio/digital/ibni/ibni_1.jpg" alt="Информационная база" class="featured-img">
+                    <div class="featured-body">
+                        <h3>Информационная база данных</h3>
+                        <p>Разработка информационной базы с удобной структурой и визуализацией данных. Современный интерфейс.</p>
+                        <div class="featured-tags">
+                            <span>База данных</span>
+                            <span>Визуализация</span>
                         </div>
-                        <div class="work-info">
-                            <h3>Русская эстетика</h3>
-                            <p>Традиционный русский стиль в современной интерпретации нейросетей. Усадьбы, пейзажи, архитектура.</p>
-                            <div class="project-tags">
-                                <span class="tag">Русский стиль</span>
-                                <span class="tag">Традиции</span>
-                                <span class="tag">Архитектура</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('ai-russian')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
+                        <div class="featured-link">
+                            Смотреть <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
-                    
-                    <!-- Портреты AI -->
-                    <div class="work-item fade-in" data-project="ai-portraits">
-                        <div class="image-container" >
-                            <img src="img/portfolio/ai/portr_1.jpg" alt="AI Портреты" class="work-image">
+                </a>
+
+                <!-- 4. Инфографика для маркетплейсов -->
+                <a href="https://deziiign.com/project/3abe75b921664420b56af3115298a400" target="_blank" class="featured-card fade-in">
+                    <img src="img/portfolio/infografics/2.jpg" alt="Инфографика маркетплейсы" class="featured-img">
+                    <div class="featured-body">
+                        <h3>Инфографика для маркетплейсов</h3>
+                        <p>Комплексная инфографика для продвижения товаров. Визуализация преимуществ и использования продукта.</p>
+                        <div class="featured-tags">
+                            <span>Wildberries</span>
+                            <span>Ozon</span>
                         </div>
-                        <div class="work-info" >
-                            <h3 >AI Портреты</h3>
-                            <p>Серия портретов, созданных нейросетями. Различные стили и техники генерации изображений.</p>
-                            <div class="project-tags">
-                                <span class="tag">Портреты</span>
-                                <span class="tag">Художественный стиль</span>
-                                <span class="tag">Генерация</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('ai-portraits')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
+                        <div class="featured-link">
+                            Смотреть <i class="fas fa-arrow-right"></i>
                         </div>
                     </div>
-                    
-                    <!-- Цветочные композиции -->
-                    <div class="work-item fade-in" data-project="ai-flowers">
-                        <div class="image-container">
-                            <img src="img/portfolio/ai/flowers_1.png" alt="Цветочные композиции AI" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Цветочные композиции</h3>
-                            <p>Нейросетевая генерация цветочных образов в современном стиле от импрессионизма до абстракции.</p>
-                            <div class="project-tags">
-                                <span class="tag">Флористика</span>
-                                <span class="tag">Искусство</span>
-                                <span class="tag">Генеративный дизайн</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('ai-flowers')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Жемчужная серия -->
-                    <div class="work-item fade-in" data-project="ai-pearl">
-                        <div class="image-container">
-                            <img src="img/portfolio/ai/zhemchug_1.png" alt="Жемчужная серия" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Жемчужная серия</h3>
-                            <p>Элегантные композиции с жемчугом, созданные нейросетями. Современное прочтение классики.</p>
-                            <div class="project-tags">
-                                <span class="tag">Ювелирный дизайн</span>
-                                <span class="tag">Элегантность</span>
-                                <span class="tag">AI Art</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('ai-pearl')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
+                </a>
+            </div>
+
+            <!-- ===== AI ПРОЕКТЫ ===== -->
+            <h2 class="category-title" data-lang-ru="AI проекты" data-lang-en="AI Projects">
+                <i class="fas fa-robot"></i> AI проекты
+            </h2>
+            <p class="category-description">Серия работ, созданных с использованием нейросетей</p>
+
+            <div class="carousel-wrapper">
+                <div class="carousel" id="ai-carousel">
+                    <!-- 
+                        ↓↓↓ ЗДЕСЬ МЕНЯЙТЕ КАРТИНКИ ДЛЯ AI ПРОЕКТОВ ↓↓↓
+                    -->
+                    <div><img src="img/portfolio/ai/ai_1.png" alt="AI Портрет"><div class="slide-caption">AI Портрет — художественный стиль</div></div>  
+                    <div><img src="img/portfolio/ai/ai_2.png" alt="AI Работа"><div class="slide-caption">Момент, которого нет</div></div>  
+                    <div><img src="img/portfolio/ai/ai_3.png" alt="AI Работа"><div class="slide-caption">Тишина до и эхо после</div></div>
+                    <div><img src="img/portfolio/ai/ai_4.png" alt="AI Работа"><div class="slide-caption">Латинская эстетика</div></div>
+                    <div><img src="img/portfolio/ai/ai_5.png" alt="AI Работа"><div class="slide-caption">Идеальное преступление: без свидетелей</div></div>
+                    <div><img src="img/portfolio/ai/ai_6.png" alt="AI Работа"><div class="slide-caption">Обещанного три года ждут... но не здесь</div></div>
+                    <div><img src="img/portfolio/ai/ai_7.png" alt="AI Работа"><div class="slide-caption">То, что дышит — и то, что уже было</div></div>
+                    <div><img src="img/portfolio/ai/ai_8.png" alt="AI Работа"><div class="slide-caption">Живой — ещё нет. Искусственный — уже навсегда</div></div>
+                    <div><img src="img/portfolio/ai/ai_9.png" alt="AI Работа"><div class="slide-caption">Ничего не случится. Всё уже расцвело</div></div>
+                    <div><img src="img/portfolio/ai/ai_10.png" alt="AI Работа"><div class="slide-caption">Постеры</div></div>
+                    <div><img src="img/portfolio/ai/interer_1.jpg" alt="AI Интерьер 1"><div class="slide-caption">Интерьерный дизайн — современный стиль</div></div>
+                    <div><img src="img/portfolio/ai/interer_2.jpg" alt="AI Интерьер 2"><div class="slide-caption">Интерьерный дизайн — классика</div></div>
+                    <div><img src="img/portfolio/ai/interer_3.jpg" alt="AI Интерьер 3"><div class="slide-caption">Интерьерный дизайн — минимализм</div></div>
+                    <div><img src="img/portfolio/ai/oldmoney_1.jpg" alt="Old Money 1"><div class="slide-caption">Old Money эстетика — аристократичный стиль</div></div>
+                    <div><img src="img/portfolio/ai/oldmoney_2.jpg" alt="Old Money 2"><div class="slide-caption">Old Money эстетика — винтажная роскошь</div></div>
+                    <div><img src="img/portfolio/ai/russ.png" alt="Русская эстетика 1"><div class="slide-caption">Русская эстетика — традиционный стиль</div></div>
+
+                   
                 </div>
             </div>
 
-            <!-- Графический дизайн -->
-            <div id="graphic" class="portfolio-category">
-                <h2 class="category-title" data-lang-ru="Графический дизайн" data-lang-en="Graphic Design" style="color: white;">
-                    Графический дизайн
-                </h2>
-                
-                <div class="portfolio-grid">
-                    <!-- Визитки Anvil -->
-                    <div class="work-item fade-in" data-project="business-cards-anvil">
-                        <div class="image-container">
-                            <img src="img/portfolio/visitki/visitka_1/anvil_1.png" alt="Визитки Anvil" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Визитки Anvil</h3>
-                            <p>Минималистичный дизайн визитных карточек для барбершопа. Чистые линии, профессиональный стиль.</p>
-                            <div class="project-tags">
-                                <span class="tag">Визитки</span>
-                                <span class="tag">Минимализм</span>
-                                <span class="tag">Брендинг</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('business-cards-anvil')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Визитки Blossom -->
-                    <div class="work-item fade-in" data-project="business-cards-blossom">
-                        <div class="image-container">
-                            <img src="img/portfolio/visitki/visitka_2/blossom_1.png" alt="Визитки Blossom" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Визитки Blossom</h3>
-                            <p>Элегантные визитки для флористического салона. Нежные цвета, цветочные мотивы.</p>
-                            <div class="project-tags">
-                                <span class="tag">Флористика</span>
-                                <span class="tag">Элегантность</span>
-                                <span class="tag">Полиграфия</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('business-cards-blossom')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Визитки Lumina -->
-                    <div class="work-item fade-in" data-project="business-cards-lumina">
-                        <div class="image-container">
-                            <img src="img/portfolio/visitki/visitka_3/lumina_1.png" alt="Визитки Lumina" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Визитки Lumina</h3>
-                            <p>Современный дизайн студии красоты. Современный стиль, гармоничное сочетание цветов.</p>
-                            <div class="project-tags">
-                                <span class="tag">Beauty</span>
-                                <span class="tag">Красота</span>
-                                <span class="tag">Современный дизайн</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('business-cards-lumina')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Визитки Stela Nails -->
-                    <div class="work-item fade-in" data-project="business-cards-stelanails">
-                        <div class="image-container">
-                            <img src="img/portfolio/visitki/visitka_4/stelanails_1.png" alt="Визитки Stela Nails" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Визитки Stela Nails</h3>
-                            <p>Яркий дизайн для маникюрного салона. Пастельные оттенки, женственный стиль.</p>
-                            <div class="project-tags">
-                                <span class="tag">Бьюти</span>
-                                <span class="tag">Салон красоты</span>
-                                <span class="tag">Стильный дизайн</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('business-cards-stelanails')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Визитки Zarozhina -->
-                    <div class="work-item fade-in" data-project="business-cards-zarozhina">
-                        <div class="image-container">
-                            <img src="img/portfolio/visitki/visitka_5/zarozhina1.jpg" alt="Визитки Zarozhina" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Личные визитки</h3>
-                            <p>Персональный дизайн визиток для дизайнера. Креативный подход, индивидуальный стиль.</p>
-                            <div class="project-tags">
-                                <span class="tag">Персональный бренд</span>
-                                <span class="tag">Креатив</span>
-                                <span class="tag">Индивидуальность</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('business-cards-zarozhina')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
+            <!-- ===== ГРАФИЧЕСКИЙ ДИЗАЙН ===== -->
+            <h2 class="category-title" data-lang-ru="Графический дизайн" data-lang-en="Graphic Design">
+                <i class="fas fa-paint-brush"></i> Графический дизайн
+            </h2>
+            <p class="category-description">Визитки, брендинг, полиграфия</p>
+
+            <div class="carousel-wrapper">
+                <div class="carousel" id="graphic-carousel">
+                    <!-- 
+                        ↓↓↓ ЗДЕСЬ МЕНЯЙТЕ КАРТИНКИ ДЛЯ ГРАФИЧЕСКОГО ДИЗАЙНА ↓↓↓
+                    -->
+                    <div><img src="img/portfolio/visitki/visitka_1/anvil.png" alt="Anvil"><div class="slide-caption">Визитка Anvil — профессиональный стиль</div></div>
+                    <div><img src="img/portfolio/visitki/visitka_2/blossom.png" alt="Blossom"><div class="slide-caption">Визитка Blossom — флористика</div></div>
+                    <div><img src="img/portfolio/visitki/visitka_3/lumina.png" alt="Lumina 1"><div class="slide-caption">Визитка Lumina — современный стиль</div></div>
+                    <div><img src="img/portfolio/visitki/visitka_4/stella.png" alt="Stela Nails 1"><div class="slide-caption">Визитка Stella Nails — бьюти стиль</div></div>
+                    <div><img src="img/portfolio/visitki/visitka_5/reabilit.png" alt="Zarozhina 1"><div class="slide-caption">Визитка Reabilitation — дорогой стиль</div></div>
                 </div>
             </div>
 
-            <!-- Web-дизайн -->
-            <div id="web" class="portfolio-category">
-                <h2 class="category-title" data-lang-ru="Web-дизайн" data-lang-en="Web Design" style="color: white;">
-                    Web-дизайн
-                </h2>
-                
-                <div class="portfolio-grid">
-                    <!-- Сайт IBNI -->
-                    <div class="work-item fade-in" data-project="website-ibni">
-                        <div class="image-container">
-                            <img src="img/portfolio/digital/ibni/ibni_1.jpg" alt="Сайт IBNI" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Корпоративный сайт IBNI</h3>
-                            <p>Полный цикл разработки корпоративного сайта. Современный дизайн, адаптивная верстка.</p>
-                            <div class="project-tags">
-                                <span class="tag">Корпоративный сайт</span>
-                                <span class="tag">Адаптивный дизайн</span>
-                                <span class="tag">Web дизайн</span>
-                            </div>
-                            <!-- Внутри блока .work-info после .project-tags -->
-<a href="https://deziiign.com/project/dc502c9575264c02bf8e8ec210e3d8f3" target="_blank" class="external-link">
-    <i class="fas fa-external-link-alt"></i> Смотреть на Deziiign
-</a><br><br>
-                            <button class="view-project-btn" onclick="openProjectModal('website-ibni')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Новогодний промо-сайт -->
-                    <div class="work-item fade-in" data-project="website-newyear">
-                        <div class="image-container">
-                            <img src="img/portfolio/digital/newyear/1.jpg" alt="Новогодний сайт" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Новогодний промо-сайт</h3>
-                            <p>Праздничный промо-сайт для компании по оформлению объектов. Анимации, зимняя тематика.</p>
-                            <div class="project-tags">
-                                <span class="tag">Промо-сайт</span>
-                                <span class="tag">Анимации</span>
-                                <span class="tag">Праздничный дизайн</span>
-                            </div>
-                             <!-- Внутри блока .work-info после .project-tags -->
-<a href="https://deziiign.com/project/05c4a7b7b3424a3b8d38d4abf4d67bd3" target="_blank" class="external-link">
-    <i class="fas fa-external-link-alt"></i> Смотреть на Deziiign
-</a><br><br>
-                            <button class="view-project-btn" onclick="openProjectModal('website-newyear')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Мобильное приложение для дизайнеров -->
-                    <div class="work-item fade-in" data-project="app-designer">
-                        <div class="image-container">
-                            <img src="img/portfolio/digital/ux_ui/ux_ui_1.jpg" alt="Приложение для дизайнеров" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Приложение для дизайнеров</h3>
-                            <p>UX/UI дизайн мобильного приложения для поиска и найма дизайнеров. Прототипирование, user flow.</p>
-                            <div class="project-tags">
-                                <span class="tag">Мобильное приложение</span>
-                                <span class="tag">UX/UI</span>
-                                <span class="tag">Прототипирование</span>
-                            </div>
-                            <!-- Внутри блока .work-info после .project-tags -->
-<a href="https://deziiign.com/project/cb17dd8da2784089a2ccbe065a975424" target="_blank" class="external-link">
-    <i class="fas fa-external-link-alt"></i> Смотреть на Deziiign
-</a><br><br>
-                            <button class="view-project-btn" onclick="openProjectModal('app-designer')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>  
-                    
+            <!-- ===== WEB-ДИЗАЙН ===== -->
+            <!--<h2 class="category-title" data-lang-ru="Web-дизайн" data-lang-en="Web Design">
+                <i class="fas fa-laptop-code"></i> Web-дизайн
+            </h2>
+            <p class="category-description">Сайты, приложения, UX/UI</p>
 
-            <!-- Инфографика -->
-            <div id="infographic" class="portfolio-category">
-                <h2 class="category-title" data-lang-ru="Инфографика для маркетплейсов" data-lang-en="Marketplace Infographics" style="color: white;">
-                    Инфографика для маркетплейсов
-                </h2>
-                
-                <div class="portfolio-grid">
-                    <!-- Инфографика -->
-                    <div class="work-item fade-in" data-project="infographic-shaver">
-                        <div class="image-container">
-                            <img src="img/portfolio/infografics/1.jpg" alt="Инфографика электробритва" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Инфографика</h3>
-                            <p>Детальная инфографика для продаж на маркетплейсах. Все преимущества продукта в одном изображении.</p>
-                            <div class="project-tags">
-                                <span class="tag">Wildberries</span>
-                                <span class="tag">Ozon</span>
-                                <span class="tag">Продажи</span>
-                            </div>
-                            <!-- Внутри блока .work-info после .project-tags -->
-<a href="https://deziiign.com/project/3abe75b921664420b56af3115298a400" target="_blank" class="external-link">
-    <i class="fas fa-external-link-alt"></i> Смотреть на Deziiign
-</a><br><br>
-                            <button class="view-project-btn" onclick="openProjectModal('infographic-shaver')">
-                                <i class="fas fa-images"></i>
-                                Смотреть все работы
-                            </button>
-                        </div>
-                    </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="web-carousel">-->
+                    <!-- 
+                        ↓↓↓ ЗДЕСЬ МЕНЯЙТЕ КАРТИНКИ ДЛЯ WEB-ДИЗАЙНА ↓↓↓
+                    -->
+                   <!--  <div><img src="img/portfolio/digital/ibni/ibni_1.jpg" alt="IBNI 1"><div class="slide-caption">Корпоративный сайт IBNI — главная</div></div>
+                    <div><img src="img/portfolio/digital/ibni/ibni_2.jpg" alt="IBNI 2"><div class="slide-caption">Корпоративный сайт IBNI — внутренняя страница</div></div>
+                    <div><img src="img/portfolio/digital/newyear/1.jpg" alt="Новогодний сайт"><div class="slide-caption">Новогодний промо-сайт — праздничный дизайн</div></div>
+                    <div><img src="img/portfolio/digital/ux_ui/ux_ui_1.jpg" alt="Приложение 1"><div class="slide-caption">Приложение для дизайнеров — UX/UI</div></div>
+                    <div><img src="img/portfolio/digital/ux_ui/ux_ui_2.jpg" alt="Приложение 2"><div class="slide-caption">Приложение для дизайнеров — прототип</div></div>
+                </div>
+            </div>-->
+
+            <!-- ===== ИНФОГРАФИКА ===== -->
+            <h2 class="category-title" data-lang-ru="Инфографика для маркетплейсов" data-lang-en="Marketplace Infographics">
+                <i class="fas fa-chart-pie"></i> Инфографика
+            </h2>
+            <p class="category-description">Визуализация продуктов для Wildberries, Ozon и других площадок</p>
+
+            <div class="carousel-wrapper">
+                <div class="carousel" id="info-carousel">
+                    <!-- 
+                        ↓↓↓ ЗДЕСЬ МЕНЯЙТЕ КАРТИНКИ ДЛЯ ИНФОГРАФИКИ ↓↓↓
+                    -->
+                    <div><img src="img/portfolio/infografics/info_1.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_2.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_3.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_4.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_5.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_6.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_7.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_8.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_9.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_10.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_11.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_12.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_13.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_14.png" alt="Инфографика"><div class="slide-caption"></div></div>
+                    <div><img src="img/portfolio/infografics/info_15.png" alt="Инфографика"><div class="slide-caption"></div></div>
                 </div>
             </div>
 
-            <!-- Презентации -->
-            <div id="presentations" class="portfolio-category">
-                <h2 class="category-title" data-lang-ru="Презентации" data-lang-en="Presentations" style="color: white;">
-                    Презентации
-                </h2>
-                
-                <div class="portfolio-grid">
-                    <!-- Корпоративная презентация -->
-                    <div class="work-item fade-in" data-project="presentation-corporate">
-                        <div class="image-container">
-                            <img src="img/portfolio/presentation/1.jpg" alt="Корпоративная презентация" class="work-image">
-                        </div>
-                        <div class="work-info">
-                            <h3>Корпоративная презентация</h3>
-                            <p>Профессиональный дизайн презентации для бизнеса. Структурированная подача информации.</p>
-                            <div class="project-tags">
-                                <span class="tag">PowerPoint</span>
-                                <span class="tag">Keynote</span>
-                                <span class="tag">Бизнес</span>
-                            </div>
-                            <button class="view-project-btn" onclick="openProjectModal('presentation-corporate')">
-                                <i class="fas fa-images"></i>
-                                Смотреть проект
-                            </button>
-                        </div>
-                    </div>
+            <!-- ===== ПРЕЗЕНТАЦИИ ===== -->
+            <h2 class="category-title" data-lang-ru="Презентации" data-lang-en="Presentations">
+                <i class="fas fa-chalkboard"></i> Презентации
+            </h2>
+            <p class="category-description">Корпоративные и продуктовые презентации</p>
+
+            <div class="carousel-wrapper">
+                <div class="carousel" id="pres-carousel">
+                    <!-- 
+                        ↓↓↓ ЗДЕСЬ МЕНЯЙТЕ КАРТИНКИ ДЛЯ ПРЕЗЕНТАЦИЙ ↓↓↓
+                    -->
+                    <div><img src="img/portfolio/presentation/1.jpg" alt="Презентация 1"><div class="slide-caption">Корпоративная презентация — обложка</div></div>
+                    <div><img src="img/portfolio/presentation/2.jpg" alt="Презентация 2"><div class="slide-caption">Корпоративная презентация — структура</div></div>
+                    <div><img src="img/portfolio/presentation/3.jpg" alt="Презентация 3"><div class="slide-caption">Корпоративная презентация — слайд</div></div>
+                    <div><img src="img/portfolio/presentation/4.jpg" alt="Презентация 4"><div class="slide-caption">Корпоративная презентация — финал</div></div>
+                </div>
+            </div>
+
         </div>
     </section>
-
-
 
     <!-- CTA Section -->
     <section class="cta-section-modern">
@@ -1709,11 +1079,6 @@
                     <h4>Контакты</h4>
                     <p><i class="fas fa-phone"></i> +7 (903) 738-02-76</p>
                     <p><i class="fas fa-envelope"></i> creatify_cf@mail.ru</p>
-                   <!-- <div class="social-links">
-                        <a href="https://t.me/creatify_cf" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://instagram.com/creatify_cf" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/79037380276" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>-->
                 </div>
                 <div class="footer-section">
                     <h4>Документы</h4>
@@ -1727,656 +1092,124 @@
         </div>
     </footer>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="project-modal">
-        <button class="modal-close" onclick="closeProjectModal()">&times;</button>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modal-project-title"></h2>
-                <p id="modal-project-description"></p>
-                <div class="modal-tags" id="modal-project-tags"></div>
-            </div>
-            <div class="modal-gallery">
-                <div class="modal-grid" id="modal-project-gallery">
-                    <!-- Images will be loaded here dynamically -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- jQuery and Slick Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <!-- Full Screen Image Viewer -->
-    <div id="fullscreen-viewer" class="fullscreen-viewer">
-        <button class="fullscreen-close" onclick="closeFullscreen()">&times;</button>
-        <div class="fullscreen-nav">
-            <button onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <img id="fullscreen-image" class="fullscreen-image" src="" alt="">
-        <div class="image-counter" id="image-counter">1 / 10</div>
-    </div>
+    <script>
+        $(document).ready(function(){
+            // Инициализация всех каруселей
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                pauseOnHover: true,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 640,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
 
- <script>
-    // Данные проектов
-    const projectsData = {
-        // AI проекты
-        'ai-interior': {
-            title: 'AI Интерьерный дизайн',
-            description: 'Серия интерьеров, созданных с помощью нейросетей. Современные и классические стили, полная визуализация пространств. Работа выполнена с использованием Midjourney и Stable Diffusion.',
-            tags: ['Midjourney', 'Stable Diffusion', '3D визуализация', 'AI Art'],
-            images: [
-                { src: 'img/portfolio/ai/interer_1.jpg' },
-                { src: 'img/portfolio/ai/interer_2.jpg' },
-                { src: 'img/portfolio/ai/interer_3.jpg' },
-                { src: 'img/portfolio/ai/interer_4.jpg' },
-                { src: 'img/portfolio/ai/interer_5.jpg' },
-                { src: 'img/portfolio/ai/interer_6.jpg' },
-                { src: 'img/portfolio/ai/interer_7.jpg' },
-                { src: 'img/portfolio/ai/interer_8.jpg' },
-                { src: 'img/portfolio/ai/interer_9.jpg' },
-                { src: 'img/portfolio/ai/interer_10.jpg' },
-                { src: 'img/portfolio/ai/interer_11.jpg' },
-                { src: 'img/portfolio/ai/interer_12.jpg' },
-                { src: 'img/portfolio/ai/interer_13.jpg' },
-                { src: 'img/portfolio/ai/interer_14.jpg' }
-            ]
-        },
-        'ai-oldmoney': {
-            title: 'Old Money эстетика',
-            description: 'Аристократический стиль, сгенерированный нейросетью. Классическая элегантность и винтажная роскошь в современной интерпретации.',
-            tags: ['Нейросеть', 'Ретро стиль', 'Аристократия', 'AI Генерация'],
-            images: [
-                { src: 'img/portfolio/ai/oldmoney_1.jpg' },
-                { src: 'img/portfolio/ai/oldmoney_2.jpg' },
-                { src: 'img/portfolio/ai/oldmoney_3.jpg' },
-                { src: 'img/portfolio/ai/oldmoney_4.jpg' },
-                { src: 'img/portfolio/ai/oldmoney_5.jpg' },
-                { src: 'img/portfolio/ai/oldmoney_6.jpg' },
-                { src: 'img/portfolio/ai/oldmoney_7.jpg' }
-            ]
-        },
-        'ai-russian': {
-            title: 'Русская эстетика',
-            description: 'Традиционный русский стиль в современной интерпретации нейросетей.',
-            tags: ['Русский стиль', 'Традиции', 'Архитектура', 'AI Art'],
-            images: [
-                { src: 'img/portfolio/ai/russ.png' },
-                { src: 'img/portfolio/ai/russ_2.png' },
-                { src: 'img/portfolio/ai/russest_1.png' },
-                { src: 'img/portfolio/ai/russest_2.png' },
-                { src: 'img/portfolio/ai/russest_3.jpg' },
-                { src: 'img/portfolio/ai/russest_4.jpg' },
-                { src: 'img/portfolio/ai/russest_5.jpg' },
-                { src: 'img/portfolio/ai/russest_6.jpg' },
-                { src: 'img/portfolio/ai/russest_7.jpg' }
-                
-            ]
-        },
-        'ai-portraits': {
-            title: 'AI Портреты',
-            description: 'Серия портретов, созданных нейросетями. Различные стили и техники генерации изображений, от классики до современного искусства.',
-            tags: ['Портреты', 'Художественный стиль', 'Генерация', 'AI Art'],
-            images: [
-                { src: 'img/portfolio/ai/portr_1.jpg' },
-                { src: 'img/portfolio/ai/portr_2.jpg' },
-                { src: 'img/portfolio/ai/portr_3.jpg' },
-                { src: 'img/portfolio/ai/portr_4.jpg' },
-                { src: 'img/portfolio/ai/portr_5.jpg' }
-            ]
-        },
-        'ai-flowers': {
-            title: 'Цветочные композиции',
-            description: 'Нейросетевая генерация цветочных образов в разных стилях: от импрессионизма до абстракции. Каждое изображение - уникальное произведение искусства.',
-            tags: ['Флористика', 'Искусство', 'Генеративный дизайн', 'AI Art'],
-            images: [
-                { src: 'img/portfolio/ai/flowers_1.png' },
-                { src: 'img/portfolio/ai/flowers_2.png' },
-                { src: 'img/portfolio/ai/flowers_3.png' },
-                { src: 'img/portfolio/ai/flowers_4.png' },
-                { src: 'img/portfolio/ai/flowers_5.png' },
-                { src: 'img/portfolio/ai/flowers_6.png' },
-                { src: 'img/portfolio/ai/flowers_7.png' }
-            ]
-        },
-        'ai-pearl': {
-            title: 'Жемчужная серия',
-            description: 'Элегантные композиции с жемчугом, созданные нейросетями. Современное прочтение классики, где традиция встречается с технологиями.',
-            tags: ['Ювелирный дизайн', 'Элегантность', 'AI Art', 'Премиум'],
-            images: [
-                { src: 'img/portfolio/ai/zhemchug_1.png' },
-                { src: 'img/portfolio/ai/zhemchug_2.png' },
-                { src: 'img/portfolio/ai/zhemchug_3.png' },
-                { src: 'img/portfolio/ai/zhemchug_4.png' },
-                { src: 'img/portfolio/ai/zhemchug_5.png' },
-                { src: 'img/portfolio/ai/zhemchug_6.png' },
-                { src: 'img/portfolio/ai/zhemchug_7.png' }
-                
-            ]
-        },
-        
-        // Графический дизайн - Визитки
-        'business-cards-anvil': {
-            title: 'Визитки Anvil',
-            description: 'Минималистичный дизайн визитных карточек для барбершопа Anvil. Чистые линии, профессиональный стиль, акцент на надежность.',
-            tags: ['Визитки', 'Минимализм', 'Брендинг', 'Полиграфия'],
-            images: [
-                { src: 'img/portfolio/visitki/visitka_1/anvil_1.png' },
-                { src: 'img/portfolio/visitki/visitka_1/anvil_2.png' }
-            ]
-        },
-        'business-cards-blossom': {
-            title: 'Визитки Blossom',
-            description: 'Элегантные визитки для флористического салона Blossom. Нежные цвета, цветочные мотивы, женственный стиль.',
-            tags: ['Флористика', 'Элегантность', 'Полиграфия', 'Брендинг'],
-            images: [
-                { src: 'img/portfolio/visitki/visitka_2/blossom_1.png' },
-                { src: 'img/portfolio/visitki/visitka_2/blossom_2.png' }
-            ]
-        },
-        'business-cards-lumina': {
-            title: 'Визитки Lumina',
-            description: 'Современный дизайн визиток для студии красоты Lumina. Современный стиль, гармоничное сочетание цветов.',
-            tags: ['Beauty', 'Красота', 'Современный дизайн', 'Полиграфия'],
-            images: [
-                { src: 'img/portfolio/visitki/visitka_3/lumina_1.png' },
-                { src: 'img/portfolio/visitki/visitka_3/lumina_2.png' }
-            ]
-        },
-        'business-cards-stelanails': {
-            title: 'Визитки Stela Nails',
-            description: 'Яркий дизайн визиток для маникюрного салона Stela Nails. Пастельные оттенки, женственный стиль, акцент на красоте.',
-            tags: ['Бьюти', 'Салон красоты', 'Стильный дизайн', 'Полиграфия'],
-            images: [
-                { src: 'img/portfolio/visitki/visitka_4/stelanails_1.png' },
-                { src: 'img/portfolio/visitki/visitka_4/stelanails_2.png' }
-            ]
-        },
-        'business-cards-zarozhina': {
-            title: 'Личные визитки',
-            description: 'Персональный дизайн визиток для дизайнера. Креативный подход, индивидуальный стиль, отражение личности.',
-            tags: ['Персональный бренд', 'Креатив', 'Индивидуальность', 'Полиграфия'],
-            images: [
-                { src: 'img/portfolio/visitki/visitka_5/zarozhina1.jpg' },
-                { src: 'img/portfolio/visitki/visitka_5/zarozhina2.jpg' }
-            ]
-        },
-        
-        // Web-дизайн
-        'website-ibni': {
-            title: 'Корпоративный сайт IBNI',
-            description: 'Полный цикл разработки корпоративного сайта компании IBNI. Современный дизайн, адаптивная верстка, удобный интерфейс.',
-            tags: ['Корпоративный сайт', 'Адаптивный дизайн', 'UI/UX', 'Веб-разработка'],
-            images: [
-                { src: 'img/portfolio/digital/ibni/ibni_1.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_2.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_3.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_4.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_5.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_6.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_7.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_8.jpg' },
-                { src: 'img/portfolio/digital/ibni/ibni_9.jpg' }
-            ]
-        },
-        'website-newyear': {
-            title: 'Новогодний промо-сайт',
-            description: 'Праздничный промо-сайт для компании по оформлению объектов. Анимации, зимняя тематика, интерактивные элементы.',
-            tags: ['Промо-сайт', 'Анимации', 'Праздничный дизайн', 'Интерактив'],
-            images: [
-                { src: 'img/portfolio/digital/newyear/1.jpg' },
-                { src: 'img/portfolio/digital/newyear/newyear_1.jpg' },
-                { src: 'img/portfolio/digital/newyear/newyear_2.jpg' },
-                { src: 'img/portfolio/digital/newyear/newyear_3.jpg' },
-                { src: 'img/portfolio/digital/newyear/newyear_4.jpg' },
-                { src: 'img/portfolio/digital/newyear/newyear_5.jpg' },
-                { src: 'img/portfolio/digital/newyear/newyear_6.jpg' }
-                
-            ]
-        },
-        'app-designer': {
-            title: 'Приложение для дизайнеров',
-            description: 'UX/UI дизайн мобильного приложения для поиска и найма дизайнеров. Прототипирование, user flow, интуитивный интерфейс.',
-            tags: ['Мобильное приложение', 'UX/UI', 'Прототипирование', 'Дизайн'],
-            images: [
-                { src: 'img/portfolio/digital/ux_ui/ux_ui_1.jpg' },
-                { src: 'img/portfolio/digital/ux_ui/ux_ui_2.jpg' },
-                { src: 'img/portfolio/digital/ux_ui/ux_ui_3.jpg' },
-                { src: 'img/portfolio/digital/ux_ui/ux_ui_4.jpg' },
-                { src: 'img/portfolio/digital/ux_ui/ux_ui_5.jpg' },
-                { src: 'img/portfolio/digital/ux_ui/ux_ui_6.jpg' }
-              
-            ]
-        },
-        
-        
-        // Инфографика
-        'infographic-shaver': {
-            title: 'Электробритва - Инфографика',
-            description: 'Детальная инфографика для продаж электробритвы на маркетплейсах. Все преимущества продукта в одном изображении.',
-            tags: ['Wildberries', 'Ozon', 'Продажи', 'Инфографика'],
-             images: [
-                { src: 'img/portfolio/infografics/1.jpg' },
-                { src: 'img/portfolio/infografics/2.jpg' },
-                { src: 'img/portfolio/infografics/3.jpg' },
-                { src: 'img/portfolio/infografics/4.jpg' },
-                { src: 'img/portfolio/infografics/5.jpg' },
-                { src: 'img/portfolio/infografics/6.jpg' },
-                { src: 'img/portfolio/infografics/7.jpg' },
-                { src: 'img/portfolio/infografics/8.jpg' },
-                { src: 'img/portfolio/infografics/9.jpg' },
-                { src: 'img/portfolio/infografics/10.jpg' },
-                { src: 'img/portfolio/infografics/11.jpg' },
-                { src: 'img/portfolio/infografics/12.jpg' },
-                { src: 'img/portfolio/infografics/13.jpg' },
-                { src: 'img/portfolio/infografics/14.jpg' },
-                { src: 'img/portfolio/infografics/15.jpg' },
-                { src: 'img/portfolio/infografics/16.jpg' },
-                { src: 'img/portfolio/infografics/17.jpg' },
-                { src: 'img/portfolio/infografics/18.jpg' },
-                { src: 'img/portfolio/infografics/19.jpg' },
-                { src: 'img/portfolio/infografics/20.jpg' },
-                { src: 'img/portfolio/infografics/21.jpg' },
-                { src: 'img/portfolio/infografics/22.jpg' },
-                { src: 'img/portfolio/infografics/23.jpg' },
-                { src: 'img/portfolio/infografics/24.jpg' },
-                { src: 'img/portfolio/infografics/25.jpg' },
-                { src: 'img/portfolio/infografics/26.jpg' },
-                { src: 'img/portfolio/infografics/27.jpg' },
-                { src: 'img/portfolio/infografics/28.jpg' },
-                { src: 'img/portfolio/infografics/29.jpg' },
-                { src: 'img/portfolio/infografics/30.jpg' },
-                { src: 'img/portfolio/infografics/31.jpg' },
-                { src: 'img/portfolio/infografics/32.jpg' },
-                { src: 'img/portfolio/infografics/33.jpg' },
-                { src: 'img/portfolio/infografics/34.jpg' },
-                { src: 'img/portfolio/infografics/35.jpg' },
-                { src: 'img/portfolio/infografics/36.jpg' },
-                { src: 'img/portfolio/infografics/37.jpg' },
-                { src: 'img/portfolio/infografics/38.jpg' },
-                { src: 'img/portfolio/infografics/39.jpg' },
-                { src: 'img/portfolio/infografics/40.jpg' },
-                { src: 'img/portfolio/infografics/41.jpg' },
-                { src: 'img/portfolio/infografics/42.jpg' },
-                { src: 'img/portfolio/infografics/43.jpg' },
-                { src: 'img/portfolio/infografics/44.jpg' },
-                { src: 'img/portfolio/infografics/45.jpg' },
-                { src: 'img/portfolio/infografics/46.jpg' },
-                { src: 'img/portfolio/infografics/47.jpg' },
-                { src: 'img/portfolio/infografics/48.jpg' },
-                { src: 'img/portfolio/infografics/49.jpg' },
-                { src: 'img/portfolio/infografics/50.jpg' },
-                { src: 'img/portfolio/infografics/51.jpg' },
-                { src: 'img/portfolio/infografics/52.jpg' },
-                { src: 'img/portfolio/infografics/53.jpg' },
-                { src: 'img/portfolio/infografics/54.jpg' }
-            ]
-              
-            
-        },
-        
-        // Презентации
-        'presentation-corporate': {
-            title: 'Корпоративная презентация',
-            description: 'Профессиональный дизайн презентации для бизнеса. Структурированная подача информации, визуальная привлекательность.',
-            tags: ['PowerPoint', 'Keynote', 'Бизнес', 'Презентации'],
-            images: [
-                { src: 'img/portfolio/presentation/1.jpg' },
-                { src: 'img/portfolio/presentation/2.jpg' },
-                { src: 'img/portfolio/presentation/3.jpg' },
-                { src: 'img/portfolio/presentation/4.jpg' }
-            ]
-        },
-        'presentation-product': {
-            title: 'Продуктовая презентация',
-            description: 'Продающая презентация продукта. Акценты на преимуществах, визуальная привлекательность, убедительные аргументы.',
-            tags: ['Продажи', 'Маркетинг', 'Визуализация', 'Презентации'],
-            images: [
-                { src: 'img/portfolio/presentation/2.jpg' }
-            ]
-        },
-        'presentation-investor': {
-            title: 'Инвесторская презентация',
-            description: 'Презентация для привлечения инвестиций. Четкая структура, убедительные аргументы, финансовая информация.',
-            tags: ['Инвестиции', 'Стартап', 'Финансы', 'Презентации'],
-            images: [
-                { src: 'img/portfolio/presentation/3.jpg' }
-            ]
-        },
-        
-        // Tilda
-        'tilda-landing': {
-            title: 'Лендинг на Tilda',
-            description: 'Адаптивный лендинг, созданный на платформе Tilda. Быстрая разработка, современный дизайн, высокая конверсия.',
-            tags: ['Tilda', 'Лендинг', 'Адаптивность', 'Веб-дизайн'],
-            images: [
-                { src: 'img/portfolio/tilda/site1.jpg' },
-                { src: 'img/portfolio/tilda/site2.jpg' }
-            ]
-        },
-        'tilda-store': {
-            title: 'Интернет-магазин на Tilda',
-            description: 'Полнофункциональный интернет-магазин на Tilda. Интеграция платежей, управление заказами, удобный каталог.',
-            tags: ['Интернет-магазин', 'E-commerce', 'Tilda', 'Веб-дизайн'],
-            images: [
-                { src: 'img/portfolio/tilda/site2.jpg' }
-            ]
-        }
-    };
-    
-    // Переменные для управления галереей
-    let currentProject = null;
-    let currentImages = [];
-    let currentImageIndex = 0;
-    
-    document.addEventListener('DOMContentLoaded', function() {
         // Language switcher
-        const langButtons = document.querySelectorAll('.lang-btn');
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                langButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const lang = this.dataset.lang;
+                    const elements = document.querySelectorAll('[data-lang-ru]');
+                    elements.forEach(el => {
+                        if (lang === 'ru') {
+                            el.textContent = el.dataset.langRu;
+                        } else if (lang === 'en') {
+                            el.textContent = el.dataset.langEn;
+                        }
+                    });
+                });
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
                 
-                const lang = this.dataset.lang;
-                const elements = document.querySelectorAll('[data-lang-ru]');
-                elements.forEach(el => {
-                    if (lang === 'ru') {
-                        el.textContent = el.dataset.langRu;
-                    } else if (lang === 'en') {
-                        el.textContent = el.dataset.langEn;
+                document.addEventListener('click', function(event) {
+                    if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                        navLinks.classList.remove('active');
+                        menuToggle.classList.remove('active');
                     }
                 });
-            });
-        });
-        
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-            
-            document.addEventListener('click', function(event) {
-                if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
-                    navLinks.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            });
-            
-            navLinks.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    menuToggle.classList.remove('active');
+                
+                navLinks.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    });
                 });
-            });
-        }
-        
-        // Portfolio tabs functionality
-        const portfolioTabs = document.querySelectorAll('.portfolio-tab');
-        const portfolioCategories = document.querySelectorAll('.portfolio-category');
-        
-        // Check URL hash on page load
-        if (window.location.hash) {
-            const hash = window.location.hash.substring(1);
-            const targetCategory = document.getElementById(hash);
-            if (targetCategory) {
-                portfolioTabs.forEach(t => t.classList.remove('active'));
-                portfolioCategories.forEach(c => c.classList.remove('active'));
-                
-                document.querySelector(`.portfolio-tab[href="#${hash}"]`).classList.add('active');
-                targetCategory.classList.add('active');
             }
-        }
-        
-        portfolioTabs.forEach(tab => {
-            tab.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                portfolioTabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                const targetId = this.getAttribute('href');
-                
-                portfolioCategories.forEach(category => {
-                    category.classList.remove('active');
-                });
-                
-                const targetCategory = document.querySelector(targetId);
-                if (targetCategory) {
-                    targetCategory.classList.add('active');
-                }
-                
-                history.pushState(null, null, targetId);
-            });
-        });
-        
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (document.getElementById('project-modal').classList.contains('active')) {
-                    closeProjectModal();
-                }
-                if (document.getElementById('fullscreen-viewer').classList.contains('active')) {
-                    closeFullscreen();
-                }
-            }
+
+            // Intersection Observer for fade-in
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -20px 0px'
+            };
             
-            // Navigation in fullscreen viewer
-            if (document.getElementById('fullscreen-viewer').classList.contains('active')) {
-                if (e.key === 'ArrowLeft') {
-                    prevImage();
-                }
-                if (e.key === 'ArrowRight') {
-                    nextImage();
-                }
-            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
         });
-    });
-    
-    // Функции для работы с модальными окнами
-    function openProjectModal(projectId) {
-        const project = projectsData[projectId];
-        if (!project) return;
+    </script>
+
+    <!-- 
+        ============================================================
+        ИНСТРУКЦИЯ ПО ЗАМЕНЕ КАРТИНОК И ССЫЛОК:
         
-        currentProject = projectId;
-        currentImages = project.images;
+        ИЗБРАННЫЕ ПРОЕКТЫ (4 в ряд):
+        1. CREATIFY: ссылка https://deziiign.com/project/dc502c9575264c02bf8e8ec210e3d8f3
+        2. LED Garland: ссылка https://deziiign.com/project/3abe75b921664420b56af3115298a400
+        3. Информационная база: ссылка https://deziiign.com/project/05c4a7b7b3424a3b8d38d4abf4d67bd3
+        4. Инфографика: ссылка https://deziiign.com/project/cb17dd8da2784089a2ccbe065a975424
         
-        // Заполняем информацию о проекте
-        document.getElementById('modal-project-title').textContent = project.title;
-        document.getElementById('modal-project-description').textContent = project.description;
-        
-        // Очищаем и заполняем теги
-        const tagsContainer = document.getElementById('modal-project-tags');
-        tagsContainer.innerHTML = '';
-        project.tags.forEach(tag => {
-            const tagElement = document.createElement('span');
-            tagElement.className = 'modal-tag';
-            tagElement.textContent = tag;
-            tagsContainer.appendChild(tagElement);
-        });
-        
-        // Очищаем и заполняем галерею (без title и desc)
-        const galleryContainer = document.getElementById('modal-project-gallery');
-        galleryContainer.innerHTML = '';
-        
-        project.images.forEach((image, index) => {
-            const imageItem = document.createElement('div');
-            imageItem.className = 'modal-image-item';
-            imageItem.innerHTML = `
-                <img src="${image.src}" alt="" class="modal-img" 
-                     onclick="openFullscreen(${index})">
-            `;
-            galleryContainer.appendChild(imageItem);
-        });
-        
-        // Показываем модальное окно
-        document.getElementById('project-modal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeProjectModal() {
-        document.getElementById('project-modal').classList.remove('active');
-        document.body.style.overflow = 'auto';
-        currentProject = null;
-        currentImages = [];
-    }
-    
-    function openFullscreen(index) {
-        if (!currentImages || currentImages.length === 0) return;
-        
-        currentImageIndex = index;
-        updateFullscreenImage();
-        document.getElementById('fullscreen-viewer').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeFullscreen() {
-        document.getElementById('fullscreen-viewer').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-    
-    function updateFullscreenImage() {
-        if (currentImages.length === 0) return;
-        
-        const image = currentImages[currentImageIndex];
-        const fullscreenImage = document.getElementById('fullscreen-image');
-        const imageCounter = document.getElementById('image-counter');
-        
-        fullscreenImage.src = image.src;
-        fullscreenImage.alt = ''; // Убираем alt текст
-        imageCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
-    }
-    
-    function nextImage() {
-        if (currentImages.length === 0) return;
-        
-        currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-        updateFullscreenImage();
-    }
-    
-    function prevImage() {
-        if (currentImages.length === 0) return;
-        
-        currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-        updateFullscreenImage();
-    }
-</script>
+        КАРУСЕЛИ (замена изображений):
+        1. AI проекты (id="ai-carousel") — строки ~338-348
+        2. Графический дизайн (id="graphic-carousel") — строки ~360-369
+        3. Web-дизайн (id="web-carousel") — строки ~381-388
+        4. Инфографика (id="info-carousel") — строки ~400-408
+        5. Презентации (id="pres-carousel") — строки ~422-428
+        ============================================================
+    -->
 </body>
 </html>
-
-<script>
-    // Add to each form page (brief.html, contact.html, etc.)
-// Replace the existing form submission code
-
-async function submitForm(endpoint, formData) {
-    try {
-        const response = await fetch(`https://localhost:5001/api/${endpoint}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            // Show success message
-            showNotification(result.message, 'success');
-            
-            // Reset form
-            document.getElementById('briefForm').reset();
-            
-            // Reset steps to first
-            showStep(1);
-        } else {
-            showNotification(result.message || 'Ошибка при отправке', 'error');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        showNotification('Ошибка соединения с сервером', 'error');
-    }
-}
-
-// For brief form submission
-if (document.getElementById('briefForm')) {
-    document.getElementById('briefForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = {
-            company: document.getElementById('company').value,
-            industry: document.getElementById('industry').value,
-            projectType: document.getElementById('project-type').value,
-            description: document.getElementById('description').value,
-            goals: document.getElementById('goals').value,
-            targetAudience: document.getElementById('target-audience').value,
-            competitors: document.getElementById('competitors').value,
-            references: document.getElementById('references').value,
-            content: Array.from(document.querySelectorAll('input[name="content[]"]:checked')).map(cb => cb.value),
-            style: document.querySelector('input[name="style"]:checked')?.value,
-            colors: document.querySelector('input[placeholder*="цвета"]')?.value,
-            mood: document.getElementById('mood')?.value,
-            contactName: document.getElementById('contact-name').value,
-            contactEmail: document.getElementById('contact-email').value,
-            contactPhone: document.getElementById('contact-phone').value,
-            companySite: document.getElementById('company-site').value,
-            budget: document.getElementById('budget').value,
-            deadline: document.getElementById('deadline').value,
-            nda: document.getElementById('nda')?.checked || false,
-            newsletter: document.getElementById('newsletter')?.checked || false,
-            privacyAgreement: document.getElementById('privacy-agreement')?.checked || false,
-            offerAgreement: document.getElementById('offer-agreement')?.checked || false
-        };
-        
-        await submitForm('brief', formData);
-    });
-}
-
-function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? '#10B981' : '#EF4444'};
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        animation: slideIn 0.3s ease;
-    `;
-    
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-</script>
